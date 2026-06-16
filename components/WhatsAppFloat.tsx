@@ -78,11 +78,21 @@ export type WhatsAppBtnVariant =
   | 'outline'   // contour brun
   | 'ghost';    // texte souligné
 
+function CalendarGlyph({ className = 'w-4 h-4' }: { className?: string }) {
+  return (
+    <svg viewBox="0 0 24 24" className={className} fill="none" stroke="currentColor" strokeWidth={1.8} strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
+      <rect x="3" y="4.5" width="18" height="16" rx="2.5" />
+      <path d="M3 9h18M8 2.5v4M16 2.5v4" />
+    </svg>
+  );
+}
+
 interface WhatsAppBtnProps {
   message?: string;
   label?: string;
   variant?: WhatsAppBtnVariant;
   size?: 'sm' | 'md' | 'lg';
+  icon?: 'whatsapp' | 'calendar' | 'none';
   className?: string;
 }
 
@@ -91,6 +101,7 @@ export function WhatsAppBtn({
   label = 'Réserver sur WhatsApp',
   variant = 'primary',
   size = 'md',
+  icon = 'whatsapp',
   className = '',
 }: WhatsAppBtnProps) {
   const reduced = useReducedMotion();
@@ -121,7 +132,8 @@ export function WhatsAppBtn({
       className={`${base} ${sizes[size]} ${variants[variant]} ${className}`}
       whileTap={reduced ? {} : { scale: 0.97 }}
     >
-      <WhatsAppGlyph className="w-4 h-4 shrink-0" />
+      {icon === 'whatsapp' && <WhatsAppGlyph className="w-4 h-4 shrink-0" />}
+      {icon === 'calendar' && <CalendarGlyph className="w-4 h-4 shrink-0" />}
       {label}
     </motion.a>
   );

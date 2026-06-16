@@ -8,6 +8,8 @@ import { FadeIn } from '@/components/ui/FadeIn';
 import { WhatsAppBtn } from '@/components/WhatsAppFloat';
 import { CTASection } from '@/components/CTASection';
 import { InfiniteMarquee } from '@/components/InfiniteMarquee';
+import { ReservationSteps } from '@/components/ReservationSteps';
+import { FaqAccordion } from '@/components/FaqAccordion';
 import {
   KEY_FIGURES,
   FEATURES,
@@ -61,16 +63,6 @@ const PICTOS: Record<string, React.ReactNode> = {
   ),
 };
 
-const FEATURE_ICON_TONE: Record<string, string> = {
-  pool: 'bg-[#EBF0E2] text-[#52632E]',
-  villa: 'bg-[#EBF0E2] text-[#52632E]',
-  cuisine: 'bg-[#EBF0E2] text-[#52632E]',
-  sport: 'bg-[#EBF0E2] text-[#52632E]',
-  nature: 'bg-[#EBF0E2] text-[#52632E]',
-  private: 'bg-[#EBF0E2] text-[#52632E]',
-};
-
-/* ─── Photos du carrousel infini (15) ──────────────────────── */
 const MARQUEE_PHOTOS = [
   { src: '/images/farm/piscine.jpg', alt: 'Piscine privée entourée de palmiers' },
   { src: '/images/farm/salon.jpg', alt: 'Salon marocain sous une arche en pierre' },
@@ -102,11 +94,9 @@ export default function HomePage() {
 
   return (
     <>
-      {/* ═══ 1. HERO ═══ */}
+      {/* ═══ HERO ═══ */}
       <section className="relative bg-[#F5EFE0] overflow-hidden">
         <div className="mx-auto max-w-7xl px-5 md:px-8 grid grid-cols-1 md:grid-cols-2 md:min-h-[92svh] items-center">
-
-          {/* Texte */}
           <div className="pt-28 pb-10 md:py-32 pr-0 md:pr-10 lg:pr-16">
             <motion.div
               initial={{ opacity: 0, y: 12 }}
@@ -115,9 +105,7 @@ export default function HomePage() {
               className="inline-flex items-center gap-2.5 bg-[#FAF3E8] border border-[#D4B78A]/40 px-4 py-2 rounded-full mb-8"
             >
               <div className="flex gap-0.5" aria-hidden="true">
-                {[...Array(5)].map((_, i) => (
-                  <Star key={i} className="w-3 h-3 fill-[#D4B78A] text-[#D4B78A]" />
-                ))}
+                {[...Array(5)].map((_, i) => (<Star key={i} className="w-3 h-3 fill-[#D4B78A] text-[#D4B78A]" />))}
               </div>
               <span className="text-xs font-medium text-[#8B6B3D]">Plus de 150 avis 5 étoiles</span>
             </motion.div>
@@ -150,13 +138,8 @@ export default function HomePage() {
               transition={{ delay: 0.3, duration: 0.5 }}
             >
               <WhatsAppBtn message={WA_MESSAGES.reservation} label="Réserver maintenant" variant="primary" size="lg" />
-              <Link
-                href="/la-ferme"
-                className="inline-flex items-center gap-2 border border-[#231C14]/20 hover:border-[#231C14]
-                           text-[#231C14] text-base font-medium px-7 py-4 rounded-full transition-colors duration-200 min-h-[52px]"
-              >
-                Découvrir la ferme
-                <ArrowRight className="w-4 h-4" aria-hidden="true" />
+              <Link href="/la-ferme" className="inline-flex items-center gap-2 border border-[#231C14]/20 hover:border-[#231C14] text-[#231C14] text-base font-medium px-7 py-4 rounded-full transition-colors duration-200 min-h-[52px]">
+                Découvrir la ferme<ArrowRight className="w-4 h-4" aria-hidden="true" />
               </Link>
             </motion.div>
           </div>
@@ -172,10 +155,6 @@ export default function HomePage() {
                 transition={{ delay: 0.15, duration: 0.8, ease: [0.22, 1, 0.36, 1] }}
               >
                 <Image src="/images/farm/piscine.jpg" alt="Piscine privée de Farm Eden entourée de verdure" fill priority sizes="380px" className="object-cover" quality={90} />
-                <div className="absolute top-4 left-4 bg-[#52632E] text-white text-xs font-medium px-3 py-1.5 rounded-full flex items-center gap-1.5">
-                  <span className="w-1.5 h-1.5 rounded-full bg-white/70" aria-hidden="true" />
-                  Privatisé pour vous
-                </div>
               </motion.div>
 
               <motion.div
@@ -213,15 +192,12 @@ export default function HomePage() {
               transition={{ delay: 0.15, duration: 0.7, ease: [0.22, 1, 0.36, 1] }}
             >
               <Image src="/images/farm/piscine.jpg" alt="Piscine privée de Farm Eden entourée de verdure" fill priority sizes="100vw" className="object-cover" quality={85} />
-              <div className="absolute top-4 left-4 bg-[#52632E] text-white text-xs font-medium px-3 py-1.5 rounded-full">
-                Privatisé pour vous
-              </div>
             </motion.div>
           </div>
         </div>
       </section>
 
-      {/* ═══ 2. LA FERME ENTIÈRE ═══ */}
+      {/* ═══ COMMENT ÇA MARCHE ═══ */}
       <section className="bg-[#52632E] grain relative overflow-hidden py-20 md:py-32">
         <div className="mx-auto max-w-6xl px-5 md:px-8">
           <div className="grid grid-cols-1 md:grid-cols-2 gap-14 md:gap-20 items-center">
@@ -241,7 +217,7 @@ export default function HomePage() {
                 </p>
               </FadeIn>
               <FadeIn delay={0.2}>
-                <WhatsAppBtn message={WA_MESSAGES.reservation} label="Demander les disponibilités" variant="cream" size="lg" />
+                <WhatsAppBtn message={WA_MESSAGES.reservation} label="Demander les disponibilités" variant="cream" size="lg" icon="calendar" />
               </FadeIn>
             </div>
             <FadeIn delay={0.1} direction="left">
@@ -258,7 +234,7 @@ export default function HomePage() {
         </div>
       </section>
 
-      {/* ═══ 3. CE QUI VOUS ATTEND ═══ */}
+      {/* ═══ CE QUI VOUS ATTEND ═══ */}
       <section className="bg-[#F5EFE0] py-20 md:py-32">
         <div className="mx-auto max-w-6xl px-5 md:px-8">
           <FadeIn><p className="text-xs font-medium tracking-widest uppercase text-[#A84A26] mb-5">Ce qui vous attend</p></FadeIn>
@@ -271,7 +247,7 @@ export default function HomePage() {
             {FEATURES.map((f, i) => (
               <FadeIn key={f.title} delay={i * 0.07}>
                 <div className="bg-white rounded-2xl p-7 flex flex-col gap-5 h-full border border-[#231C14]/5 hover:border-[#52632E]/25 transition-colors duration-200 group">
-                  <div className={`w-14 h-14 rounded-2xl flex items-center justify-center ${FEATURE_ICON_TONE[f.icon]} transition-transform duration-300 group-hover:scale-105`}>
+                  <div className="w-14 h-14 rounded-2xl flex items-center justify-center bg-[#EBF0E2] text-[#52632E] transition-transform duration-300 group-hover:scale-105">
                     {PICTOS[f.icon]}
                   </div>
                   <div>
@@ -282,15 +258,57 @@ export default function HomePage() {
               </FadeIn>
             ))}
           </div>
-          <FadeIn delay={0.15} className="mt-12">
-            <Link href="/la-ferme" className="inline-flex items-center gap-2 text-[#231C14] font-medium border-b border-[#52632E]/40 hover:border-[#52632E] pb-0.5 transition-colors text-base">
-              Visiter la ferme en détail<ArrowRight className="w-4 h-4" aria-hidden="true" />
-            </Link>
-          </FadeIn>
         </div>
       </section>
 
-      {/* ═══ 4. EXPÉRIENCES ═══ */}
+      {/* ═══ RÉSERVATION (étapes animées) ═══ */}
+      <section className="bg-white py-20 md:py-32">
+        <div className="mx-auto max-w-6xl px-5 md:px-8 grid grid-cols-1 md:grid-cols-12 gap-12 md:gap-16">
+          <div className="md:col-span-5">
+            <FadeIn><p className="text-xs font-medium tracking-widest uppercase text-[#A84A26] mb-5">Réservation</p></FadeIn>
+            <FadeIn delay={0.06}>
+              <h2 className="font-display font-normal text-[#231C14] leading-[1.1] mb-6" style={{ fontSize: 'clamp(1.9rem, 3.5vw, 3rem)' }}>
+                Simple comme<br /><em className="italic text-[#52632E]">un message WhatsApp.</em>
+              </h2>
+            </FadeIn>
+            <FadeIn delay={0.12}>
+              <p className="text-[#231C14]/60 text-base leading-relaxed mb-8 max-w-sm">
+                Pas de formulaire compliqué ni de paiement en ligne. Tout se règle en quelques messages, et nous nous occupons du reste.
+              </p>
+              <WhatsAppBtn message={WA_MESSAGES.reservation} label="Réserver les dates" variant="olive" size="lg" icon="calendar" />
+            </FadeIn>
+          </div>
+          <div className="md:col-span-7 md:pt-4">
+            <ReservationSteps steps={RESERVATION_STEPS} />
+          </div>
+        </div>
+      </section>
+
+      {/* ═══ LA GALERIE (carrousel infini) ═══ */}
+      <section className="bg-[#F5EFE0] py-20 md:py-28">
+        <div className="mx-auto max-w-6xl px-5 md:px-8 mb-12 md:mb-16">
+          <div className="flex flex-col md:flex-row md:items-end md:justify-between gap-6">
+            <div>
+              <FadeIn><p className="text-xs font-medium tracking-widest uppercase text-[#52632E] mb-5">La galerie</p></FadeIn>
+              <FadeIn delay={0.06}>
+                <h2 className="font-display font-normal text-[#231C14] leading-[1.1] max-w-lg" style={{ fontSize: 'clamp(1.9rem, 3.5vw, 3rem)' }}>
+                  La ferme,<br /><em className="italic text-[#52632E]">vue de l&apos;intérieur.</em>
+                </h2>
+              </FadeIn>
+            </div>
+            <FadeIn delay={0.1}>
+              <Link href="/galerie" className="inline-flex items-center gap-2.5 bg-[#52632E] text-white text-base font-medium px-8 py-4 rounded-full min-h-[52px] hover:bg-[#3f4d23] transition-colors duration-200">
+                Voir toutes les photos<ArrowRight className="w-4 h-4" aria-hidden="true" />
+              </Link>
+            </FadeIn>
+          </div>
+        </div>
+        <FadeIn delay={0.05} blur={false}>
+          <InfiniteMarquee photos={MARQUEE_PHOTOS} duration={75} />
+        </FadeIn>
+      </section>
+
+      {/* ═══ POURQUOI VENIR (expériences) ═══ */}
       <section className="bg-white py-20 md:py-32">
         <div className="mx-auto max-w-6xl px-5 md:px-8">
           <FadeIn><p className="text-xs font-medium tracking-widest uppercase text-[#A84A26] mb-5">Pourquoi venir</p></FadeIn>
@@ -327,49 +345,25 @@ export default function HomePage() {
         </div>
       </section>
 
-      {/* ═══ 5. GALERIE + CARROUSEL INFINI ═══ */}
-      <section className="bg-[#F5EFE0] py-20 md:py-28">
-        <div className="mx-auto max-w-6xl px-5 md:px-8 mb-12 md:mb-16">
-          <div className="flex flex-col md:flex-row md:items-end md:justify-between gap-6">
-            <div>
-              <FadeIn><p className="text-xs font-medium tracking-widest uppercase text-[#52632E] mb-5">La galerie</p></FadeIn>
-              <FadeIn delay={0.06}>
-                <h2 className="font-display font-normal text-[#231C14] leading-[1.1] max-w-lg" style={{ fontSize: 'clamp(1.9rem, 3.5vw, 3rem)' }}>
-                  La ferme,<br /><em className="italic text-[#52632E]">vue de l&apos;intérieur.</em>
-                </h2>
-              </FadeIn>
-            </div>
-            <FadeIn delay={0.1}>
-              <Link href="/galerie" className="inline-flex items-center gap-2.5 bg-[#52632E] text-white text-base font-medium px-8 py-4 rounded-full min-h-[52px] hover:bg-[#3f4d23] transition-colors duration-200">
-                Voir toutes les photos<ArrowRight className="w-4 h-4" aria-hidden="true" />
-              </Link>
-            </FadeIn>
-          </div>
-        </div>
-        <FadeIn delay={0.05} blur={false}>
-          <InfiniteMarquee photos={MARQUEE_PHOTOS} duration={75} />
-        </FadeIn>
-      </section>
-
-      {/* ═══ 6. TÉMOIGNAGES ═══ */}
-      <section className="bg-[#231C14] py-20 md:py-32">
+      {/* ═══ CE QU'ILS EN DISENT ═══ */}
+      <section className="bg-[#F5EFE0] py-20 md:py-32">
         <div className="mx-auto max-w-6xl px-5 md:px-8">
-          <FadeIn><p className="text-xs font-medium tracking-widest uppercase text-[#D4B78A] mb-5">Ce qu&apos;ils en disent</p></FadeIn>
+          <FadeIn><p className="text-xs font-medium tracking-widest uppercase text-[#A84A26] mb-5">Ce qu&apos;ils en disent</p></FadeIn>
           <FadeIn delay={0.06}>
-            <h2 className="font-display font-normal text-[#F5EFE0] leading-[1.1] mb-14" style={{ fontSize: 'clamp(1.9rem, 3.5vw, 3rem)' }}>
-              Ils sont venus,<br /><em className="italic">ils sont revenus.</em>
+            <h2 className="font-display font-normal text-[#231C14] leading-[1.1] mb-14" style={{ fontSize: 'clamp(1.9rem, 3.5vw, 3rem)' }}>
+              Ils sont venus,<br /><em className="italic text-[#52632E]">ils sont revenus.</em>
             </h2>
           </FadeIn>
           <div className="grid grid-cols-1 md:grid-cols-3 gap-5">
             {TESTIMONIALS.map((t, i) => (
               <FadeIn key={t.name} delay={i * 0.1}>
-                <blockquote className="bg-white/6 border border-white/8 rounded-2xl p-7 flex flex-col gap-5 h-full">
+                <blockquote className="bg-white border border-[#231C14]/6 rounded-2xl p-7 flex flex-col gap-5 h-full">
                   <div className="flex gap-0.5" aria-label={`${t.stars} étoiles`}>
                     {[...Array(t.stars)].map((_, j) => (<Star key={j} className="w-3.5 h-3.5 fill-[#D4B78A] text-[#D4B78A]" aria-hidden="true" />))}
                   </div>
-                  <p className="text-[#F5EFE0]/80 text-sm leading-relaxed flex-1">{t.text}</p>
-                  <footer className="text-[#D4B78A] text-sm font-medium">
-                    {t.name} <span className="text-[#F5EFE0]/30 font-normal">· {t.from}</span>
+                  <p className="text-[#231C14]/70 text-sm leading-relaxed flex-1">{t.text}</p>
+                  <footer className="text-[#52632E] text-sm font-medium">
+                    {t.name} <span className="text-[#231C14]/35 font-normal">· {t.from}</span>
                   </footer>
                 </blockquote>
               </FadeIn>
@@ -378,30 +372,7 @@ export default function HomePage() {
         </div>
       </section>
 
-      {/* ═══ 7. COMMENT RÉSERVER ═══ */}
-      <section className="bg-[#F5EFE0] py-20 md:py-32">
-        <div className="mx-auto max-w-6xl px-5 md:px-8">
-          <FadeIn><p className="text-xs font-medium tracking-widest uppercase text-[#A84A26] mb-5">Réservation</p></FadeIn>
-          <FadeIn delay={0.06}>
-            <h2 className="font-display font-normal text-[#231C14] leading-[1.1] mb-16" style={{ fontSize: 'clamp(1.9rem, 3.5vw, 3rem)' }}>
-              Simple comme<br /><em className="italic text-[#52632E]">un message WhatsApp.</em>
-            </h2>
-          </FadeIn>
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-10">
-            {RESERVATION_STEPS.map((step, i) => (
-              <FadeIn key={step.n} delay={i * 0.1}>
-                <div className="flex flex-col gap-4">
-                  <span className="font-display text-6xl font-normal text-[#52632E]/25 leading-none">{step.n}</span>
-                  <h3 className="font-semibold text-[#231C14] text-lg">{step.title}</h3>
-                  <p className="text-[#231C14]/60 text-sm leading-relaxed">{step.desc}</p>
-                </div>
-              </FadeIn>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      {/* ═══ 8. FAQ ═══ */}
+      {/* ═══ QUESTIONS FRÉQUENTES ═══ */}
       <section className="bg-white py-20 md:py-28">
         <div className="mx-auto max-w-3xl px-5 md:px-8">
           <FadeIn><p className="text-xs font-medium tracking-widest uppercase text-[#A84A26] mb-5">Questions fréquentes</p></FadeIn>
@@ -410,32 +381,18 @@ export default function HomePage() {
               Des questions ?<br /><em className="italic text-[#52632E]">On a les réponses.</em>
             </h2>
           </FadeIn>
-          <div className="flex flex-col divide-y divide-[#231C14]/8">
-            {FAQ.map((item, i) => (
-              <FadeIn key={item.q} delay={i * 0.05}>
-                <details className="group py-5 cursor-pointer list-none [&::-webkit-details-marker]:hidden">
-                  <summary className="flex justify-between items-center gap-4 font-medium text-[#231C14] text-base select-none">
-                    {item.q}
-                    <span className="w-6 h-6 shrink-0 text-[#52632E]/50 transition-transform duration-200 group-open:rotate-45 flex-none">
-                      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth={1.5}><path d="M12 5v14M5 12h14" /></svg>
-                    </span>
-                  </summary>
-                  <p className="mt-3 text-[#231C14]/60 text-sm leading-relaxed pr-8">{item.a}</p>
-                </details>
-              </FadeIn>
-            ))}
-          </div>
+          <FadeIn delay={0.1}>
+            <FaqAccordion items={FAQ} />
+          </FadeIn>
         </div>
       </section>
 
-      {/* ═══ 9. CTA FINAL ═══ */}
+      {/* ═══ CTA FINAL ═══ */}
       <CTASection
         title="Prêt à réserver votre séjour ?"
         text="Envoyez-nous vos dates et votre nombre de personnes. Nous vous répondons rapidement avec les disponibilités et le tarif."
         label="Réserver sur WhatsApp"
         wa="reservation"
-        image="/images/farm/terrasse-piscine.jpg"
-        imageAlt="Terrasse face à la piscine de Farm Eden"
       />
     </>
   );

@@ -1,5 +1,5 @@
 import type { Metadata } from 'next';
-import { MessageCircle, Phone, Clock } from 'lucide-react';
+import { MapPin, Phone, Clock, MessageCircle, ArrowUpRight } from 'lucide-react';
 import { FadeIn } from '@/components/ui/FadeIn';
 import { SITE, WA_MESSAGES, whatsappUrl } from '@/lib/content';
 
@@ -11,30 +11,28 @@ export const metadata: Metadata = {
 };
 
 const CONTEXTS = [
-  { label: 'Réserver un séjour',      message: WA_MESSAGES.reservation },
+  { label: 'Réserver un séjour', message: WA_MESSAGES.reservation },
   { label: 'Séminaire d\'entreprise', message: WA_MESSAGES.seminaire },
-  { label: 'Anniversaire ou fête',    message: WA_MESSAGES.evenement },
-  { label: 'Question générale',       message: WA_MESSAGES.general },
+  { label: 'Anniversaire ou fête', message: WA_MESSAGES.evenement },
+  { label: 'Question générale', message: WA_MESSAGES.general },
+];
+
+const INFOS = [
+  { icon: MapPin, title: 'Adresse', lines: ['Ain Johra, commune de Tiflet', 'Rabat-Salé-Kénitra, Maroc'] },
+  { icon: Phone, title: 'Téléphone', lines: [SITE.phone] },
+  { icon: Clock, title: 'Disponibilité', lines: ['Nous répondons dans la journée,', '7 jours sur 7.'] },
 ];
 
 export default function ContactPage() {
   return (
     <>
-      {/* ── En-tête ── */}
-      <section className="bg-[#F5EFE0] pt-28 md:pt-36 pb-16 md:pb-20">
+      {/* En-tête */}
+      <section className="bg-[#F5EFE0] pt-28 md:pt-36 pb-12 md:pb-16">
         <div className="mx-auto max-w-6xl px-5 md:px-8">
-          <FadeIn>
-            <p className="text-xs font-medium tracking-widest uppercase text-[#A84A26] mb-4">
-              Contact
-            </p>
-          </FadeIn>
+          <FadeIn><p className="text-xs font-medium tracking-widest uppercase text-[#A84A26] mb-4">Contact</p></FadeIn>
           <FadeIn delay={0.07}>
-            <h1
-              className="font-display font-normal text-[#231C14] leading-[1.0] max-w-xl"
-              style={{ fontSize: 'clamp(2.5rem, 6vw, 5rem)' }}
-            >
-              On vous répond<br />
-              <em className="italic">rapidement.</em>
+            <h1 className="font-display font-normal text-[#231C14] leading-[1.0] max-w-xl" style={{ fontSize: 'clamp(2.5rem, 6vw, 5rem)' }}>
+              On vous répond<br /><em className="italic text-[#52632E]">rapidement.</em>
             </h1>
           </FadeIn>
           <FadeIn delay={0.14}>
@@ -45,164 +43,89 @@ export default function ContactPage() {
         </div>
       </section>
 
-      {/* ── Boutons de contact ── */}
+      {/* Deux colonnes alignées */}
       <section className="bg-[#F5EFE0] pb-20 md:pb-28">
-        <div className="mx-auto max-w-6xl px-5 md:px-8">
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-12 md:gap-20">
+        <div className="mx-auto max-w-6xl px-5 md:px-8 grid grid-cols-1 lg:grid-cols-2 gap-6 items-stretch">
 
-            {/* WhatsApp CTAs */}
-            <div>
-              <FadeIn>
-                <p className="text-xs font-medium tracking-widest uppercase text-[#231C14]/40 mb-6">
-                  Choisissez votre sujet
-                </p>
-              </FadeIn>
-              <div className="flex flex-col gap-3">
-                {CONTEXTS.map((ctx, i) => (
-                  <FadeIn key={ctx.label} delay={i * 0.07}>
-                    <a
-                      href={whatsappUrl(ctx.message)}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="flex items-center justify-between gap-4 bg-white border border-[#231C14]/8
-                                 hover:border-[#231C14]/20 hover:shadow-sm rounded-xl px-5 py-4
-                                 transition-all duration-200 group"
-                    >
-                      <div className="flex items-center gap-3">
-                        <div className="w-8 h-8 rounded-full bg-[#25D366]/10 flex items-center justify-center shrink-0">
-                          <MessageCircle className="w-4 h-4 text-[#25D366]" aria-hidden="true" />
-                        </div>
-                        <span className="text-[#231C14] font-medium text-sm">{ctx.label}</span>
-                      </div>
-                      <svg
-                        className="w-4 h-4 text-[#231C14]/30 group-hover:text-[#231C14]/60 transition-colors shrink-0"
-                        viewBox="0 0 16 16" fill="none" stroke="currentColor" strokeWidth={1.5}
-                      >
-                        <path d="M3 8h10M9 4l4 4-4 4"/>
-                      </svg>
-                    </a>
-                  </FadeIn>
-                ))}
-              </div>
-
-              <FadeIn delay={0.35} className="mt-6">
-                <p className="text-[#231C14]/45 text-sm">
-                  Vous pouvez aussi nous appeler directement :
-                  <a href={`tel:${SITE.phone}`} className="ml-1.5 text-[#231C14] font-medium hover:text-[#A84A26] transition-colors">
-                    {SITE.phone}
-                  </a>
-                </p>
-              </FadeIn>
-            </div>
-
-            {/* Infos pratiques */}
-            <FadeIn delay={0.1}>
-              <div className="flex flex-col gap-8">
-                <div>
-                  <p className="text-xs font-medium tracking-widest uppercase text-[#231C14]/40 mb-5">
-                    Infos pratiques
-                  </p>
-                  <ul className="flex flex-col gap-5">
-                    <li className="flex items-start gap-3">
-                      <div className="w-8 h-8 rounded-full bg-[#231C14]/6 flex items-center justify-center shrink-0 mt-0.5">
-                        <svg viewBox="0 0 16 16" className="w-4 h-4 text-[#231C14]/60" fill="none" stroke="currentColor" strokeWidth={1.5} strokeLinecap="round">
-                          <path d="M8 1.5C5.5 1.5 3.5 3.5 3.5 6c0 3.75 4.5 8.5 4.5 8.5s4.5-4.75 4.5-8.5c0-2.5-2-4.5-4.5-4.5z"/>
-                          <circle cx="8" cy="6" r="1.5"/>
-                        </svg>
-                      </div>
-                      <div>
-                        <p className="font-medium text-[#231C14] text-sm mb-0.5">Adresse</p>
-                        <p className="text-[#231C14]/60 text-sm leading-relaxed">
-                          Ain Johra, commune de Tifelt<br />
-                          Rabat-Salé-Kénitra, Maroc
-                        </p>
-                        <a
-                          href={SITE.mapsUrl}
-                          target="_blank"
-                          rel="noopener noreferrer"
-                          className="text-[#A84A26] text-sm mt-1 inline-block hover:underline"
-                        >
-                          Voir sur Google Maps
-                        </a>
-                      </div>
-                    </li>
-                    <li className="flex items-start gap-3">
-                      <div className="w-8 h-8 rounded-full bg-[#231C14]/6 flex items-center justify-center shrink-0 mt-0.5">
-                        <Phone className="w-4 h-4 text-[#231C14]/60" aria-hidden="true" />
-                      </div>
-                      <div>
-                        <p className="font-medium text-[#231C14] text-sm mb-0.5">Téléphone</p>
-                        <a href={`tel:${SITE.phone}`} className="text-[#231C14]/60 text-sm hover:text-[#231C14] transition-colors">
-                          {SITE.phone}
-                        </a>
-                      </div>
-                    </li>
-                    <li className="flex items-start gap-3">
-                      <div className="w-8 h-8 rounded-full bg-[#231C14]/6 flex items-center justify-center shrink-0 mt-0.5">
-                        <Clock className="w-4 h-4 text-[#231C14]/60" aria-hidden="true" />
-                      </div>
-                      <div>
-                        <p className="font-medium text-[#231C14] text-sm mb-0.5">Disponibilité</p>
-                        <p className="text-[#231C14]/60 text-sm leading-relaxed">
-                          On répond généralement dans la journée,<br />7 jours sur 7.
-                        </p>
-                      </div>
-                    </li>
-                  </ul>
-                </div>
-
-                {/* Encart WhatsApp */}
-                <div className="bg-[#231C14] rounded-2xl p-6">
-                  <div className="flex items-start gap-3 mb-4">
-                    <div className="w-9 h-9 rounded-full bg-[#25D366]/20 flex items-center justify-center shrink-0">
-                      <MessageCircle className="w-4 h-4 text-[#25D366]" aria-hidden="true" />
-                    </div>
-                    <div>
-                      <p className="text-[#F5EFE0] font-semibold text-sm">WhatsApp, le plus rapide</p>
-                      <p className="text-[#F5EFE0]/50 text-xs mt-0.5">Réponse sous quelques heures</p>
-                    </div>
-                  </div>
+          {/* Colonne sujets */}
+          <FadeIn className="h-full">
+            <div className="bg-white rounded-2xl border border-[#231C14]/6 p-7 md:p-9 h-full flex flex-col">
+              <p className="text-xs font-medium tracking-widest uppercase text-[#231C14]/40 mb-6">Choisissez votre sujet</p>
+              <div className="flex flex-col gap-3 flex-1">
+                {CONTEXTS.map((ctx) => (
                   <a
-                    href={whatsappUrl(WA_MESSAGES.general)}
+                    key={ctx.label}
+                    href={whatsappUrl(ctx.message)}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="w-full flex items-center justify-center gap-2 bg-[#25D366] hover:bg-[#1DAA53]
-                               text-white font-medium text-sm py-3 rounded-xl transition-colors min-h-[44px]"
+                    className="flex items-center justify-between gap-4 bg-[#F5EFE0] hover:bg-[#EBF0E2] rounded-xl px-5 py-4 transition-colors duration-200 group"
                   >
-                    <MessageCircle className="w-4 h-4" aria-hidden="true" />
-                    Nous écrire maintenant
+                    <span className="flex items-center gap-3">
+                      <span className="w-9 h-9 rounded-full bg-[#25D366]/12 flex items-center justify-center shrink-0">
+                        <MessageCircle className="w-4 h-4 text-[#1DAA53]" aria-hidden="true" />
+                      </span>
+                      <span className="text-[#231C14] font-medium text-sm">{ctx.label}</span>
+                    </span>
+                    <ArrowUpRight className="w-4 h-4 text-[#231C14]/30 group-hover:text-[#52632E] transition-colors shrink-0" aria-hidden="true" />
                   </a>
-                </div>
+                ))}
               </div>
-            </FadeIn>
-          </div>
+              <p className="text-[#231C14]/45 text-sm mt-6">
+                Vous préférez appeler ?
+                <a href={`tel:${SITE.phone}`} className="ml-1.5 text-[#231C14] font-medium hover:text-[#52632E] transition-colors">{SITE.phone}</a>
+              </p>
+            </div>
+          </FadeIn>
+
+          {/* Colonne infos pratiques */}
+          <FadeIn delay={0.1} className="h-full">
+            <div className="bg-[#231C14] rounded-2xl p-7 md:p-9 h-full flex flex-col text-[#F5EFE0]">
+              <p className="text-xs font-medium tracking-widest uppercase text-[#D4B78A] mb-6">Infos pratiques</p>
+              <ul className="flex flex-col gap-6 flex-1">
+                {INFOS.map((info) => (
+                  <li key={info.title} className="flex items-start gap-3.5">
+                    <span className="w-9 h-9 rounded-full bg-white/8 flex items-center justify-center shrink-0 mt-0.5">
+                      <info.icon className="w-4 h-4 text-[#D4B78A]" aria-hidden="true" />
+                    </span>
+                    <div>
+                      <p className="font-semibold text-sm mb-0.5">{info.title}</p>
+                      {info.lines.map((l) => (
+                        <p key={l} className="text-[#F5EFE0]/55 text-sm leading-relaxed">{l}</p>
+                      ))}
+                    </div>
+                  </li>
+                ))}
+              </ul>
+              <a
+                href={whatsappUrl(WA_MESSAGES.general)}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="mt-8 w-full flex items-center justify-center gap-2 bg-[#25D366] hover:bg-[#1DAA53] text-white font-medium text-sm py-3.5 rounded-xl transition-colors min-h-[48px]"
+              >
+                <MessageCircle className="w-4 h-4" aria-hidden="true" />
+                Nous écrire sur WhatsApp
+              </a>
+            </div>
+          </FadeIn>
         </div>
       </section>
 
-      {/* ── Google Maps ── */}
-      <section className="bg-[#EDE5D0] py-16 md:py-20">
+      {/* Carte */}
+      <section className="bg-[#EBF0E2] py-16 md:py-24">
         <div className="mx-auto max-w-6xl px-5 md:px-8">
-          <FadeIn>
-            <p className="text-xs font-medium tracking-widest uppercase text-[#52632E] mb-4">
-              Localisation
-            </p>
-          </FadeIn>
+          <FadeIn><p className="text-xs font-medium tracking-widest uppercase text-[#52632E] mb-4">Où nous trouver</p></FadeIn>
           <FadeIn delay={0.07}>
-            <h2
-              className="font-display font-normal text-[#231C14] leading-[1.1] mb-2"
-              style={{ fontSize: 'clamp(1.6rem, 2.5vw, 2.4rem)' }}
-            >
-              À 45 minutes de Rabat,<br />
-              <em className="italic">dans la région de Tifelt.</em>
+            <h2 className="font-display font-normal text-[#231C14] leading-[1.1] mb-2" style={{ fontSize: 'clamp(1.6rem, 2.5vw, 2.4rem)' }}>
+              À 45 minutes de Rabat,<br /><em className="italic text-[#52632E]">dans la région de Tiflet.</em>
             </h2>
           </FadeIn>
           <FadeIn delay={0.12}>
             <p className="text-[#231C14]/55 text-sm mt-2 mb-8">
-              Parking privé sur place. On vous envoie les coordonnées GPS exactes à la réservation.
+              {SITE.addressLine}. Un parking privé vous attend sur place, et nous vous envoyons les coordonnées GPS exactes à la réservation.
             </p>
           </FadeIn>
           <FadeIn delay={0.16}>
-            <div className="rounded-2xl overflow-hidden shadow-sm" style={{ height: '420px' }}>
+            <div className="rounded-2xl overflow-hidden shadow-sm border border-[#231C14]/8" style={{ height: '440px' }}>
               <iframe
                 src={SITE.mapsEmbed}
                 width="100%"
@@ -211,9 +134,14 @@ export default function ContactPage() {
                 allowFullScreen
                 loading="lazy"
                 referrerPolicy="no-referrer-when-downgrade"
-                title="Localisation de Farm Eden, Ain Johra, Tifelt, Maroc"
+                title="Farm Eden - Ferme Rabat, XJ6V+44H, Tiflet, Maroc"
               />
             </div>
+          </FadeIn>
+          <FadeIn delay={0.2}>
+            <a href={SITE.mapsUrl} target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-2 text-[#52632E] text-sm font-medium hover:text-[#3f4d23] transition-colors mt-5">
+              Ouvrir dans Google Maps<ArrowUpRight className="w-4 h-4" aria-hidden="true" />
+            </a>
           </FadeIn>
         </div>
       </section>

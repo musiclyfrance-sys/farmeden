@@ -114,23 +114,23 @@ export default function ExperiencesPage() {
       </section>
 
       {/* Services */}
-      <section className="bg-[#231C14] py-16 md:py-20">
+      <section className="bg-[#EBF0E2] py-16 md:py-24">
         <div className="mx-auto max-w-6xl px-5 md:px-8">
           <div className="grid grid-cols-1 md:grid-cols-4 gap-10">
             <div className="md:col-span-1">
-              <FadeIn><p className="text-xs font-medium tracking-widest uppercase text-[#D4B78A] mb-3">Services</p></FadeIn>
+              <FadeIn><p className="text-xs font-medium tracking-widest uppercase text-[#52632E] mb-3">Services</p></FadeIn>
               <FadeIn delay={0.07}>
-                <h2 className="font-display font-normal text-[#F5EFE0] leading-[1.1]" style={{ fontSize: 'clamp(1.4rem, 2vw, 1.9rem)' }}>
-                  Sur place,<br /><em className="italic">si vous voulez.</em>
+                <h2 className="font-display font-normal text-[#231C14] leading-[1.1]" style={{ fontSize: 'clamp(1.4rem, 2vw, 1.9rem)' }}>
+                  Sur place,<br /><em className="italic text-[#52632E]">si vous voulez.</em>
                 </h2>
               </FadeIn>
             </div>
-            <div className="md:col-span-3 grid grid-cols-1 sm:grid-cols-3 gap-8">
+            <div className="md:col-span-3 grid grid-cols-1 sm:grid-cols-3 gap-6">
               {SERVICES.map((s, i) => (
                 <FadeIn key={s.title} delay={i * 0.1}>
-                  <div className="flex flex-col gap-2">
-                    <p className="text-[#D4B78A] font-semibold text-sm">{s.title}</p>
-                    <p className="text-[#F5EFE0]/55 text-sm leading-relaxed">{s.desc}</p>
+                  <div className="bg-white/70 rounded-2xl p-6 h-full flex flex-col gap-2">
+                    <p className="text-[#52632E] font-semibold text-sm">{s.title}</p>
+                    <p className="text-[#231C14]/60 text-sm leading-relaxed">{s.desc}</p>
                   </div>
                 </FadeIn>
               ))}
@@ -145,8 +145,7 @@ export default function ExperiencesPage() {
         text="Présentez-nous votre projet et nous trouvons ensemble une formule qui vous convient."
         label="Nous contacter"
         wa="evenement"
-        image="/images/farm/terrasse-repas.jpg"
-        imageAlt="Terrasse de repas couverte à Farm Eden"
+        eyebrow="Sur mesure"
       />
     </>
   );

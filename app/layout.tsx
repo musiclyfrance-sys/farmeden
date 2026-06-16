@@ -56,14 +56,14 @@ const jsonLd = {
       telephone: '+212600000000',
       address: {
         '@type': 'PostalAddress',
-        addressLocality: 'Ain Johra',
-        addressRegion: 'Tifelt',
+        addressLocality: 'Ain Johra, Tiflet',
+        addressRegion: 'Rabat-Salé-Kénitra',
         addressCountry: 'MA',
       },
       geo: {
         '@type': 'GeoCoordinates',
-        latitude: 33.8944,
-        longitude: -6.3064,
+        latitude: 33.9603,
+        longitude: -6.3572,
       },
       amenityFeature: [
         { '@type': 'LocationFeatureSpecification', name: 'Piscine privée',         value: true },

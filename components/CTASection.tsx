@@ -1,4 +1,3 @@
-import Image from 'next/image';
 import { FadeIn } from '@/components/ui/FadeIn';
 import { WhatsAppBtn } from '@/components/WhatsAppFloat';
 import { WA_MESSAGES } from '@/lib/content';
@@ -8,16 +7,16 @@ interface CTASectionProps {
   text: string;
   label?: string;
   message?: string;
-  /** clé WA_MESSAGES, prioritaire sur message */
   wa?: keyof typeof WA_MESSAGES;
+  eyebrow?: string;
+  /** conservés pour compat, non utilisés (le CTA n'affiche plus de photo) */
   image?: string;
   imageAlt?: string;
-  tone?: 'olive' | 'brown';
 }
 
 /**
- * Bloc d'appel à l'action de fin de page, harmonisé sur tout le site.
- * Fond olive ou brun, titre en serif, photo optionnelle.
+ * Bloc d'appel à l'action de fin de page.
+ * Fond olive avec motif décoratif, centré et percutant, sans photo.
  */
 export function CTASection({
   title,
@@ -25,52 +24,39 @@ export function CTASection({
   label = 'Réserver sur WhatsApp',
   message,
   wa,
-  image,
-  imageAlt = 'Farm Eden',
-  tone = 'olive',
+  eyebrow = 'Réservation',
 }: CTASectionProps) {
-  const bg = tone === 'brown' ? 'bg-[#231C14]' : 'bg-[#52632E]';
   const msg = wa ? WA_MESSAGES[wa] : (message ?? WA_MESSAGES.reservation);
 
   return (
-    <section className={`${bg} grain relative overflow-hidden`}>
-      <div className="mx-auto max-w-6xl px-5 md:px-8 py-20 md:py-28">
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-12 md:gap-16 items-center">
-          <div>
-            <FadeIn>
-              <h2
-                className="font-display font-normal text-[#F5EFE0] leading-[1.1] mb-5"
-                style={{ fontSize: 'clamp(1.9rem, 3.5vw, 3rem)' }}
-              >
-                {title}
-              </h2>
-            </FadeIn>
-            <FadeIn delay={0.08}>
-              <p className="text-[#F5EFE0]/75 text-lg leading-relaxed mb-8 max-w-md">{text}</p>
-            </FadeIn>
-            <FadeIn delay={0.14}>
-              <WhatsAppBtn message={msg} label={label} variant="cream" size="lg" />
-            </FadeIn>
-          </div>
+    <section className="relative overflow-hidden bg-[#52632E]">
+      <div className="absolute inset-0 bg-gradient-to-br from-[#5d7037] via-[#52632E] to-[#3c4a22]" aria-hidden="true" />
 
-          {image && (
-            <FadeIn delay={0.1} direction="left">
-              <div
-                className="relative w-full rounded-[1.75rem] overflow-hidden shadow-2xl shadow-black/25"
-                style={{ aspectRatio: '4 / 3' }}
-              >
-                <Image
-                  src={image}
-                  alt={imageAlt}
-                  fill
-                  sizes="(max-width: 768px) 100vw, 45vw"
-                  className="object-cover"
-                  quality={80}
-                />
-              </div>
-            </FadeIn>
-          )}
-        </div>
+      {/* Motif décoratif (lignes, aucune photo) */}
+      <svg className="absolute -top-24 -right-24 w-[420px] h-[420px] text-white/[0.06]" viewBox="0 0 200 200" fill="none" stroke="currentColor" strokeWidth="1" aria-hidden="true">
+        <circle cx="100" cy="100" r="40" /><circle cx="100" cy="100" r="62" /><circle cx="100" cy="100" r="84" /><circle cx="100" cy="100" r="98" />
+      </svg>
+      <svg className="absolute -bottom-28 -left-20 w-[360px] h-[360px] text-white/[0.05]" viewBox="0 0 200 200" fill="none" stroke="currentColor" strokeWidth="1" aria-hidden="true">
+        <path d="M100 20c-30 30-30 90 0 160 30-70 30-130 0-160Z" /><path d="M40 80c40 10 80 50 100 110M160 80c-40 10-80 50-100 110" />
+      </svg>
+
+      <div className="relative mx-auto max-w-3xl px-5 md:px-8 py-24 md:py-32 text-center">
+        <FadeIn>
+          <span className="inline-block text-xs font-semibold tracking-widest uppercase text-[#F5EFE0] bg-white/12 border border-white/15 px-4 py-2 rounded-full mb-7">
+            {eyebrow}
+          </span>
+        </FadeIn>
+        <FadeIn delay={0.06}>
+          <h2 className="font-display font-normal text-[#F5EFE0] leading-[1.08] mb-6" style={{ fontSize: 'clamp(2.2rem, 5vw, 4rem)' }}>
+            {title}
+          </h2>
+        </FadeIn>
+        <FadeIn delay={0.12}>
+          <p className="text-[#F5EFE0]/80 text-lg leading-relaxed mb-10 max-w-xl mx-auto">{text}</p>
+        </FadeIn>
+        <FadeIn delay={0.18}>
+          <WhatsAppBtn message={msg} label={label} variant="cream" size="lg" />
+        </FadeIn>
       </div>
     </section>
   );

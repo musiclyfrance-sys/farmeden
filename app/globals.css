@@ -112,7 +112,6 @@ body {
   animation: marquee-scroll var(--marquee-duration, 70s) linear infinite;
   will-change: transform;
 }
-.marquee-group:hover .animate-marquee { animation-play-state: paused; }
 
 /* ─── Halo WhatsApp ─────────────────────────────────────────── */
 @keyframes wa-ping {

@@ -87,8 +87,6 @@ export default function JournalPage() {
         text="Envoyez-nous vos dates et votre nombre de personnes. Nous vous répondons avec les disponibilités et le tarif."
         label="Réserver sur WhatsApp"
         wa="reservation"
-        image="/images/farm/palmeraie.jpg"
-        imageAlt="Palmeraie de Farm Eden"
       />
     </>
   );

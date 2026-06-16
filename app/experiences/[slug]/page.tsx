@@ -50,36 +50,43 @@ export default async function ExperienceDetailPage({ params }: { params: Promise
     <>
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumb) }} />
 
-      {/* ═══ Hero ═══ */}
-      <section className="relative min-h-[88svh] flex items-end overflow-hidden">
-        <Image src={exp.heroImage} alt={exp.title} fill priority sizes="100vw" className="object-cover" quality={85} />
-        <div className="absolute inset-0 bg-gradient-to-t from-[#231C14]/85 via-[#231C14]/35 to-[#231C14]/45" />
-        <div className="relative mx-auto max-w-6xl w-full px-5 md:px-8 pb-16 md:pb-24 pt-32">
+      {/* ═══ Hero (split, photo à gauche) ═══ */}
+      <section className="bg-[#F5EFE0] pt-28 md:pt-32 pb-16 md:pb-24">
+        <div className="mx-auto max-w-6xl px-5 md:px-8">
           <FadeIn>
-            <Link href="/experiences" className="inline-flex items-center gap-2 text-[#F5EFE0]/80 hover:text-white text-sm font-medium mb-6 transition-colors">
+            <Link href="/experiences" className="inline-flex items-center gap-2 text-[#52632E] hover:text-[#3f4d23] text-sm font-medium mb-8 transition-colors">
               <ArrowLeft className="w-4 h-4" aria-hidden="true" /> Toutes les expériences
             </Link>
           </FadeIn>
-          <FadeIn delay={0.06}>
-            <span className="inline-block text-xs font-semibold tracking-widest uppercase bg-[#52632E] text-white px-3 py-1.5 rounded-full mb-5">{exp.heroKicker}</span>
-          </FadeIn>
-          <FadeIn delay={0.12}>
-            <h1 className="font-display font-normal text-[#F5EFE0] leading-[1.03] max-w-3xl" style={{ fontSize: 'clamp(2.6rem, 6vw, 5rem)' }}>{exp.title}</h1>
-          </FadeIn>
-          <FadeIn delay={0.18}>
-            <p className="text-[#F5EFE0]/85 text-lg md:text-xl leading-relaxed max-w-2xl mt-6">{exp.subtitle}</p>
-          </FadeIn>
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-10 md:gap-14 items-center">
+            <FadeIn direction="right" className="order-2 md:order-1">
+              <div className="relative w-full rounded-[1.75rem] overflow-hidden shadow-2xl shadow-[#231C14]/15" style={{ aspectRatio: '4 / 5' }}>
+                <Image src={exp.heroImage} alt={exp.title} fill priority sizes="(max-width: 768px) 100vw, 50vw" className="object-cover" quality={86} />
+              </div>
+            </FadeIn>
+            <div className="order-1 md:order-2">
+              <FadeIn>
+                <span className="inline-block text-xs font-semibold tracking-widest uppercase bg-[#EBF0E2] text-[#52632E] px-4 py-2 rounded-full mb-5">{exp.heroKicker}</span>
+              </FadeIn>
+              <FadeIn delay={0.06}>
+                <h1 className="font-display font-normal text-[#231C14] leading-[1.04]" style={{ fontSize: 'clamp(2.4rem, 5vw, 4rem)' }}>{exp.title}</h1>
+              </FadeIn>
+              <FadeIn delay={0.12}>
+                <p className="text-[#231C14]/65 text-lg leading-relaxed mt-5 max-w-md">{exp.subtitle}</p>
+              </FadeIn>
+              <FadeIn delay={0.18} className="mt-8">
+                <WhatsAppBtn message={WA_MESSAGES[exp.wa]} label={exp.cta.label} variant="olive" size="lg" icon="calendar" />
+              </FadeIn>
+            </div>
+          </div>
         </div>
       </section>
 
       {/* ═══ Intro ═══ */}
-      <section className="bg-[#F5EFE0] py-20 md:py-28">
+      <section className="bg-white py-20 md:py-28">
         <div className="mx-auto max-w-3xl px-5 md:px-8 text-center">
           <FadeIn>
             <p className="font-display text-[#231C14] leading-[1.4]" style={{ fontSize: 'clamp(1.4rem, 2.6vw, 2rem)' }}>{exp.intro}</p>
-          </FadeIn>
-          <FadeIn delay={0.1} className="mt-10">
-            <WhatsAppBtn message={WA_MESSAGES[exp.wa]} label={exp.cta.label} variant="olive" size="lg" />
           </FadeIn>
         </div>
       </section>
@@ -140,7 +147,7 @@ export default async function ExperienceDetailPage({ params }: { params: Promise
       </section>
 
       {/* ═══ CTA ═══ */}
-      <CTASection title={exp.cta.title} text={exp.cta.text} label={exp.cta.label} wa={exp.wa} image={exp.cardImage} imageAlt={exp.title} />
+      <CTASection title={exp.cta.title} text={exp.cta.text} label={exp.cta.label} wa={exp.wa} />
 
       {/* ═══ Autres expériences ═══ */}
       <section className="bg-white py-20 md:py-28">

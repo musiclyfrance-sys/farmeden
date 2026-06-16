@@ -10,12 +10,13 @@ export const SITE = {
   phone: '+212 6 00 00 00 00',
   whatsapp: '212600000000',
   email: 'contact@farmeden.ma',
-  address: 'Ain Johra, Tifelt, à 45 minutes de Rabat',
-  city: 'Tifelt',
+  address: 'Ain Johra, Tiflet, à 45 minutes de Rabat',
+  addressLine: 'Farm Eden - Ferme Rabat, XJ6V+44H, Tiflet, Maroc',
+  city: 'Tiflet',
   region: 'Rabat-Salé-Kénitra',
-  mapsUrl: 'https://maps.google.com/?q=Ain+Johra+Tifelt+Maroc',
+  mapsUrl: 'https://www.google.com/maps/search/?api=1&query=XJ6V%2B44H%20Tiflet%20Maroc',
   mapsEmbed:
-    'https://www.openstreetmap.org/export/embed.html?bbox=-6.45%2C33.82%2C-6.19%2C33.96&layer=mapnik&marker=33.8944%2C-6.3064',
+    'https://www.openstreetmap.org/export/embed.html?bbox=-6.3772%2C33.9453%2C-6.3372%2C33.9753&layer=mapnik&marker=33.9603%2C-6.3572',
   instagram: '',
   airbnb: 'https://www.airbnb.com/rooms/942068881530640680',
 };

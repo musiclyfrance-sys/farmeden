@@ -84,33 +84,35 @@ export default function LaFermePage() {
         </div>
       </section>
 
-      {/* Photo principale */}
-      <div className="relative h-[50vh] md:h-[62vh] overflow-hidden">
-        <Image src="/images/farm/palmeraie.jpg" alt="Vue d'ensemble du terrain verdoyant de Farm Eden à Ain Johra" fill priority sizes="100vw" className="object-cover" quality={88} />
-      </div>
-
-      {/* Introduction */}
-      <section className="bg-[#F5EFE0] py-20 md:py-28">
+      {/* Introduction (photo à gauche, texte à droite) */}
+      <section className="bg-[#F5EFE0] pb-20 md:pb-28 pt-4">
         <div className="mx-auto max-w-6xl px-5 md:px-8">
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-12 md:gap-20 items-start">
-            <FadeIn>
-              <h2 className="font-display font-normal text-[#231C14] leading-[1.1]" style={{ fontSize: 'clamp(1.8rem, 3vw, 2.8rem)' }}>
-                Tout le domaine<br /><em className="italic text-[#52632E]">rien que pour vous.</em>
-              </h2>
-            </FadeIn>
-            <FadeIn delay={0.1}>
-              <div className="flex flex-col gap-4 text-[#231C14]/65 text-base leading-relaxed">
-                <p>
-                  Farm Eden se trouve à Ain Johra, dans la région de Tifelt, à 45 minutes de Rabat. C&apos;est une vraie ferme, avec un grand terrain verdoyant, une palmeraie, des animaux et une belle villa marocaine.
-                </p>
-                <p>
-                  Quand vous réservez, vous prenez <strong className="text-[#231C14]">toute la propriété</strong>. Il n&apos;y a aucun autre client. La piscine, la villa et le jardin sont entièrement pour vous.
-                </p>
-                <p>
-                  La ferme accueille jusqu&apos;à <strong className="text-[#231C14]">12 personnes</strong> confortablement. C&apos;est l&apos;endroit idéal pour une réunion de famille, un groupe d&apos;amis ou une équipe en séminaire.
-                </p>
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-12 md:gap-16 items-center">
+            <FadeIn direction="right" className="order-2 md:order-1">
+              <div className="relative w-full rounded-[1.75rem] overflow-hidden shadow-2xl shadow-[#231C14]/15" style={{ aspectRatio: '4 / 5' }}>
+                <Image src="/images/farm/facade.jpg" alt="Façade et entrée principale de la villa Farm Eden" fill priority sizes="(max-width: 768px) 100vw, 50vw" className="object-cover" quality={86} />
               </div>
             </FadeIn>
+            <div className="order-1 md:order-2">
+              <FadeIn>
+                <h2 className="font-display font-normal text-[#231C14] leading-[1.1] mb-6" style={{ fontSize: 'clamp(1.9rem, 3.2vw, 2.8rem)' }}>
+                  Tout le domaine<br /><em className="italic text-[#52632E]">rien que pour vous.</em>
+                </h2>
+              </FadeIn>
+              <FadeIn delay={0.1}>
+                <div className="flex flex-col gap-4 text-[#231C14]/65 text-base leading-relaxed">
+                  <p>
+                    Farm Eden se trouve à Ain Johra, dans la région de Tiflet, à 45 minutes de Rabat. C&apos;est une vraie ferme, avec un grand terrain verdoyant, une palmeraie, des animaux et une belle villa marocaine.
+                  </p>
+                  <p>
+                    Quand vous réservez, vous prenez <strong className="text-[#231C14]">toute la propriété</strong>. Il n&apos;y a aucun autre client. La piscine, la villa et le jardin sont entièrement pour vous.
+                  </p>
+                  <p>
+                    La ferme accueille jusqu&apos;à <strong className="text-[#231C14]">12 personnes</strong> confortablement. C&apos;est l&apos;endroit idéal pour une réunion de famille, un groupe d&apos;amis ou une équipe en séminaire.
+                  </p>
+                </div>
+              </FadeIn>
+            </div>
           </div>
         </div>
       </section>
@@ -164,17 +166,17 @@ export default function LaFermePage() {
       </section>
 
       {/* Comment venir */}
-      <section className="bg-[#52632E] grain relative overflow-hidden py-20 md:py-28">
+      <section className="bg-white py-20 md:py-28">
         <div className="mx-auto max-w-6xl px-5 md:px-8">
-          <FadeIn><p className="text-xs font-medium tracking-widest uppercase text-[#D4B78A] mb-5">Comment venir</p></FadeIn>
+          <FadeIn><p className="text-xs font-medium tracking-widest uppercase text-[#A84A26] mb-5">Comment venir</p></FadeIn>
           <FadeIn delay={0.07}>
-            <h2 className="font-display font-normal text-[#F5EFE0] leading-[1.1] mb-4" style={{ fontSize: 'clamp(1.9rem, 3.5vw, 3rem)' }}>
-              La campagne est plus proche<br /><em className="italic">que vous ne le pensez.</em>
+            <h2 className="font-display font-normal text-[#231C14] leading-[1.1] mb-4" style={{ fontSize: 'clamp(1.9rem, 3.5vw, 3rem)' }}>
+              La campagne est plus proche<br /><em className="italic text-[#52632E]">que vous ne le pensez.</em>
             </h2>
           </FadeIn>
           <FadeIn delay={0.12}>
-            <p className="text-[#F5EFE0]/65 text-base leading-relaxed mb-12 max-w-lg">
-              Ain Johra se situe à quelques kilomètres de Tifelt, sur la route de Meknès. Le trajet est facile et agréable depuis les grandes villes. Un parking privé vous attend sur place.
+            <p className="text-[#231C14]/60 text-base leading-relaxed mb-12 max-w-lg">
+              Ain Johra se situe à quelques kilomètres de Tiflet, sur la route de Meknès. Le trajet est facile et agréable depuis les grandes villes. Un parking privé vous attend sur place.
             </p>
           </FadeIn>
           <FadeIn delay={0.16}>
@@ -182,18 +184,18 @@ export default function LaFermePage() {
               {[
                 { time: '45 min', label: 'depuis Rabat', note: 'Autoroute puis route directe' },
                 { time: '1h', label: 'depuis Casablanca', note: 'Autoroute A3 vers Rabat' },
-                { time: '10 min', label: 'du centre de Tifelt', note: 'Commerces et services à proximité' },
+                { time: '10 min', label: 'du centre de Tiflet', note: 'Commerces et services à proximité' },
               ].map((d) => (
-                <div key={d.label} className="bg-white/10 border border-white/15 rounded-2xl p-5 md:p-7 flex flex-col gap-1">
-                  <span className="font-display font-normal text-[#F5EFE0] leading-none" style={{ fontSize: 'clamp(1.6rem, 3vw, 2.6rem)' }}>{d.time}</span>
-                  <span className="text-[#F5EFE0]/80 text-sm font-medium mt-1">{d.label}</span>
-                  <span className="text-[#F5EFE0]/40 text-xs leading-snug hidden md:block">{d.note}</span>
+                <div key={d.label} className="bg-[#EBF0E2] rounded-2xl p-5 md:p-7 flex flex-col gap-1">
+                  <span className="font-display font-normal text-[#52632E] leading-none" style={{ fontSize: 'clamp(1.6rem, 3vw, 2.6rem)' }}>{d.time}</span>
+                  <span className="text-[#231C14] text-sm font-medium mt-1">{d.label}</span>
+                  <span className="text-[#231C14]/45 text-xs leading-snug hidden md:block">{d.note}</span>
                 </div>
               ))}
             </div>
           </FadeIn>
           <FadeIn delay={0.22}>
-            <a href={SITE.mapsUrl} target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-2 text-[#D4B78A] text-sm font-medium hover:text-[#F5EFE0] transition-colors">
+            <a href={SITE.mapsUrl} target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-2 text-[#52632E] text-sm font-medium hover:text-[#3f4d23] transition-colors">
               Voir le trajet sur Google Maps<ArrowRight className="w-4 h-4" aria-hidden="true" />
             </a>
           </FadeIn>
@@ -206,8 +208,6 @@ export default function LaFermePage() {
         text="Écrivez-nous sur WhatsApp avec vos dates et votre nombre de personnes. Nous vous répondons rapidement."
         label="Demander les disponibilités"
         wa="reservation"
-        image="/images/farm/facade.jpg"
-        imageAlt="Façade de la villa Farm Eden"
       />
     </>
   );

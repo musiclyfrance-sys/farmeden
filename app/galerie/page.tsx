@@ -113,7 +113,7 @@ export default function GaleriePage() {
             <div className="grid grid-cols-2 md:grid-cols-3 gap-3 md:gap-4">
               {section.photos.map((photo, pi) => (
                 <FadeIn key={pi} delay={(pi % 3) * 0.06} blur={false}>
-                  <div className="relative aspect-[4/3] rounded-xl md:rounded-2xl overflow-hidden bg-[#EDE5D0]">
+                  <div className="relative aspect-[2/3] rounded-xl md:rounded-2xl overflow-hidden bg-[#EDE5D0]">
                     <Image src={photo.src} alt={photo.alt} fill sizes="(max-width: 768px) 50vw, 33vw" className="object-cover hover:scale-[1.03] transition-transform duration-500 ease-[0.22,1,0.36,1]" quality={80} />
                   </div>
                 </FadeIn>
@@ -128,8 +128,6 @@ export default function GaleriePage() {
         text="Envoyez-nous un message sur WhatsApp pour vérifier les disponibilités et connaître le tarif."
         label="Réserver maintenant"
         wa="reservation"
-        image="/images/farm/terrasse-salon.jpg"
-        imageAlt="Salon de terrasse de Farm Eden"
       />
     </>
   );

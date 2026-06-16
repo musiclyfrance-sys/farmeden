@@ -117,8 +117,6 @@ export default async function PostPage({ params }: { params: Promise<{ slug: str
         text="La ferme entière se réserve pour vous. Écrivez-nous vos dates et nous nous occupons du reste."
         label="Réserver sur WhatsApp"
         wa="reservation"
-        image="/images/farm/piscine.jpg"
-        imageAlt="Piscine privée de Farm Eden"
       />
 
       {/* Articles liés */}

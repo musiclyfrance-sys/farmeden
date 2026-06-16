@@ -20,7 +20,7 @@ export default function MentionsLegalesPage() {
           </div>
           <div>
             <h2 className="font-semibold text-[#231C14] text-base mb-2">Hébergement</h2>
-            <p>[Nom de l'hébergeur — à compléter]</p>
+            <p>Vercel Inc., 340 S Lemon Ave #4133, Walnut, CA 91789, États-Unis.</p>
           </div>
           <div>
             <h2 className="font-semibold text-[#231C14] text-base mb-2">Propriété intellectuelle</h2>
