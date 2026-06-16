@@ -4,9 +4,10 @@ import { FadeIn } from '@/components/ui/FadeIn';
 import { SITE, WA_MESSAGES, whatsappUrl } from '@/lib/content';
 
 export const metadata: Metadata = {
-  title: 'Contact — Farm Eden, ferme avec piscine privée près de Rabat',
+  title: 'Contact',
   description:
-    "Contactez Farm Eden par WhatsApp pour réserver ou poser vos questions. Ferme avec piscine privée à Ain Johra, 45 minutes de Rabat.",
+    'Contactez Farm Eden par WhatsApp pour réserver ou poser vos questions. Ferme avec piscine privée à Ain Johra, à 45 minutes de Rabat.',
+  alternates: { canonical: '/contact' },
 };
 
 const CONTEXTS = [
@@ -157,7 +158,7 @@ export default function ContactPage() {
                       <MessageCircle className="w-4 h-4 text-[#25D366]" aria-hidden="true" />
                     </div>
                     <div>
-                      <p className="text-[#F5EFE0] font-semibold text-sm">WhatsApp — le plus rapide</p>
+                      <p className="text-[#F5EFE0] font-semibold text-sm">WhatsApp, le plus rapide</p>
                       <p className="text-[#F5EFE0]/50 text-xs mt-0.5">Réponse sous quelques heures</p>
                     </div>
                   </div>
@@ -210,7 +211,7 @@ export default function ContactPage() {
                 allowFullScreen
                 loading="lazy"
                 referrerPolicy="no-referrer-when-downgrade"
-                title="Localisation de Farm Eden — Ain Johra, Tifelt, Maroc"
+                title="Localisation de Farm Eden, Ain Johra, Tifelt, Maroc"
               />
             </div>
           </FadeIn>

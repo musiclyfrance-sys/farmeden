@@ -4,6 +4,8 @@ import localFont from 'next/font/local';
 import './globals.css';
 import { Navbar } from '@/components/Navbar';
 import { Footer } from '@/components/Footer';
+import { WhatsAppFloat } from '@/components/WhatsAppFloat';
+import { FAQ } from '@/lib/content';
 
 const inter = Inter({
   subsets: ['latin'],
@@ -26,8 +28,8 @@ const classico = localFont({
 export const metadata: Metadata = {
   metadataBase: new URL('https://farmeden.ma'),
   title: {
-    default: 'Farm Eden — Ferme avec piscine privée à 45 min de Rabat',
-    template: '%s — Farm Eden',
+    default: 'Farm Eden, ferme avec piscine privée à 45 min de Rabat',
+    template: '%s · Farm Eden',
   },
   description:
     "Ferme avec piscine privée à louer près de Rabat. Villa entière privatisée, 4 chambres, 12 personnes. Séjours, séminaires, événements. À 45 min de Rabat.",
@@ -35,7 +37,7 @@ export const metadata: Metadata = {
     siteName: 'Farm Eden',
     locale: 'fr_MA',
     type: 'website',
-    images: [{ url: '/images/og-default.jpg', width: 1200, height: 630, alt: 'Farm Eden — Ferme avec piscine privée près de Rabat' }],
+    images: [{ url: '/images/farm/piscine.jpg', width: 1200, height: 630, alt: 'Farm Eden, ferme avec piscine privée près de Rabat' }],
   },
   twitter: { card: 'summary_large_image' },
   robots: { index: true, follow: true },
@@ -76,62 +78,17 @@ const jsonLd = {
       checkinTime: '14:00',
       checkoutTime: '12:00',
       priceRange: '$$',
-      image: 'https://farmeden.ma/images/og-default.jpg',
-      sameAs: [],
+      image: 'https://farmeden.ma/images/farm/piscine.jpg',
+      sameAs: ['https://www.airbnb.com/rooms/942068881530640680'],
     },
     {
       '@type': 'FAQPage',
       '@id': 'https://farmeden.ma/#faq',
-      mainEntity: [
-        {
-          '@type': 'Question',
-          name: "Qu'est-ce qu'on loue exactement ?",
-          acceptedAnswer: {
-            '@type': 'Answer',
-            text: "Vous louez toute la ferme — la villa avec ses 4 chambres, la piscine, le jardin et tous les espaces. Il n'y a aucun autre client pendant votre séjour.",
-          },
-        },
-        {
-          '@type': 'Question',
-          name: "C'est loin de Rabat ?",
-          acceptedAnswer: {
-            '@type': 'Answer',
-            text: "Non, environ 45 minutes. La ferme est à Ain Johra, près de Tifelt, dans la région Rabat-Salé-Kénitra.",
-          },
-        },
-        {
-          '@type': 'Question',
-          name: 'Combien de personnes peut-on être ?',
-          acceptedAnswer: {
-            '@type': 'Answer',
-            text: "Jusqu'à 12 personnes confortablement, entre les chambres et les espaces supplémentaires.",
-          },
-        },
-        {
-          '@type': 'Question',
-          name: "Est-ce qu'on peut manger sur place ?",
-          acceptedAnswer: {
-            '@type': 'Answer',
-            text: "Oui. L'équipe propose la cuisine marocaine traditionnelle (tagine, couscous, méchoui), le petit-déjeuner, et le service de ménage — en option.",
-          },
-        },
-        {
-          '@type': 'Question',
-          name: 'Comment réserver ?',
-          acceptedAnswer: {
-            '@type': 'Answer',
-            text: "Tout se fait sur WhatsApp. Envoyez vos dates et votre nombre de personnes — on vous répond rapidement avec les disponibilités et le tarif.",
-          },
-        },
-        {
-          '@type': 'Question',
-          name: 'Peut-on organiser un mariage ou une grande fête ?',
-          acceptedAnswer: {
-            '@type': 'Answer',
-            text: "Oui, la ferme se privatise pour tous les événements. Contactez-nous pour en discuter.",
-          },
-        },
-      ],
+      mainEntity: FAQ.map((item) => ({
+        '@type': 'Question',
+        name: item.q,
+        acceptedAnswer: { '@type': 'Answer', text: item.a },
+      })),
     },
   ],
 };
@@ -149,6 +106,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
         <Navbar />
         <main>{children}</main>
         <Footer />
+        <WhatsAppFloat />
       </body>
     </html>
   );

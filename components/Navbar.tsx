@@ -36,7 +36,7 @@ export function Navbar() {
           <Link
             href="/"
             className="focus-visible:outline-[#A84A26] shrink-0"
-            aria-label="Farm Eden — accueil"
+            aria-label="Farm Eden, accueil"
           >
             <img
               src="/images/logo-beige.svg"

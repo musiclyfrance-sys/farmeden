@@ -102,3 +102,39 @@ body {
 ::-webkit-scrollbar { width: 5px; }
 ::-webkit-scrollbar-track { background: var(--cream); }
 ::-webkit-scrollbar-thumb { background: var(--gold); border-radius: 3px; }
+
+/* ─── Marquee infini (carrousel photos) ────────────────────── */
+@keyframes marquee-scroll {
+  from { transform: translate3d(0, 0, 0); }
+  to   { transform: translate3d(-50%, 0, 0); }
+}
+.animate-marquee {
+  animation: marquee-scroll var(--marquee-duration, 70s) linear infinite;
+  will-change: transform;
+}
+.marquee-group:hover .animate-marquee { animation-play-state: paused; }
+
+/* ─── Halo WhatsApp ─────────────────────────────────────────── */
+@keyframes wa-ping {
+  0%   { transform: scale(1);   opacity: 0.55; }
+  70%  { transform: scale(2.1); opacity: 0; }
+  100% { transform: scale(2.1); opacity: 0; }
+}
+.wa-ping {
+  animation: wa-ping 2.6s cubic-bezier(0, 0, 0.2, 1) infinite;
+}
+
+/* ─── Soulignement décoratif (titres) ──────────────────────── */
+.underline-brush {
+  background-image: linear-gradient(transparent 62%, var(--gold-light) 62%);
+  background-repeat: no-repeat;
+}
+
+/* ─── Réduction des animations ─────────────────────────────── */
+@media (prefers-reduced-motion: reduce) {
+  .animate-marquee,
+  .wa-ping {
+    animation: none !important;
+  }
+  html { scroll-behavior: auto; }
+}
