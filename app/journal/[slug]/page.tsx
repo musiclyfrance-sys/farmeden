@@ -5,15 +5,13 @@ import { notFound } from 'next/navigation';
 import { ArrowLeft, ArrowRight } from 'lucide-react';
 import { FadeIn } from '@/components/ui/FadeIn';
 import { CTASection } from '@/components/CTASection';
-import { POSTS, getPost } from '@/lib/content';
+import { getPosts, getPostBySlug } from '@/lib/admin/store';
 
-export function generateStaticParams() {
-  return POSTS.map((p) => ({ slug: p.slug }));
-}
+export const dynamic = 'force-dynamic';
 
 export async function generateMetadata({ params }: { params: Promise<{ slug: string }> }): Promise<Metadata> {
   const { slug } = await params;
-  const post = getPost(slug);
+  const post = await getPostBySlug(slug);
   if (!post) return {};
   return {
     title: post.metaTitle,
@@ -31,10 +29,10 @@ export async function generateMetadata({ params }: { params: Promise<{ slug: str
 
 export default async function PostPage({ params }: { params: Promise<{ slug: string }> }) {
   const { slug } = await params;
-  const post = getPost(slug);
-  if (!post) notFound();
+  const post = await getPostBySlug(slug);
+  if (!post || post.published === false) notFound();
 
-  const others = POSTS.filter((p) => p.slug !== post.slug).slice(0, 2);
+  const others = (await getPosts()).filter((p) => p.slug !== post.slug && p.published !== false).slice(0, 2);
 
   const jsonLd = {
     '@context': 'https://schema.org',
@@ -88,7 +86,7 @@ export default async function PostPage({ params }: { params: Promise<{ slug: str
         <FadeIn delay={0.1} blur={false}>
           <div className="mx-auto max-w-5xl px-5 md:px-8">
             <div className="relative aspect-[16/9] rounded-3xl overflow-hidden bg-[#EDE5D0]">
-              <Image src={post.cover} alt={post.title} fill priority sizes="(max-width: 1024px) 100vw, 1024px" className="object-cover" quality={82} />
+              <Image src={post.cover} alt={post.coverAlt || post.title} fill priority sizes="(max-width: 1024px) 100vw, 1024px" className="object-cover" quality={82} />
             </div>
           </div>
         </FadeIn>

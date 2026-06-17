@@ -2,6 +2,9 @@ import Image from 'next/image';
 import type { Metadata } from 'next';
 import { FadeIn } from '@/components/ui/FadeIn';
 import { CTASection } from '@/components/CTASection';
+import { getGallery } from '@/lib/admin/store';
+
+export const dynamic = 'force-dynamic';
 
 export const metadata: Metadata = {
   title: 'Photos',
@@ -10,66 +13,9 @@ export const metadata: Metadata = {
   alternates: { canonical: '/galerie' },
 };
 
-const SECTIONS = [
-  {
-    id: 'villa',
-    label: 'La villa',
-    desc: 'Une maison marocaine authentique avec quatre chambres, deux salons, une cuisine équipée et de larges terrasses.',
-    photos: [
-      { src: '/images/farm/salon.jpg', alt: 'Salon principal sous une arche en pierre' },
-      { src: '/images/farm/sejour.jpg', alt: 'Séjour avec baie vitrée sur le jardin' },
-      { src: '/images/farm/salon-marocain.jpg', alt: 'Salon marocain ouvert sur la cuisine' },
-      { src: '/images/farm/salle-manger.jpg', alt: 'Salle à manger sous arche en pierre' },
-      { src: '/images/farm/cuisine.jpg', alt: 'Cuisine avec bar en bois rustique' },
-      { src: '/images/farm/couloir.jpg', alt: 'Couloir voûté de la villa' },
-      { src: '/images/farm/chambre-double.jpg', alt: 'Chambre double lumineuse' },
-      { src: '/images/farm/chambre-master.jpg', alt: 'Chambre principale aux tons chauds' },
-      { src: '/images/farm/sdb-doree.jpg', alt: 'Salle de bain en pierre dorée' },
-    ],
-  },
-  {
-    id: 'piscine',
-    label: 'Piscine et terrasses',
-    desc: 'Une grande piscine privée entourée de pelouse et de palmiers, prolongée par des terrasses ombragées.',
-    photos: [
-      { src: '/images/farm/piscine.jpg', alt: 'Piscine privée et palmiers' },
-      { src: '/images/farm/piscine-turquoise.jpg', alt: 'Piscine turquoise au milieu des arbres' },
-      { src: '/images/farm/piscine-arbre.jpg', alt: 'Piscine à l\'ombre d\'un arbre' },
-      { src: '/images/farm/terrasse-piscine.jpg', alt: 'Banquette de terrasse face à la piscine' },
-      { src: '/images/farm/terrasse-repas.jpg', alt: 'Terrasse de repas couverte' },
-      { src: '/images/farm/terrasse-salon.jpg', alt: 'Salon de terrasse avec coussins zellige' },
-      { src: '/images/farm/daybed.jpg', alt: 'Lit gazebo posé sur la pelouse' },
-      { src: '/images/farm/facade.jpg', alt: 'Façade et entrée principale de la villa' },
-    ],
-  },
-  {
-    id: 'jardin',
-    label: 'Jardin et nature',
-    desc: 'Un terrain de 1,5 hectare planté de palmiers, d\'arbres fruitiers et de fleurs, avec beaucoup d\'ombre et de calme.',
-    photos: [
-      { src: '/images/farm/palmeraie.jpg', alt: 'Palmeraie et prairie sous un ciel bleu' },
-      { src: '/images/farm/jardin-tropical.jpg', alt: 'Allée dallée dans le jardin tropical' },
-      { src: '/images/farm/allee-palmier.jpg', alt: 'Allée bordée de palmiers' },
-      { src: '/images/farm/allee.jpg', alt: 'Allée dallée vers la villa et le bananier' },
-      { src: '/images/farm/fleurs-jaunes.jpg', alt: 'Tapis de fleurs jaunes au printemps' },
-      { src: '/images/farm/pechers.jpg', alt: 'Pêchers en fruits dans le champ fleuri' },
-    ],
-  },
-  {
-    id: 'animaux',
-    label: 'Les animaux',
-    desc: 'Paons, chèvres, lapins et tortues vivent en liberté sur la propriété. Les enfants adorent les observer.',
-    photos: [
-      { src: '/images/farm/paon-facade.jpg', alt: 'Paon devant la façade de la villa' },
-      { src: '/images/farm/paon-terrasse.jpg', alt: 'Paon sur la terrasse en bois' },
-      { src: '/images/farm/paon-coqs.jpg', alt: 'Paon et coqs en liberté' },
-      { src: '/images/farm/chevre.jpg', alt: 'Chèvre et chevreau de la ferme' },
-      { src: '/images/farm/tortue.jpg', alt: 'Tortue parmi les fleurs sauvages' },
-    ],
-  },
-];
+export default async function GaleriePage() {
+  const sections = await getGallery();
 
-export default function GaleriePage() {
   return (
     <>
       {/* En-tête */}
@@ -88,7 +34,7 @@ export default function GaleriePage() {
           </FadeIn>
           <FadeIn delay={0.18}>
             <nav className="flex flex-wrap gap-2" aria-label="Sections">
-              {SECTIONS.map((s) => (
+              {sections.map((s) => (
                 <a key={s.id} href={`#${s.id}`} className="px-5 py-2.5 rounded-full text-sm font-medium transition-colors bg-[#EBF0E2] text-[#52632E] hover:bg-[#52632E] hover:text-white">
                   {s.label}
                 </a>
@@ -98,7 +44,7 @@ export default function GaleriePage() {
         </div>
       </section>
 
-      {SECTIONS.map((section, si) => (
+      {sections.map((section, si) => (
         <section key={section.id} id={section.id} className={`py-16 md:py-24 scroll-mt-20 ${si % 2 === 0 ? 'bg-white' : 'bg-[#F5EFE0]'}`}>
           <div className="mx-auto max-w-6xl px-5 md:px-8">
             <FadeIn>
@@ -114,7 +60,7 @@ export default function GaleriePage() {
             </FadeIn>
             <div className="grid grid-cols-2 md:grid-cols-3 gap-3 md:gap-4">
               {section.photos.map((photo, pi) => (
-                <FadeIn key={pi} delay={(pi % 3) * 0.06} blur={false}>
+                <FadeIn key={photo.id} delay={(pi % 3) * 0.06} blur={false}>
                   <div className="relative aspect-[2/3] rounded-xl md:rounded-2xl overflow-hidden bg-[#EDE5D0]">
                     <Image src={photo.src} alt={photo.alt} fill sizes="(max-width: 768px) 50vw, 33vw" className="object-cover hover:scale-[1.03] transition-transform duration-500 ease-[0.22,1,0.36,1]" quality={80} />
                   </div>

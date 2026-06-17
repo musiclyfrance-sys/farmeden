@@ -4,7 +4,9 @@ import Link from 'next/link';
 import { ArrowRight } from 'lucide-react';
 import { FadeIn } from '@/components/ui/FadeIn';
 import { CTASection } from '@/components/CTASection';
-import { POSTS } from '@/lib/content';
+import { getPosts } from '@/lib/admin/store';
+
+export const dynamic = 'force-dynamic';
 
 export const metadata: Metadata = {
   title: 'Journal',
@@ -13,8 +15,9 @@ export const metadata: Metadata = {
   alternates: { canonical: '/journal' },
 };
 
-export default function JournalPage() {
-  const [lead, ...rest] = POSTS;
+export default async function JournalPage() {
+  const all = (await getPosts()).filter((p) => p.published !== false);
+  const [lead, ...rest] = all;
 
   return (
     <>
@@ -36,6 +39,7 @@ export default function JournalPage() {
       </section>
 
       {/* Article à la une */}
+      {lead && (
       <section className="bg-[#F5EFE0] pb-12">
         <div className="mx-auto max-w-6xl px-5 md:px-8">
           <FadeIn>
@@ -58,6 +62,7 @@ export default function JournalPage() {
           </FadeIn>
         </div>
       </section>
+      )}
 
       {/* Autres articles */}
       <section className="bg-[#F5EFE0] pb-20 md:pb-28">

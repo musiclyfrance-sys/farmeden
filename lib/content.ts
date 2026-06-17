@@ -568,10 +568,13 @@ export interface Post {
   dateLabel: string;  // affichage
   readingTime: string;
   cover: string;
+  coverAlt?: string;
+  keyword?: string;
   tag: string;
   metaTitle: string;
   metaDescription: string;
   sections: { heading?: string; paragraphs: string[] }[];
+  published?: boolean; // undefined = publié
 }
 
 export const POSTS: Post[] = [
@@ -760,6 +763,69 @@ export const FAQ = [
   {
     q: 'Peut-on organiser un mariage ou une grande fête ?',
     a: 'Oui, la ferme se privatise pour tous les événements. Contactez-nous pour en discuter et nous trouvons ensemble la formule qui vous convient.',
+  },
+];
+
+/* ─── Galerie (rubriques par défaut, éditables via /admin) ── */
+export interface GalleryPhoto { id: string; src: string; alt: string; }
+export interface GalleryRubric { id: string; label: string; desc: string; photos: GalleryPhoto[]; }
+
+export const DEFAULT_GALLERY: GalleryRubric[] = [
+  {
+    id: 'villa',
+    label: 'La villa',
+    desc: 'Une maison marocaine authentique avec quatre chambres, deux salons, une cuisine équipée et de larges terrasses.',
+    photos: [
+      { id: 'v1', src: '/images/farm/salon.jpg', alt: 'Salon principal sous une arche en pierre' },
+      { id: 'v2', src: '/images/farm/sejour.jpg', alt: 'Séjour avec baie vitrée sur le jardin' },
+      { id: 'v3', src: '/images/farm/salon-marocain.jpg', alt: 'Salon marocain ouvert sur la cuisine' },
+      { id: 'v4', src: '/images/farm/salle-manger.jpg', alt: 'Salle à manger sous arche en pierre' },
+      { id: 'v5', src: '/images/farm/cuisine.jpg', alt: 'Cuisine avec bar en bois rustique' },
+      { id: 'v6', src: '/images/farm/couloir.jpg', alt: 'Couloir voûté de la villa' },
+      { id: 'v7', src: '/images/farm/chambre-double.jpg', alt: 'Chambre double lumineuse' },
+      { id: 'v8', src: '/images/farm/chambre-master.jpg', alt: 'Chambre principale aux tons chauds' },
+      { id: 'v9', src: '/images/farm/sdb-doree.jpg', alt: 'Salle de bain en pierre dorée' },
+    ],
+  },
+  {
+    id: 'piscine',
+    label: 'Piscine et terrasses',
+    desc: 'Une grande piscine privée entourée de pelouse et de palmiers, prolongée par des terrasses ombragées.',
+    photos: [
+      { id: 'p1', src: '/images/farm/piscine.jpg', alt: 'Piscine privée et palmiers' },
+      { id: 'p2', src: '/images/farm/piscine-turquoise.jpg', alt: 'Piscine turquoise au milieu des arbres' },
+      { id: 'p3', src: '/images/farm/piscine-arbre.jpg', alt: 'Piscine à l\'ombre d\'un arbre' },
+      { id: 'p4', src: '/images/farm/terrasse-piscine.jpg', alt: 'Banquette de terrasse face à la piscine' },
+      { id: 'p5', src: '/images/farm/terrasse-repas.jpg', alt: 'Terrasse de repas couverte' },
+      { id: 'p6', src: '/images/farm/terrasse-salon.jpg', alt: 'Salon de terrasse avec coussins zellige' },
+      { id: 'p7', src: '/images/farm/daybed.jpg', alt: 'Lit gazebo posé sur la pelouse' },
+      { id: 'p8', src: '/images/farm/facade.jpg', alt: 'Façade et entrée principale de la villa' },
+    ],
+  },
+  {
+    id: 'jardin',
+    label: 'Jardin et nature',
+    desc: 'Un terrain de 1,5 hectare planté de palmiers, d\'arbres fruitiers et de fleurs, avec beaucoup d\'ombre et de calme.',
+    photos: [
+      { id: 'j1', src: '/images/farm/palmeraie.jpg', alt: 'Palmeraie et prairie sous un ciel bleu' },
+      { id: 'j2', src: '/images/farm/jardin-tropical.jpg', alt: 'Allée dallée dans le jardin tropical' },
+      { id: 'j3', src: '/images/farm/allee-palmier.jpg', alt: 'Allée bordée de palmiers' },
+      { id: 'j4', src: '/images/farm/allee.jpg', alt: 'Allée dallée vers la villa et le bananier' },
+      { id: 'j5', src: '/images/farm/fleurs-jaunes.jpg', alt: 'Tapis de fleurs jaunes au printemps' },
+      { id: 'j6', src: '/images/farm/pechers.jpg', alt: 'Pêchers en fruits dans le champ fleuri' },
+    ],
+  },
+  {
+    id: 'animaux',
+    label: 'Les animaux',
+    desc: 'Paons, chèvres, lapins et tortues vivent en liberté sur la propriété. Les enfants adorent les observer.',
+    photos: [
+      { id: 'a1', src: '/images/farm/paon-facade.jpg', alt: 'Paon devant la façade de la villa' },
+      { id: 'a2', src: '/images/farm/paon-terrasse.jpg', alt: 'Paon sur la terrasse en bois' },
+      { id: 'a3', src: '/images/farm/paon-coqs.jpg', alt: 'Paon et coqs en liberté' },
+      { id: 'a4', src: '/images/farm/chevre.jpg', alt: 'Chèvre et chevreau de la ferme' },
+      { id: 'a5', src: '/images/farm/tortue.jpg', alt: 'Tortue parmi les fleurs sauvages' },
+    ],
   },
 ];
 

@@ -4,7 +4,7 @@ import localFont from 'next/font/local';
 import './globals.css';
 import { Navbar } from '@/components/Navbar';
 import { Footer } from '@/components/Footer';
-import { WhatsAppFloat } from '@/components/WhatsAppFloat';
+import { ChromeGate } from '@/components/ChromeGate';
 import { FAQ } from '@/lib/content';
 
 const inter = Inter({
@@ -102,10 +102,9 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
         />
       </head>
       <body>
-        <Navbar />
-        <main>{children}</main>
-        <Footer />
-        <WhatsAppFloat />
+        <ChromeGate nav={<Navbar />} footer={<Footer />}>
+          {children}
+        </ChromeGate>
       </body>
     </html>
   );

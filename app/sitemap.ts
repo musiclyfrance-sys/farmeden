@@ -1,9 +1,13 @@
 import type { MetadataRoute } from 'next';
-import { EXPERIENCES, POSTS } from '@/lib/content';
+import { EXPERIENCES } from '@/lib/content';
+import { getPosts } from '@/lib/admin/store';
 
-export default function sitemap(): MetadataRoute.Sitemap {
+export const dynamic = 'force-dynamic';
+
+export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
   const base = 'https://farmeden.ma';
   const now = new Date();
+  const POSTS = (await getPosts()).filter((p) => p.published !== false);
 
   const staticPages: MetadataRoute.Sitemap = [
     { url: base, lastModified: now, changeFrequency: 'weekly', priority: 1.0 },

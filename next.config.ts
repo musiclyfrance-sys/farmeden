@@ -6,6 +6,9 @@ const nextConfig: NextConfig = {
     qualities: [75, 80, 85, 90],
     deviceSizes: [375, 640, 768, 1024, 1280, 1440, 1920],
     imageSizes: [16, 32, 48, 64, 96, 128, 256, 384],
+    remotePatterns: [
+      { protocol: 'https', hostname: '*.public.blob.vercel-storage.com' },
+    ],
   },
   async headers() {
     return [
