@@ -102,13 +102,15 @@ export default function GaleriePage() {
         <section key={section.id} id={section.id} className={`py-16 md:py-24 scroll-mt-20 ${si % 2 === 0 ? 'bg-white' : 'bg-[#F5EFE0]'}`}>
           <div className="mx-auto max-w-6xl px-5 md:px-8">
             <FadeIn>
-              <div className="flex items-center gap-3 mb-3">
-                <span className="h-0.5 w-8 rounded-full bg-[#52632E]" aria-hidden="true" />
-                <span className="text-xs font-medium tracking-widest uppercase text-[#52632E]">{section.label}</span>
-              </div>
+              <p className="text-xs font-medium tracking-widest uppercase text-[#A84A26] mb-3">
+                Rubrique {String(si + 1).padStart(2, '0')}
+              </p>
+              <h2 className="font-display font-normal text-[#231C14] leading-[1.04]" style={{ fontSize: 'clamp(2rem, 4.2vw, 3.4rem)' }}>
+                {section.label}
+              </h2>
             </FadeIn>
             <FadeIn delay={0.06}>
-              <p className="text-[#231C14]/60 text-base leading-relaxed mb-10 max-w-lg">{section.desc}</p>
+              <p className="text-[#231C14]/60 text-base leading-relaxed mb-10 mt-4 max-w-lg">{section.desc}</p>
             </FadeIn>
             <div className="grid grid-cols-2 md:grid-cols-3 gap-3 md:gap-4">
               {section.photos.map((photo, pi) => (

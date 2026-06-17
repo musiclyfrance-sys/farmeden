@@ -3,7 +3,7 @@
 import Image from 'next/image';
 import Link from 'next/link';
 import { motion } from 'framer-motion';
-import { Star, ArrowRight } from 'lucide-react';
+import { Star, ArrowRight, Waves, House, UtensilsCrossed, Volleyball, PawPrint, ShieldCheck } from 'lucide-react';
 import { FadeIn } from '@/components/ui/FadeIn';
 import { WhatsAppBtn } from '@/components/WhatsAppFloat';
 import { CTASection } from '@/components/CTASection';
@@ -20,47 +20,14 @@ import {
   WA_MESSAGES,
 } from '@/lib/content';
 
-/* ─── Pictogrammes SVG ─────────────────────────────────────── */
-const PICTOS: Record<string, React.ReactNode> = {
-  pool: (
-    <svg viewBox="0 0 32 32" fill="none" stroke="currentColor" strokeWidth={1.5} strokeLinecap="round" className="w-7 h-7">
-      <path d="M3 18c2.5-3.5 4.5-3.5 7 0s4.5 3.5 7 0 4.5-3.5 7 0" />
-      <path d="M3 24c2.5-3.5 4.5-3.5 7 0s4.5 3.5 7 0 4.5-3.5 7 0" />
-      <path d="M16 5v9" /><path d="M12 8h8" />
-      <circle cx="16" cy="4" r="1.2" fill="currentColor" stroke="none" />
-    </svg>
-  ),
-  villa: (
-    <svg viewBox="0 0 32 32" fill="none" stroke="currentColor" strokeWidth={1.5} strokeLinecap="round" strokeLinejoin="round" className="w-7 h-7">
-      <path d="M3 14L16 4l13 10" /><path d="M7 14v13h18V14" />
-      <rect x="13" y="20" width="6" height="7" rx="1.5" />
-      <rect x="8" y="16" width="5" height="4" rx="1" /><rect x="19" y="16" width="5" height="4" rx="1" />
-    </svg>
-  ),
-  cuisine: (
-    <svg viewBox="0 0 32 32" fill="none" stroke="currentColor" strokeWidth={1.5} strokeLinecap="round" className="w-7 h-7">
-      <path d="M9 3v9c0 2.5-2 4-4.5 4S0 14.5 0 12V3" /><path d="M4.5 16v13" /><path d="M0 6h9" />
-      <path d="M23 3c0 0 6 3.5 6 11v2H17v-2C17 6.5 23 3 23 3z" /><path d="M23 16v13" />
-    </svg>
-  ),
-  sport: (
-    <svg viewBox="0 0 32 32" fill="none" stroke="currentColor" strokeWidth={1.5} strokeLinecap="round" strokeLinejoin="round" className="w-7 h-7">
-      <circle cx="22" cy="6" r="2.5" /><path d="M15 12l7-4 5 6-5 5-2 10" />
-      <path d="M15 12l-6 9 4 4" /><path d="M9 28l1-4-4-4" />
-    </svg>
-  ),
-  nature: (
-    <svg viewBox="0 0 32 32" fill="none" stroke="currentColor" strokeWidth={1.5} strokeLinecap="round" className="w-7 h-7">
-      <path d="M16 28V17" /><path d="M7 11c0-5 4-9 9-9 4 0 8 4 8 9s-4 6-4 6h-9s-4-2-4-6z" />
-      <path d="M16 17c-1-3-5-7-4-11" /><path d="M16 17c1-3 4-5 6-9" />
-    </svg>
-  ),
-  private: (
-    <svg viewBox="0 0 32 32" fill="none" stroke="currentColor" strokeWidth={1.5} strokeLinecap="round" strokeLinejoin="round" className="w-7 h-7">
-      <rect x="7" y="14" width="18" height="14" rx="2.5" /><path d="M11 14v-4a5 5 0 0 1 10 0v4" />
-      <circle cx="16" cy="22" r="2" fill="currentColor" stroke="none" /><path d="M16 22v3" />
-    </svg>
-  ),
+/* ─── Pictogrammes (lucide, nets et lisibles) ──────────────── */
+const ICONS: Record<string, React.ComponentType<{ className?: string; strokeWidth?: number }>> = {
+  pool: Waves,
+  villa: House,
+  cuisine: UtensilsCrossed,
+  sport: Volleyball,
+  nature: PawPrint,
+  private: ShieldCheck,
 };
 
 const MARQUEE_PHOTOS = [
@@ -82,9 +49,9 @@ const MARQUEE_PHOTOS = [
 ];
 
 const RESERVATION_STEPS = [
-  { n: '01', title: 'Envoyez-nous vos dates', desc: 'Dites-nous quand vous souhaitez venir et combien vous serez.' },
-  { n: '02', title: 'On vous confirme tout', desc: 'Nous vérifions la disponibilité et nous vous envoyons les détails et le tarif.' },
-  { n: '03', title: 'Profitez de la ferme', desc: 'Le jour venu, la ferme est entièrement à vous. Vous n\'avez plus rien à gérer.' },
+  { n: '01', title: 'Envoyez-nous vos dates', desc: 'Dites-nous quand vous venez et combien vous serez.' },
+  { n: '02', title: 'On vous confirme tout', desc: 'Nous vérifions la disponibilité et le tarif.' },
+  { n: '03', title: 'Profitez de la ferme', desc: 'Le jour venu, la ferme est entièrement à vous.' },
 ];
 
 export default function HomePage() {
@@ -244,41 +211,41 @@ export default function HomePage() {
             </h2>
           </FadeIn>
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5">
-            {FEATURES.map((f, i) => (
-              <FadeIn key={f.title} delay={i * 0.07}>
-                <div className="bg-white rounded-2xl p-7 flex flex-col gap-5 h-full border border-[#231C14]/5 hover:border-[#52632E]/25 transition-colors duration-200 group">
-                  <div className="w-14 h-14 rounded-2xl flex items-center justify-center bg-[#EBF0E2] text-[#52632E] transition-transform duration-300 group-hover:scale-105">
-                    {PICTOS[f.icon]}
+            {FEATURES.map((f, i) => {
+              const Icon = ICONS[f.icon] ?? ShieldCheck;
+              return (
+                <FadeIn key={f.title} delay={i * 0.07}>
+                  <div className="bg-white rounded-2xl p-7 flex flex-col gap-5 h-full border border-[#231C14]/5 hover:border-[#52632E]/25 transition-colors duration-200 group">
+                    <div className="w-14 h-14 rounded-2xl flex items-center justify-center bg-[#EBF0E2] text-[#52632E] transition-transform duration-300 group-hover:scale-105">
+                      <Icon className="w-6 h-6" strokeWidth={1.6} />
+                    </div>
+                    <div>
+                      <h3 className="font-semibold text-[#231C14] mb-2 text-base">{f.title}</h3>
+                      <p className="text-[#231C14]/60 text-sm leading-relaxed">{f.description}</p>
+                    </div>
                   </div>
-                  <div>
-                    <h3 className="font-semibold text-[#231C14] mb-2 text-base">{f.title}</h3>
-                    <p className="text-[#231C14]/60 text-sm leading-relaxed">{f.description}</p>
-                  </div>
-                </div>
-              </FadeIn>
-            ))}
+                </FadeIn>
+              );
+            })}
           </div>
         </div>
       </section>
 
       {/* ═══ RÉSERVATION (étapes animées) ═══ */}
       <section className="bg-white py-20 md:py-32">
-        <div className="mx-auto max-w-6xl px-5 md:px-8 grid grid-cols-1 md:grid-cols-12 gap-12 md:gap-16">
+        <div className="mx-auto max-w-6xl px-5 md:px-8 grid grid-cols-1 md:grid-cols-12 gap-12 md:gap-16 items-center">
           <div className="md:col-span-5">
             <FadeIn><p className="text-xs font-medium tracking-widest uppercase text-[#A84A26] mb-5">Réservation</p></FadeIn>
             <FadeIn delay={0.06}>
-              <h2 className="font-display font-normal text-[#231C14] leading-[1.1] mb-6" style={{ fontSize: 'clamp(1.9rem, 3.5vw, 3rem)' }}>
+              <h2 className="font-display font-normal text-[#231C14] leading-[1.1] mb-8" style={{ fontSize: 'clamp(1.9rem, 3.5vw, 3rem)' }}>
                 Simple comme<br /><em className="italic text-[#52632E]">un message WhatsApp.</em>
               </h2>
             </FadeIn>
             <FadeIn delay={0.12}>
-              <p className="text-[#231C14]/60 text-base leading-relaxed mb-8 max-w-sm">
-                Pas de formulaire compliqué ni de paiement en ligne. Tout se règle en quelques messages, et nous nous occupons du reste.
-              </p>
               <WhatsAppBtn message={WA_MESSAGES.reservation} label="Réserver les dates" variant="olive" size="lg" icon="calendar" />
             </FadeIn>
           </div>
-          <div className="md:col-span-7 md:pt-4">
+          <div className="md:col-span-7">
             <ReservationSteps steps={RESERVATION_STEPS} />
           </div>
         </div>
@@ -292,7 +259,7 @@ export default function HomePage() {
               <FadeIn><p className="text-xs font-medium tracking-widest uppercase text-[#52632E] mb-5">La galerie</p></FadeIn>
               <FadeIn delay={0.06}>
                 <h2 className="font-display font-normal text-[#231C14] leading-[1.1] max-w-lg" style={{ fontSize: 'clamp(1.9rem, 3.5vw, 3rem)' }}>
-                  La ferme,<br /><em className="italic text-[#52632E]">vue de l&apos;intérieur.</em>
+                  Un avant-goût<br /><em className="italic text-[#52632E]">de votre séjour.</em>
                 </h2>
               </FadeIn>
             </div>

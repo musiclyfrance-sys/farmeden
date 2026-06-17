@@ -1,6 +1,6 @@
 import Link from 'next/link';
-import { MapPin, Phone } from 'lucide-react';
-import { SITE, NAV_LINKS } from '@/lib/content';
+import { MapPin, MessageCircle } from 'lucide-react';
+import { NAV_LINKS, WA_MESSAGES, whatsappUrl } from '@/lib/content';
 
 export function Footer() {
   const year = new Date().getFullYear();
@@ -11,7 +11,7 @@ export function Footer() {
 
         {/* Brand */}
         <div className="md:pr-8">
-          <img src="/images/logo-noir.svg" alt="Farm Eden" className="h-10 w-auto mb-4" />
+          <img src="/images/logo-noir.svg" alt="Farm Eden" className="h-12 w-auto mb-4" />
           <p className="text-[#F5EFE0]/60 text-sm leading-relaxed max-w-xs">
             Une ferme avec piscine privée, rien que pour vous. Villa entière, verdure et cuisine
             marocaine, à 45 minutes de Rabat.
@@ -53,10 +53,10 @@ export function Footer() {
                 Rabat-Salé-Kénitra, Maroc
               </span>
             </li>
-            <li className="flex gap-3 items-center">
-              <Phone className="w-4 h-4 text-[#D4B78A] shrink-0" aria-hidden="true" />
-              <a href={`tel:${SITE.phone}`} className="text-[#F5EFE0]/60 hover:text-[#F5EFE0] text-sm transition-colors">
-                {SITE.phone}
+            <li className="flex gap-3 items-start">
+              <MessageCircle className="w-4 h-4 text-[#D4B78A] mt-0.5 shrink-0" aria-hidden="true" />
+              <a href={whatsappUrl(WA_MESSAGES.general)} target="_blank" rel="noopener noreferrer" className="text-[#F5EFE0]/60 hover:text-[#F5EFE0] text-sm transition-colors">
+                Nous écrire sur WhatsApp
               </a>
             </li>
           </ul>

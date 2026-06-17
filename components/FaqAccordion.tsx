@@ -10,7 +10,7 @@ interface FaqItem {
 
 /** Accordéon FAQ : une seule question ouverte à la fois. */
 export function FaqAccordion({ items }: { items: FaqItem[] }) {
-  const [open, setOpen] = useState<number | null>(0);
+  const [open, setOpen] = useState<number | null>(null);
   const reduced = useReducedMotion();
 
   return (

@@ -2,7 +2,7 @@ import type { Metadata } from 'next';
 import Image from 'next/image';
 import Link from 'next/link';
 import { notFound } from 'next/navigation';
-import { ArrowLeft, ArrowRight } from 'lucide-react';
+import { ArrowRight, Star } from 'lucide-react';
 import { FadeIn } from '@/components/ui/FadeIn';
 import { Picto } from '@/components/ui/Pictos';
 import { CTASection } from '@/components/CTASection';
@@ -51,13 +51,8 @@ export default async function ExperienceDetailPage({ params }: { params: Promise
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumb) }} />
 
       {/* ═══ Hero (split, photo à gauche) ═══ */}
-      <section className="bg-[#F5EFE0] pt-28 md:pt-32 pb-16 md:pb-24">
+      <section className="bg-[#F5EFE0] pt-28 md:pt-36 pb-16 md:pb-24">
         <div className="mx-auto max-w-6xl px-5 md:px-8">
-          <FadeIn>
-            <Link href="/experiences" className="inline-flex items-center gap-2 text-[#52632E] hover:text-[#3f4d23] text-sm font-medium mb-8 transition-colors">
-              <ArrowLeft className="w-4 h-4" aria-hidden="true" /> Toutes les expériences
-            </Link>
-          </FadeIn>
           <div className="grid grid-cols-1 md:grid-cols-2 gap-10 md:gap-14 items-center">
             <FadeIn direction="right" className="order-2 md:order-1">
               <div className="relative w-full rounded-[1.75rem] overflow-hidden shadow-2xl shadow-[#231C14]/15" style={{ aspectRatio: '4 / 5' }}>
@@ -66,7 +61,12 @@ export default async function ExperienceDetailPage({ params }: { params: Promise
             </FadeIn>
             <div className="order-1 md:order-2">
               <FadeIn>
-                <span className="inline-block text-xs font-semibold tracking-widest uppercase bg-[#EBF0E2] text-[#52632E] px-4 py-2 rounded-full mb-5">{exp.heroKicker}</span>
+                <div className="inline-flex items-center gap-2.5 bg-[#FAF3E8] border border-[#D4B78A]/40 px-4 py-2 rounded-full mb-5">
+                  <div className="flex gap-0.5" aria-hidden="true">
+                    {[...Array(5)].map((_, i) => (<Star key={i} className="w-3 h-3 fill-[#D4B78A] text-[#D4B78A]" />))}
+                  </div>
+                  <span className="text-xs font-medium text-[#8B6B3D]">{exp.heroKicker} · Ferme privatisée</span>
+                </div>
               </FadeIn>
               <FadeIn delay={0.06}>
                 <h1 className="font-display font-normal text-[#231C14] leading-[1.04]" style={{ fontSize: 'clamp(2.4rem, 5vw, 4rem)' }}>{exp.title}</h1>
@@ -74,7 +74,16 @@ export default async function ExperienceDetailPage({ params }: { params: Promise
               <FadeIn delay={0.12}>
                 <p className="text-[#231C14]/65 text-lg leading-relaxed mt-5 max-w-md">{exp.subtitle}</p>
               </FadeIn>
-              <FadeIn delay={0.18} className="mt-8">
+              <FadeIn delay={0.18}>
+                <ul className="flex flex-wrap gap-2.5 mt-7" role="list">
+                  {exp.highlights.map((h) => (
+                    <li key={h.title} className="inline-flex items-center gap-2 bg-white text-[#231C14]/75 text-sm font-medium px-3.5 py-2 rounded-full border border-[#231C14]/6">
+                      <span className="w-1.5 h-1.5 rounded-full bg-[#52632E]" aria-hidden="true" />{h.title}
+                    </li>
+                  ))}
+                </ul>
+              </FadeIn>
+              <FadeIn delay={0.24} className="mt-8">
                 <WhatsAppBtn message={WA_MESSAGES[exp.wa]} label={exp.cta.label} variant="olive" size="lg" icon="calendar" />
               </FadeIn>
             </div>
@@ -83,7 +92,7 @@ export default async function ExperienceDetailPage({ params }: { params: Promise
       </section>
 
       {/* ═══ Intro ═══ */}
-      <section className="bg-white py-20 md:py-28">
+      <section className="bg-white pt-20 md:pt-28 pb-4">
         <div className="mx-auto max-w-3xl px-5 md:px-8 text-center">
           <FadeIn>
             <p className="font-display text-[#231C14] leading-[1.4]" style={{ fontSize: 'clamp(1.4rem, 2.6vw, 2rem)' }}>{exp.intro}</p>
@@ -93,15 +102,17 @@ export default async function ExperienceDetailPage({ params }: { params: Promise
 
       {/* ═══ Récit ═══ */}
       <section className="bg-white py-16 md:py-24">
-        <div className="mx-auto max-w-5xl px-5 md:px-8 flex flex-col gap-14 md:gap-20">
+        <div className="mx-auto max-w-3xl px-5 md:px-8 divide-y divide-[#231C14]/8">
           {exp.story.map((block, i) => (
-            <div key={i} className="grid grid-cols-1 md:grid-cols-12 gap-6 md:gap-10 items-start">
-              <FadeIn className="md:col-span-4">
-                <span className="font-display text-5xl text-[#52632E]/25 leading-none block mb-3">{String(i + 1).padStart(2, '0')}</span>
-                <h2 className="font-display font-normal text-[#231C14] leading-[1.15]" style={{ fontSize: 'clamp(1.5rem, 2.4vw, 2rem)' }}>{block.title}</h2>
+            <div key={i} className="grid grid-cols-[auto_1fr] gap-5 md:gap-9 items-start py-9 first:pt-0 last:pb-0">
+              <FadeIn blur={false}>
+                <span className="font-display font-normal text-[#52632E] leading-none" style={{ fontSize: 'clamp(1.6rem, 2.4vw, 2.1rem)' }}>
+                  {String(i + 1).padStart(2, '0')}
+                </span>
               </FadeIn>
-              <FadeIn delay={0.08} className="md:col-span-8">
-                <p className="text-[#231C14]/70 text-lg leading-relaxed">{block.body}</p>
+              <FadeIn delay={0.06} blur={false}>
+                <h2 className="font-display font-normal text-[#231C14] leading-[1.2] mb-3" style={{ fontSize: 'clamp(1.35rem, 2.2vw, 1.8rem)' }}>{block.title}</h2>
+                <p className="text-[#231C14]/70 text-base md:text-lg leading-relaxed">{block.body}</p>
               </FadeIn>
             </div>
           ))}
@@ -130,14 +141,14 @@ export default async function ExperienceDetailPage({ params }: { params: Promise
         </div>
       </section>
 
-      {/* ═══ Galerie ═══ */}
+      {/* ═══ Galerie (3:2 vertical) ═══ */}
       <section className="bg-[#F5EFE0] py-20 md:py-28">
         <div className="mx-auto max-w-6xl px-5 md:px-8">
           <FadeIn><p className="text-xs font-medium tracking-widest uppercase text-[#A84A26] mb-10">En images</p></FadeIn>
           <div className="grid grid-cols-2 md:grid-cols-3 gap-3 md:gap-4">
             {exp.gallery.map((src, i) => (
               <FadeIn key={src} delay={(i % 3) * 0.06} blur={false}>
-                <div className={`relative rounded-2xl overflow-hidden bg-[#EDE5D0] ${i % 5 === 0 ? 'aspect-[3/4]' : 'aspect-square'}`}>
+                <div className="relative aspect-[2/3] rounded-2xl overflow-hidden bg-[#EDE5D0]">
                   <Image src={src} alt={`${exp.title}, photo ${i + 1}`} fill sizes="(max-width: 768px) 50vw, 33vw" className="object-cover hover:scale-[1.04] transition-transform duration-500" quality={78} />
                 </div>
               </FadeIn>

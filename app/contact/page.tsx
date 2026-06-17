@@ -1,5 +1,5 @@
 import type { Metadata } from 'next';
-import { MapPin, Phone, Clock, MessageCircle, ArrowUpRight } from 'lucide-react';
+import { MapPin, Clock, MessageCircle, ArrowUpRight } from 'lucide-react';
 import { FadeIn } from '@/components/ui/FadeIn';
 import { SITE, WA_MESSAGES, whatsappUrl } from '@/lib/content';
 
@@ -19,8 +19,8 @@ const CONTEXTS = [
 
 const INFOS = [
   { icon: MapPin, title: 'Adresse', lines: ['Ain Johra, commune de Tiflet', 'Rabat-Salé-Kénitra, Maroc'] },
-  { icon: Phone, title: 'Téléphone', lines: [SITE.phone] },
   { icon: Clock, title: 'Disponibilité', lines: ['Nous répondons dans la journée,', '7 jours sur 7.'] },
+  { icon: MessageCircle, title: 'Sur WhatsApp', lines: ['Le moyen le plus rapide', 'pour réserver et échanger.'] },
 ];
 
 export default function ContactPage() {
@@ -71,8 +71,7 @@ export default function ContactPage() {
                 ))}
               </div>
               <p className="text-[#231C14]/45 text-sm mt-6">
-                Vous préférez appeler ?
-                <a href={`tel:${SITE.phone}`} className="ml-1.5 text-[#231C14] font-medium hover:text-[#52632E] transition-colors">{SITE.phone}</a>
+                Choisissez un sujet et votre message s&apos;ouvre déjà rédigé. Il ne vous reste qu&apos;à appuyer sur envoyer.
               </p>
             </div>
           </FadeIn>
@@ -120,8 +119,8 @@ export default function ContactPage() {
             </h2>
           </FadeIn>
           <FadeIn delay={0.12}>
-            <p className="text-[#231C14]/55 text-sm mt-2 mb-8">
-              {SITE.addressLine}. Un parking privé vous attend sur place, et nous vous envoyons les coordonnées GPS exactes à la réservation.
+            <p className="text-[#231C14]/55 text-base leading-relaxed mt-3 mb-8 max-w-lg">
+              La ferme se niche en pleine campagne, au calme. Un parking privé vous attend sur place et nous vous envoyons l&apos;itinéraire détaillé dès la réservation confirmée.
             </p>
           </FadeIn>
           <FadeIn delay={0.16}>

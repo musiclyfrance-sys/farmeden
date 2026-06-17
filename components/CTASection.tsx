@@ -32,10 +32,16 @@ export function CTASection({
     <section className="relative overflow-hidden bg-[#52632E]">
       <div className="absolute inset-0 bg-gradient-to-br from-[#5d7037] via-[#52632E] to-[#3c4a22]" aria-hidden="true" />
 
-      {/* Motif décoratif (lignes, aucune photo) */}
-      <svg className="absolute -top-24 -right-24 w-[420px] h-[420px] text-white/[0.06]" viewBox="0 0 200 200" fill="none" stroke="currentColor" strokeWidth="1" aria-hidden="true">
-        <circle cx="100" cy="100" r="40" /><circle cx="100" cy="100" r="62" /><circle cx="100" cy="100" r="84" /><circle cx="100" cy="100" r="98" />
+      {/* Olivier décoratif (haut droite) */}
+      <svg className="absolute -top-10 -right-8 md:-right-2 w-[300px] h-[300px] text-white/[0.08]" viewBox="0 0 200 200" fill="none" stroke="currentColor" strokeWidth="1.4" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
+        <path d="M100 170v-66" />
+        <path d="M100 150c-10-6-18-6-28-2M100 132c12-6 20-6 30-1M100 116c-9-7-17-8-27-5" />
+        <path d="M100 104c-22 0-40-15-40-34 0-7 3-13 7-17 8 4 14 11 16 19 1-12 8-22 17-27 9 5 16 15 17 27 2-8 8-15 16-19 4 4 7 10 7 17 0 19-18 34-40 34Z" />
+        <circle cx="78" cy="60" r="2.4" fill="currentColor" stroke="none" />
+        <circle cx="122" cy="64" r="2.4" fill="currentColor" stroke="none" />
+        <circle cx="100" cy="44" r="2.4" fill="currentColor" stroke="none" />
       </svg>
+      {/* Feuillage décoratif (bas gauche) */}
       <svg className="absolute -bottom-28 -left-20 w-[360px] h-[360px] text-white/[0.05]" viewBox="0 0 200 200" fill="none" stroke="currentColor" strokeWidth="1" aria-hidden="true">
         <path d="M100 20c-30 30-30 90 0 160 30-70 30-130 0-160Z" /><path d="M40 80c40 10 80 50 100 110M160 80c-40 10-80 50-100 110" />
       </svg>
