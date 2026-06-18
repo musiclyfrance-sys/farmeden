@@ -63,7 +63,7 @@ export default function HomePage() {
     <>
       {/* ═══ HERO ═══ */}
       <section className="relative bg-[#F5EFE0] overflow-hidden">
-        <div className="mx-auto max-w-7xl px-5 md:px-8 grid grid-cols-1 md:grid-cols-2 md:min-h-[92svh] items-center">
+        <div className="mx-auto max-w-6xl px-5 md:px-8 grid grid-cols-1 md:grid-cols-2 md:min-h-[92svh] items-center">
           <div className="pt-28 pb-10 md:py-32 pr-0 md:pr-10 lg:pr-16">
             <motion.div
               initial={{ opacity: 0, y: 12 }}
@@ -271,7 +271,7 @@ export default function HomePage() {
           </div>
         </div>
         <FadeIn delay={0.05} blur={false}>
-          <InfiniteMarquee photos={MARQUEE_PHOTOS} duration={75} />
+          <InfiniteMarquee photos={MARQUEE_PHOTOS} duration={60} />
         </FadeIn>
       </section>
 
