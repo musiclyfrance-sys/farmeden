@@ -2,15 +2,15 @@
 
 import { useMemo, useState } from 'react';
 import { ImagePicker } from './ImagePicker';
-import { scoreArticle, slugify, type ArticleDraft } from '@/lib/admin/seo';
+import { RichEditor } from './RichEditor';
+import { scoreArticle, slugify, sectionsToHtml, type ArticleDraft } from '@/lib/admin/seo';
 import type { Post } from '@/lib/content';
 
-interface Block { heading: string; body: string }
 interface Editor {
-  index: number | null; // null = nouveau
+  index: number | null;
   title: string; slug: string; keyword: string; tag: string;
   excerpt: string; metaDescription: string; cover: string; coverAlt: string;
-  blocks: Block[]; published: boolean;
+  bodyHtml: string; published: boolean;
 }
 
 const MONTHS = ['janvier', 'février', 'mars', 'avril', 'mai', 'juin', 'juillet', 'août', 'septembre', 'octobre', 'novembre', 'décembre'];
@@ -19,23 +19,18 @@ function postToEditor(p: Post, index: number): Editor {
   return {
     index, title: p.title, slug: p.slug, keyword: p.keyword ?? '', tag: p.tag,
     excerpt: p.excerpt, metaDescription: p.metaDescription, cover: p.cover, coverAlt: p.coverAlt ?? '',
-    blocks: p.sections.map((s) => ({ heading: s.heading ?? '', body: s.paragraphs.join('\n\n') })),
+    bodyHtml: p.bodyHtml || sectionsToHtml(p.sections || []),
     published: p.published !== false,
   };
 }
 function emptyEditor(): Editor {
-  return { index: null, title: '', slug: '', keyword: '', tag: 'Guide', excerpt: '', metaDescription: '', cover: '', coverAlt: '', blocks: [{ heading: '', body: '' }], published: true };
+  return { index: null, title: '', slug: '', keyword: '', tag: 'Guide', excerpt: '', metaDescription: '', cover: '', coverAlt: '', bodyHtml: '', published: true };
 }
 function editorToDraft(e: Editor): ArticleDraft {
-  return {
-    title: e.title, slug: e.slug, keyword: e.keyword, excerpt: e.excerpt,
-    metaDescription: e.metaDescription, tag: e.tag, coverUrl: e.cover, coverAlt: e.coverAlt,
-    sections: e.blocks.map((b) => ({ heading: b.heading.trim() || undefined, paragraphs: b.body.split(/\n\s*\n/).map((t) => t.trim()).filter(Boolean) })).filter((s) => s.heading || s.paragraphs.length),
-  };
+  return { title: e.title, slug: e.slug, keyword: e.keyword, excerpt: e.excerpt, metaDescription: e.metaDescription, tag: e.tag, coverUrl: e.cover, coverAlt: e.coverAlt, bodyHtml: e.bodyHtml };
 }
 function editorToPost(e: Editor): Post {
-  const d = editorToDraft(e);
-  const words = d.sections.reduce((n, s) => n + s.paragraphs.join(' ').split(/\s+/).filter(Boolean).length, 0);
+  const words = (e.bodyHtml.replace(/<[^>]+>/g, ' ').match(/\S+/g) || []).length;
   const now = new Date();
   return {
     slug: e.slug || slugify(e.title), title: e.title, excerpt: e.excerpt,
@@ -43,7 +38,7 @@ function editorToPost(e: Editor): Post {
     dateLabel: `${now.getDate()} ${MONTHS[now.getMonth()]} ${now.getFullYear()}`,
     readingTime: `${Math.max(1, Math.round(words / 200))} min de lecture`,
     cover: e.cover, coverAlt: e.coverAlt, keyword: e.keyword, tag: e.tag,
-    metaTitle: e.title, metaDescription: e.metaDescription, sections: d.sections, published: e.published,
+    metaTitle: e.title, metaDescription: e.metaDescription, sections: [], bodyHtml: e.bodyHtml, published: e.published,
   };
 }
 
@@ -60,24 +55,16 @@ export function JournalManager({ initial }: { initial: Post[] }) {
       const j = await res.json().catch(() => ({}));
       if (!res.ok) throw new Error(j.error || 'Erreur');
       setPosts(next); setMsg('Enregistré. Le site se met à jour.'); return true;
-    } catch (e) {
-      setMsg(e instanceof Error ? e.message : 'Erreur'); return false;
-    } finally {
-      setSaving(false);
-    }
+    } catch (e) { setMsg(e instanceof Error ? e.message : 'Erreur'); return false; } finally { setSaving(false); }
   }
 
   async function saveEditor(publish?: boolean) {
     if (!ed) return;
     const e = { ...ed, published: publish ?? ed.published, slug: ed.slug || slugify(ed.title) };
     const post = editorToPost(e);
-    const next = e.index === null
-      ? [post, ...posts]
-      : posts.map((p, i) => (i === e.index ? post : p));
-    const ok = await persist(next);
-    if (ok) setEd(null);
+    const next = e.index === null ? [post, ...posts] : posts.map((p, i) => (i === e.index ? post : p));
+    if (await persist(next)) setEd(null);
   }
-
   async function remove(i: number) {
     if (!confirm('Supprimer cet article ?')) return;
     await persist(posts.filter((_, idx) => idx !== i));
@@ -99,18 +86,14 @@ export function JournalManager({ initial }: { initial: Post[] }) {
         {posts.map((p, i) => (
           <div key={p.slug + i} className="flex items-center gap-4 p-4">
             <div className="w-16 h-12 rounded-lg overflow-hidden bg-neutral-100 shrink-0">
-              {p.cover && (
-                // eslint-disable-next-line @next/next/no-img-element
-                <img src={p.cover} alt="" className="w-full h-full object-cover" />
-              )}
+              {/* eslint-disable-next-line @next/next/no-img-element */}
+              {p.cover && <img src={p.cover} alt="" className="w-full h-full object-cover" />}
             </div>
             <div className="flex-1 min-w-0">
               <p className="font-medium text-sm truncate">{p.title || 'Sans titre'}</p>
               <p className="text-xs text-neutral-400 truncate">/{p.slug}</p>
             </div>
-            <span className={`text-xs px-2.5 py-1 rounded-full ${p.published !== false ? 'bg-green-100 text-green-700' : 'bg-neutral-100 text-neutral-500'}`}>
-              {p.published !== false ? 'Publié' : 'Brouillon'}
-            </span>
+            <span className={`text-xs px-2.5 py-1 rounded-full ${p.published !== false ? 'bg-green-100 text-green-700' : 'bg-neutral-100 text-neutral-500'}`}>{p.published !== false ? 'Publié' : 'Brouillon'}</span>
             <button onClick={() => setEd(postToEditor(p, i))} className="text-sm font-medium text-[#52632E] hover:underline">Éditer</button>
             <button onClick={() => remove(i)} className="text-sm text-red-500 hover:text-red-700">Suppr.</button>
           </div>
@@ -121,22 +104,18 @@ export function JournalManager({ initial }: { initial: Post[] }) {
   );
 }
 
-/* ── Éditeur d'article ── */
 function ArticleEditor({ ed, setEd, onSave, onCancel, saving, msg }: {
   ed: Editor; setEd: (e: Editor) => void; onSave: (publish?: boolean) => void; onCancel: () => void; saving: boolean; msg: string;
 }) {
   const draft = useMemo(() => editorToDraft(ed), [ed]);
   const { score, checks } = useMemo(() => scoreArticle(draft), [draft]);
   const set = (patch: Partial<Editor>) => setEd({ ...ed, ...patch });
-  const setBlock = (i: number, patch: Partial<Block>) => set({ blocks: ed.blocks.map((b, j) => (j === i ? { ...b, ...patch } : b)) });
-
   const ring = score >= 80 ? '#16a34a' : score >= 50 ? '#d97706' : '#dc2626';
 
   return (
     <div className="pb-24">
       <button onClick={onCancel} className="text-sm text-neutral-500 hover:text-neutral-900 mb-5">← Tous les articles</button>
       <div className="grid grid-cols-1 lg:grid-cols-[1fr_320px] gap-6 items-start">
-        {/* Formulaire */}
         <div className="flex flex-col gap-5">
           <div className="bg-white rounded-2xl border border-neutral-200 p-5 flex flex-col gap-4">
             <Field label="Titre de l'article">
@@ -152,52 +131,35 @@ function ArticleEditor({ ed, setEd, onSave, onCancel, saving, msg }: {
           </div>
 
           <div className="bg-white rounded-2xl border border-neutral-200 p-5">
-            <p className="text-sm font-medium mb-3">Image de couverture</p>
+            <p className="text-sm font-medium mb-3">Image de couverture (16:9)</p>
             <div className="max-w-md">
               <ImagePicker value={ed.cover} aspect={16 / 9} label={ed.coverAlt} onChange={(url) => set({ cover: url, coverAlt: ed.coverAlt || ed.title })} />
               <input value={ed.coverAlt} onChange={(e) => set({ coverAlt: e.target.value })} placeholder="Texte alternatif de la couverture" className="inp mt-2 text-xs" />
             </div>
           </div>
 
-          <div className="bg-white rounded-2xl border border-neutral-200 p-5 flex flex-col gap-5">
-            <p className="text-sm font-medium">Contenu</p>
-            {ed.blocks.map((b, i) => (
-              <div key={i} className="rounded-xl border border-neutral-200 p-3.5">
-                <input value={b.heading} onChange={(e) => setBlock(i, { heading: e.target.value })} placeholder="Sous-titre H2 (laisser vide pour un paragraphe simple)" className="inp mb-2 font-medium" />
-                <textarea value={b.body} onChange={(e) => setBlock(i, { body: e.target.value })} rows={5} placeholder="Vos paragraphes. Laissez une ligne vide entre deux paragraphes." className="inp" />
-                <div className="flex justify-end mt-2">
-                  <button onClick={() => set({ blocks: ed.blocks.filter((_, j) => j !== i) })} className="text-xs text-red-500 hover:text-red-700">Supprimer le bloc</button>
-                </div>
-              </div>
-            ))}
-            <button onClick={() => set({ blocks: [...ed.blocks, { heading: '', body: '' }] })} className="self-start text-sm font-medium text-[#52632E] hover:underline">+ Ajouter un bloc</button>
+          <div>
+            <p className="text-sm font-medium mb-2">Contenu</p>
+            <RichEditor value={ed.bodyHtml} onChange={(html) => set({ bodyHtml: html })} />
           </div>
         </div>
 
-        {/* Coach SEO */}
         <aside className="lg:sticky lg:top-24 bg-white rounded-2xl border border-neutral-200 p-5">
           <div className="flex items-center gap-3 mb-4">
             <div className="w-14 h-14 rounded-full flex items-center justify-center font-semibold text-lg shrink-0" style={{ color: ring, boxShadow: `inset 0 0 0 3px ${ring}` }}>{score}</div>
-            <div>
-              <p className="font-semibold text-sm">Coach SEO</p>
-              <p className="text-xs text-neutral-400">Score en direct</p>
-            </div>
+            <div><p className="font-semibold text-sm">Coach SEO</p><p className="text-xs text-neutral-400">Score en direct</p></div>
           </div>
           <ul className="flex flex-col gap-2.5 max-h-[60vh] overflow-auto pr-1">
             {checks.map((c) => (
               <li key={c.id} className="flex items-start gap-2.5">
                 <span className={`mt-1 w-2 h-2 rounded-full shrink-0 ${c.ok ? 'bg-green-500' : 'bg-neutral-300'}`} />
-                <div>
-                  <p className={`text-sm leading-tight ${c.ok ? 'text-neutral-800' : 'text-neutral-500'}`}>{c.label}</p>
-                  <p className="text-xs text-neutral-400">{c.detail}</p>
-                </div>
+                <div><p className={`text-sm leading-tight ${c.ok ? 'text-neutral-800' : 'text-neutral-500'}`}>{c.label}</p><p className="text-xs text-neutral-400">{c.detail}</p></div>
               </li>
             ))}
           </ul>
         </aside>
       </div>
 
-      {/* Barre d'actions */}
       <div className="fixed bottom-0 inset-x-0 bg-white border-t border-neutral-200 z-40">
         <div className="mx-auto max-w-6xl px-5 h-16 flex items-center justify-between gap-4">
           <span className="text-sm text-neutral-500 truncate">{msg || (ed.published ? 'Publié' : 'Brouillon')}</span>
@@ -214,10 +176,5 @@ function ArticleEditor({ ed, setEd, onSave, onCancel, saving, msg }: {
 }
 
 function Field({ label, children }: { label: string; children: React.ReactNode }) {
-  return (
-    <label className="block">
-      <span className="block text-xs font-medium text-neutral-500 mb-1.5">{label}</span>
-      {children}
-    </label>
-  );
+  return <label className="block"><span className="block text-xs font-medium text-neutral-500 mb-1.5">{label}</span>{children}</label>;
 }

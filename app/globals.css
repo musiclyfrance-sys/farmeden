@@ -129,6 +129,32 @@ body {
   background-repeat: no-repeat;
 }
 
+/* ─── Éditeur d'articles (admin) ───────────────────────────── */
+.prose-admin h2 { font-size: 1.55rem; font-weight: 600; margin: 1.3rem 0 .6rem; line-height: 1.25; }
+.prose-admin h3 { font-size: 1.2rem; font-weight: 600; margin: 1.1rem 0 .5rem; line-height: 1.3; }
+.prose-admin p { margin: .6rem 0; line-height: 1.7; }
+.prose-admin ul { list-style: disc; padding-left: 1.5rem; margin: .6rem 0; }
+.prose-admin ol { list-style: decimal; padding-left: 1.5rem; margin: .6rem 0; }
+.prose-admin li { margin: .2rem 0; }
+.prose-admin blockquote { border-left: 3px solid #52632E; padding-left: 1rem; color: #57534e; font-style: italic; margin: .9rem 0; }
+.prose-admin a { color: #52632E; text-decoration: underline; }
+.prose-admin img { max-width: 100%; height: auto; margin: .9rem 0; }
+.prose-admin h2:first-child, .prose-admin h3:first-child, .prose-admin p:first-child { margin-top: 0; }
+
+/* ─── Rendu public d'un article (bodyHtml) ─────────────────── */
+.article-body { color: rgba(35,28,20,.78); font-size: 1.125rem; line-height: 1.75; }
+.article-body > *:first-child { margin-top: 0; }
+.article-body h2 { font-family: var(--font-classico), Georgia, serif; font-weight: 400; color: var(--brown); font-size: clamp(1.5rem,2.4vw,2rem); line-height: 1.2; margin: 2.2rem 0 .9rem; }
+.article-body h3 { font-family: var(--font-classico), Georgia, serif; font-weight: 400; color: var(--brown); font-size: clamp(1.25rem,2vw,1.55rem); margin: 1.8rem 0 .7rem; }
+.article-body p { margin: 1.1rem 0; }
+.article-body ul { list-style: disc; padding-left: 1.5rem; margin: 1.1rem 0; }
+.article-body ol { list-style: decimal; padding-left: 1.5rem; margin: 1.1rem 0; }
+.article-body li { margin: .35rem 0; }
+.article-body a { color: var(--olive); text-decoration: underline; text-underline-offset: 2px; }
+.article-body strong { color: var(--brown); font-weight: 600; }
+.article-body blockquote { border-left: 3px solid var(--olive); padding-left: 1.2rem; font-style: italic; color: rgba(35,28,20,.6); margin: 1.4rem 0; }
+.article-body img { max-width: 100%; height: auto; margin: 1.6rem 0; }
+
 /* ─── Réduction des animations ─────────────────────────────── */
 @media (prefers-reduced-motion: reduce) {
   .animate-marquee,

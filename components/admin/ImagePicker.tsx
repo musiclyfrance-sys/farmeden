@@ -73,25 +73,34 @@ export function ImagePicker({ value, aspect = 2 / 3, label = 'Photo', onChange }
     }
   }
 
+  function recrop() {
+    if (value) { setSrc(value); setZoom(1); setCrop({ x: 0, y: 0 }); }
+  }
+
   return (
     <div>
-      <div
-        className="relative rounded-xl overflow-hidden bg-neutral-100 border border-neutral-200 cursor-pointer group"
-        style={{ aspectRatio: String(aspect) }}
-        onClick={() => inputRef.current?.click()}
-      >
+      <div className="relative rounded-xl overflow-hidden bg-neutral-100 border border-neutral-200" style={{ aspectRatio: String(aspect) }}>
         {value ? (
           // eslint-disable-next-line @next/next/no-img-element
           <img src={value} alt={label} className="w-full h-full object-cover" />
         ) : (
-          <div className="absolute inset-0 flex flex-col items-center justify-center text-neutral-400 text-sm gap-1">
-            <span className="text-2xl">+</span>
-            <span>Ajouter une photo</span>
+          <button type="button" onClick={() => inputRef.current?.click()} className="absolute inset-0 flex flex-col items-center justify-center text-neutral-400 hover:text-[#52632E] hover:bg-[#EBF0E2]/40 transition-colors gap-1">
+            <span className="text-3xl leading-none">+</span>
+            <span className="text-sm font-medium">Ajouter une photo</span>
+          </button>
+        )}
+        {value && (
+          <div className="absolute bottom-0 inset-x-0 flex divide-x divide-white/20">
+            <button type="button" onClick={() => inputRef.current?.click()} className="flex-1 flex items-center justify-center gap-1.5 bg-black/55 hover:bg-black/75 text-white text-xs font-medium py-2.5 transition-colors">
+              <svg viewBox="0 0 24 24" className="w-3.5 h-3.5" fill="none" stroke="currentColor" strokeWidth="2"><path d="M4 16l5-5 4 4 3-3 4 4M4 6h16" /></svg>
+              Remplacer
+            </button>
+            <button type="button" onClick={recrop} className="flex-1 flex items-center justify-center gap-1.5 bg-black/55 hover:bg-black/75 text-white text-xs font-medium py-2.5 transition-colors">
+              <svg viewBox="0 0 24 24" className="w-3.5 h-3.5" fill="none" stroke="currentColor" strokeWidth="2"><path d="M6 2v14a2 2 0 0 0 2 2h14M18 22V8a2 2 0 0 0-2-2H2" /></svg>
+              Recadrer
+            </button>
           </div>
         )}
-        <div className="absolute inset-0 bg-black/0 group-hover:bg-black/30 transition-colors flex items-center justify-center opacity-0 group-hover:opacity-100">
-          <span className="text-white text-xs font-medium bg-black/50 px-3 py-1.5 rounded-full">Changer / recadrer</span>
-        </div>
       </div>
       <input ref={inputRef} type="file" accept="image/*" onChange={pick} className="hidden" />
 

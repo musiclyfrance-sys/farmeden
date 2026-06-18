@@ -574,6 +574,7 @@ export interface Post {
   metaTitle: string;
   metaDescription: string;
   sections: { heading?: string; paragraphs: string[] }[];
+  bodyHtml?: string; // contenu riche (éditeur) ; prioritaire sur sections au rendu
   published?: boolean; // undefined = publié
 }
 

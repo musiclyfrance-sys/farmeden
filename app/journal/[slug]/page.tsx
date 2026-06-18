@@ -92,21 +92,29 @@ export default async function PostPage({ params }: { params: Promise<{ slug: str
         </FadeIn>
 
         {/* Corps */}
-        <div className="mx-auto max-w-2xl px-5 md:px-8 py-16 md:py-20 flex flex-col gap-10">
-          {post.sections.map((section, i) => (
-            <FadeIn key={i}>
-              <div>
-                {section.heading && (
-                  <h2 className="font-display font-normal text-[#231C14] leading-[1.2] mb-4" style={{ fontSize: 'clamp(1.5rem, 2.4vw, 2rem)' }}>{section.heading}</h2>
-                )}
-                <div className="flex flex-col gap-4">
-                  {section.paragraphs.map((p, j) => (
-                    <p key={j} className="text-[#231C14]/75 text-lg leading-relaxed">{p}</p>
-                  ))}
-                </div>
-              </div>
+        <div className="mx-auto max-w-2xl px-5 md:px-8 py-16 md:py-20">
+          {post.bodyHtml ? (
+            <FadeIn>
+              <div className="article-body" dangerouslySetInnerHTML={{ __html: post.bodyHtml }} />
             </FadeIn>
-          ))}
+          ) : (
+            <div className="flex flex-col gap-10">
+              {post.sections.map((section, i) => (
+                <FadeIn key={i}>
+                  <div>
+                    {section.heading && (
+                      <h2 className="font-display font-normal text-[#231C14] leading-[1.2] mb-4" style={{ fontSize: 'clamp(1.5rem, 2.4vw, 2rem)' }}>{section.heading}</h2>
+                    )}
+                    <div className="flex flex-col gap-4">
+                      {section.paragraphs.map((p, j) => (
+                        <p key={j} className="text-[#231C14]/75 text-lg leading-relaxed">{p}</p>
+                      ))}
+                    </div>
+                  </div>
+                </FadeIn>
+              ))}
+            </div>
+          )}
         </div>
       </article>
 

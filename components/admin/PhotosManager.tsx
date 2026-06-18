@@ -16,6 +16,8 @@ export function PhotosManager({ initial }: { initial: GalleryRubric[] }) {
   const [saving, setSaving] = useState(false);
   const [msg, setMsg] = useState('');
   const [dirty, setDirty] = useState(false);
+  const [drag, setDrag] = useState<{ ri: number; pi: number } | null>(null);
+  const [over, setOver] = useState<{ ri: number; pi: number } | null>(null);
 
   function mutate(ri: number, fn: (r: GalleryRubric) => GalleryRubric) {
     setRubrics((rs) => rs.map((r, i) => (i === ri ? fn(r) : r)));
@@ -35,6 +37,19 @@ export function PhotosManager({ initial }: { initial: GalleryRubric[] }) {
     });
   const addPhoto = (ri: number, url: string) =>
     mutate(ri, (r) => ({ ...r, photos: [...r.photos, { id: uid(), src: url, alt: autoAlt(r.label) }] }));
+
+  function reorder(ri: number, from: number, to: number) {
+    mutate(ri, (r) => {
+      const next = [...r.photos];
+      const [m] = next.splice(from, 1);
+      next.splice(to, 0, m);
+      return { ...r, photos: next };
+    });
+  }
+  function drop(ri: number, pi: number) {
+    if (drag && drag.ri === ri && drag.pi !== pi) reorder(ri, drag.pi, pi);
+    setDrag(null); setOver(null);
+  }
 
   async function save() {
     setSaving(true); setMsg('');
@@ -77,7 +92,24 @@ export function PhotosManager({ initial }: { initial: GalleryRubric[] }) {
             />
             <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-4">
               {r.photos.map((p, pi) => (
-                <div key={p.id} className="rounded-xl border border-neutral-200 bg-white p-2.5">
+                <div
+                  key={p.id}
+                  onDragOver={(e) => { if (drag?.ri === ri) { e.preventDefault(); setOver({ ri, pi }); } }}
+                  onDrop={() => drop(ri, pi)}
+                  className={`rounded-xl border bg-white p-2.5 transition-all
+                    ${over?.ri === ri && over?.pi === pi ? 'border-[#52632E] ring-2 ring-[#52632E]/30' : 'border-neutral-200'}
+                    ${drag?.ri === ri && drag?.pi === pi ? 'opacity-40' : ''}`}
+                >
+                  <div className="flex items-center justify-between mb-1.5">
+                    <span
+                      draggable
+                      onDragStart={() => setDrag({ ri, pi })}
+                      onDragEnd={() => { setDrag(null); setOver(null); }}
+                      className="cursor-grab active:cursor-grabbing text-neutral-300 hover:text-neutral-600 select-none px-1"
+                      title="Glisser pour réorganiser"
+                    >⠿</span>
+                    <span className="text-[10px] font-medium text-neutral-400">{pi + 1}</span>
+                  </div>
                   <ImagePicker value={p.src} aspect={2 / 3} label={p.alt} onChange={(url) => setPhoto(ri, pi, { src: url })} />
                   <input
                     value={p.alt}
