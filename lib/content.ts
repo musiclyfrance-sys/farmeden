@@ -553,7 +553,7 @@ export const EXPERIENCES: Experience[] = [
 ];
 
 /** Les 3 expériences mises en avant sur l'accueil */
-export const FEATURED_EXPERIENCE_SLUGS = ['sejour-famille', 'seminaire', 'anniversaire'];
+export const FEATURED_EXPERIENCE_SLUGS = ['sejour-famille', 'seminaire', 'brunch'];
 
 export function getExperience(slug: string): Experience | undefined {
   return EXPERIENCES.find((e) => e.slug === slug);
