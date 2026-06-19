@@ -80,9 +80,17 @@ export function Footer() {
       {/* Bottom bar */}
       <div className="border-t border-white/8">
         <div className="mx-auto max-w-6xl px-5 md:px-8 py-5 flex flex-col sm:flex-row justify-between items-center gap-3">
-          <p className="text-[#F5EFE0]/30 text-xs">
-            © {year} Farm Eden. Tous droits réservés.
-          </p>
+          <div className="flex flex-col sm:flex-row sm:items-center gap-1 sm:gap-5">
+            <p className="text-[#F5EFE0]/30 text-xs">
+              © {year} Farm Eden. Tous droits réservés.
+            </p>
+            <p className="text-[#F5EFE0]/30 text-xs">
+              Site réalisé par{' '}
+              <a href="https://yofield.com" target="_blank" rel="noopener" className="hover:text-[#F5EFE0]/60 transition-colors">
+                Yofield
+              </a>
+            </p>
+          </div>
           <div className="flex gap-5">
             <Link href="/mentions-legales" className="text-[#F5EFE0]/30 hover:text-[#F5EFE0]/60 text-xs transition-colors">
               Mentions légales

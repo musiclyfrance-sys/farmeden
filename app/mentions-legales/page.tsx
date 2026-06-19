@@ -37,6 +37,18 @@ export default function MentionsLegalesPage() {
           </div>
 
           <div>
+            <h2 className="font-semibold text-[#231C14] text-base mb-2">Conception du site</h2>
+            <p>
+              Le site a été conçu et réalisé par Yofield, agence de marketing digital. Vous pouvez
+              en savoir plus sur{' '}
+              <a href="https://yofield.com" target="_blank" rel="noopener" className="text-[#52632E] hover:text-[#3f4d23] transition-colors">
+                yofield.com
+              </a>
+              .
+            </p>
+          </div>
+
+          <div>
             <h2 className="font-semibold text-[#231C14] text-base mb-2">Propriété intellectuelle</h2>
             <p>
               L&apos;ensemble des contenus présents sur ce site, notamment les textes, les photos
