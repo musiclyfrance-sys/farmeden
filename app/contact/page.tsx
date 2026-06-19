@@ -4,7 +4,7 @@ import { FadeIn } from '@/components/ui/FadeIn';
 import { SITE, WA_MESSAGES, whatsappUrl } from '@/lib/content';
 
 export const metadata: Metadata = {
-  title: 'Contact',
+  title: 'Contact et réservation par WhatsApp',
   description:
     'Contactez Farm Eden par WhatsApp pour réserver ou poser vos questions. Ferme avec piscine privée à Ain Johra, à 45 minutes de Rabat.',
   alternates: { canonical: '/contact' },

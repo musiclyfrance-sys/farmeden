@@ -11,9 +11,9 @@ import { resolveImg, LAFERME_GALLERY_DEFAULT } from '@/lib/siteImages';
 export const dynamic = 'force-dynamic';
 
 export const metadata: Metadata = {
-  title: 'La Ferme',
+  title: 'La ferme avec piscine privée près de Rabat',
   description:
-    'Découvrez Farm Eden, une villa avec piscine privée et un terrain de 1,5 hectare à Ain Johra, près de Tifelt. Quatre chambres, jardin, animaux de ferme et activités, à 45 minutes de Rabat.',
+    'Découvrez Farm Eden : villa avec piscine privée et terrain de 1,5 hectare à Ain Johra, près de Tiflet. Quatre chambres, jardin et animaux, à 45 min de Rabat.',
   alternates: { canonical: '/la-ferme' },
 };
 

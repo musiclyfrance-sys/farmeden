@@ -7,7 +7,7 @@ import { getGallery } from '@/lib/admin/store';
 export const dynamic = 'force-dynamic';
 
 export const metadata: Metadata = {
-  title: 'Photos',
+  title: 'Photos de la ferme avec piscine près de Rabat',
   description:
     'Découvrez Farm Eden en photos. La villa marocaine, la piscine privée, les terrasses, le jardin verdoyant et les animaux de la ferme, à 45 minutes de Rabat.',
   alternates: { canonical: '/galerie' },

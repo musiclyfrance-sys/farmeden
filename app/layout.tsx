@@ -32,12 +32,12 @@ export const metadata: Metadata = {
     template: '%s · Farm Eden',
   },
   description:
-    "Ferme avec piscine privée à louer près de Rabat. Villa entière privatisée, 4 chambres, 12 personnes. Séjours, séminaires, événements. À 45 min de Rabat.",
+    "Ferme avec piscine privée à louer près de Rabat. Villa entière privatisée, 4 chambres, 12 personnes. Séjours, séminaires et événements à 45 min de Rabat.",
   openGraph: {
     siteName: 'Farm Eden',
     locale: 'fr_MA',
     type: 'website',
-    images: [{ url: '/images/farm/piscine.jpg', width: 1200, height: 630, alt: 'Farm Eden, ferme avec piscine privée près de Rabat' }],
+    images: [{ url: '/images/og-default.jpg', width: 1200, height: 630, alt: 'Farm Eden, ferme avec piscine privée près de Rabat' }],
   },
   twitter: { card: 'summary_large_image' },
   robots: { index: true, follow: true },
@@ -77,7 +77,7 @@ const jsonLd = {
       checkinTime: '14:00',
       checkoutTime: '12:00',
       priceRange: '$$',
-      image: 'https://farmeden.ma/images/farm/piscine.jpg',
+      image: 'https://farmeden.ma/images/og-default.jpg',
       sameAs: ['https://www.airbnb.com/rooms/942068881530640680'],
     },
     {

@@ -9,9 +9,9 @@ import { getPosts } from '@/lib/admin/store';
 export const dynamic = 'force-dynamic';
 
 export const metadata: Metadata = {
-  title: 'Journal',
+  title: 'Journal : escapades et idées près de Rabat',
   description:
-    'Conseils, idées et inspirations pour profiter de la campagne près de Rabat. Guides pour louer une ferme avec piscine, organiser un séminaire ou une escapade nature.',
+    'Conseils et idées pour profiter de la campagne près de Rabat : louer une ferme avec piscine, organiser un séminaire ou réussir une escapade nature.',
   alternates: { canonical: '/journal' },
 };
 

@@ -2,8 +2,13 @@ import { HomeClient } from '@/components/HomeClient';
 import { getSiteImages, getGallery } from '@/lib/admin/store';
 import { resolveImg } from '@/lib/siteImages';
 import { EXPERIENCES, FEATURED_EXPERIENCE_SLUGS } from '@/lib/content';
+import type { Metadata } from 'next';
 
 export const dynamic = 'force-dynamic';
+
+export const metadata: Metadata = {
+  alternates: { canonical: '/' },
+};
 
 export default async function HomePage() {
   const [ov, gallery] = await Promise.all([getSiteImages(), getGallery()]);
