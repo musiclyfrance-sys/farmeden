@@ -37,8 +37,14 @@ async function writeJson(pathname: string, data: unknown): Promise<void> {
 
 /* ── Galerie ── */
 export async function getGallery(): Promise<GalleryRubric[]> {
-  const data = await readJson<GalleryRubric[]>(GALLERY_PATH);
-  return Array.isArray(data) && data.length ? data : DEFAULT_GALLERY;
+  const saved = await readJson<GalleryRubric[]>(GALLERY_PATH);
+  if (!Array.isArray(saved) || !saved.length) return DEFAULT_GALLERY;
+  // Fusion : on garde l'ordre et les rubriques par défaut (pour intégrer toute
+  // nouvelle rubrique), en utilisant la version enregistrée quand elle existe.
+  const savedById = Object.fromEntries(saved.map((r) => [r.id, r]));
+  const merged = DEFAULT_GALLERY.map((d) => savedById[d.id] ?? d);
+  for (const s of saved) if (!DEFAULT_GALLERY.some((d) => d.id === s.id)) merged.push(s);
+  return merged;
 }
 export async function saveGallery(data: GalleryRubric[]): Promise<void> {
   await writeJson(GALLERY_PATH, data);
