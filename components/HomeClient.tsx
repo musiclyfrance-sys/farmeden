@@ -86,8 +86,7 @@ export function HomeClient({ hero, heroAccent, featured, marquee }: { hero: Img;
           </FadeIn>
           <FadeIn delay={0.06}>
             <h2 className="font-display font-normal text-[#231C14] leading-[1.1] mb-6 max-w-3xl" style={{ fontSize: 'clamp(1.9rem, 3.5vw, 3rem)' }}>
-              Une ferme avec <em className="italic text-[#52632E]">piscine privée à louer</em>
-              près de Rabat
+              Une ferme avec <em className="italic text-[#52632E]">piscine privée à louer</em> près de Rabat
             </h2>
           </FadeIn>
           <FadeIn delay={0.12}>
