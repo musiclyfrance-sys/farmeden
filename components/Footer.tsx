@@ -1,6 +1,7 @@
 import Link from 'next/link';
 import { MapPin, MessageCircle } from 'lucide-react';
 import { NAV_LINKS, WA_MESSAGES, whatsappUrl } from '@/lib/content';
+import { SocialLinks } from '@/components/SocialLinks';
 
 export function Footer() {
   const year = new Date().getFullYear();
@@ -72,6 +73,7 @@ export function Footer() {
               </a>
             </li>
           </ul>
+          <SocialLinks />
         </div>
       </div>
 

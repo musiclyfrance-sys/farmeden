@@ -5,7 +5,7 @@ import './globals.css';
 import { Navbar } from '@/components/Navbar';
 import { Footer } from '@/components/Footer';
 import { ChromeGate } from '@/components/ChromeGate';
-import { FAQ } from '@/lib/content';
+import { FAQ, SITE } from '@/lib/content';
 
 const inter = Inter({
   subsets: ['latin'],
@@ -78,7 +78,7 @@ const jsonLd = {
       checkoutTime: '12:00',
       priceRange: '$$',
       image: 'https://farmeden.ma/images/og-default.jpg',
-      sameAs: ['https://www.airbnb.com/rooms/942068881530640680'],
+      sameAs: [SITE.google, SITE.airbnb, SITE.instagram].filter(Boolean),
     },
     {
       '@type': 'FAQPage',

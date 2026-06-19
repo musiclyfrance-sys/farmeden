@@ -16,8 +16,9 @@ export const SITE = {
   mapsUrl: 'https://maps.app.goo.gl/5Kvxt1fck6AN6spAA',
   mapsEmbed:
     'https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3309.253749936691!2d-6.362058413740452!3d33.960316853469614!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0xda0cb1accddc6af%3A0x4b011abb72c71ed9!2sFarm%20Eden%20-%20Ferme%20Rabat!5e0!3m2!1sfr!2sfr!4v1781732604260!5m2!1sfr!2sfr',
-  instagram: '',
-  airbnb: 'https://www.airbnb.com/rooms/942068881530640680',
+  instagram: 'https://www.instagram.com/farmeden_rabat/',
+  airbnb: 'https://www.airbnb.fr/rooms/942068881530640680',
+  google: 'https://share.google/vHLTUxt73SjEmw9DQ',
 };
 
 /* ─── WhatsApp ───────────────────────────────────────────── */
