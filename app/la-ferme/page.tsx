@@ -5,6 +5,10 @@ import { ArrowRight } from 'lucide-react';
 import { FadeIn } from '@/components/ui/FadeIn';
 import { CTASection } from '@/components/CTASection';
 import { SITE } from '@/lib/content';
+import { getSiteImages } from '@/lib/admin/store';
+import { resolveImg, LAFERME_GALLERY_DEFAULT } from '@/lib/siteImages';
+
+export const dynamic = 'force-dynamic';
 
 export const metadata: Metadata = {
   title: 'La Ferme',
@@ -12,15 +16,6 @@ export const metadata: Metadata = {
     'Découvrez Farm Eden, une villa avec piscine privée et un terrain de 1,5 hectare à Ain Johra, près de Tifelt. Quatre chambres, jardin, animaux de ferme et activités, à 45 minutes de Rabat.',
   alternates: { canonical: '/la-ferme' },
 };
-
-const GALERIE = [
-  { src: '/images/farm/facade.jpg', alt: 'Façade et entrée principale de la villa' },
-  { src: '/images/farm/piscine.jpg', alt: 'Piscine privée entourée de palmiers' },
-  { src: '/images/farm/terrasse-repas.jpg', alt: 'Terrasse de repas couverte' },
-  { src: '/images/farm/salon.jpg', alt: 'Salon principal sous une arche en pierre' },
-  { src: '/images/farm/daybed.jpg', alt: 'Lit gazebo dans le jardin' },
-  { src: '/images/farm/jardin-tropical.jpg', alt: 'Allée dallée dans le jardin tropical' },
-];
 
 const DETAILS = [
   {
@@ -64,7 +59,10 @@ const DETAILS = [
   },
 ];
 
-export default function LaFermePage() {
+export default async function LaFermePage() {
+  const ov = await getSiteImages();
+  const intro = resolveImg('laferme.intro', ov);
+  const galerie = LAFERME_GALLERY_DEFAULT.map((_, i) => resolveImg(`laferme.gallery.${i}`, ov));
   return (
     <>
       {/* En-tête */}
@@ -90,7 +88,7 @@ export default function LaFermePage() {
           <div className="grid grid-cols-1 md:grid-cols-2 gap-12 md:gap-16 items-center">
             <FadeIn direction="right" className="order-2 md:order-1">
               <div className="relative w-full rounded-[1.75rem] overflow-hidden shadow-2xl shadow-[#231C14]/15" style={{ aspectRatio: '4 / 5' }}>
-                <Image src="/images/farm/facade.jpg" alt="Façade et entrée principale de la villa Farm Eden" fill priority sizes="(max-width: 768px) 100vw, 50vw" className="object-cover" quality={86} />
+                <Image src={intro.src} alt={intro.alt} fill priority sizes="(max-width: 768px) 100vw, 50vw" className="object-cover" quality={86} />
               </div>
             </FadeIn>
             <div className="order-1 md:order-2">
@@ -121,7 +119,7 @@ export default function LaFermePage() {
       <section className="bg-white py-16 md:py-20">
         <div className="mx-auto max-w-6xl px-5 md:px-8">
           <div className="grid grid-cols-2 md:grid-cols-3 gap-3 md:gap-4">
-            {GALERIE.map((img, i) => (
+            {galerie.map((img, i) => (
               <FadeIn key={`${img.src}-${i}`} delay={(i % 3) * 0.07} blur={false}>
                 <div className="relative aspect-[4/3] rounded-xl overflow-hidden bg-[#EDE5D0]">
                   <Image src={img.src} alt={img.alt} fill sizes="(max-width: 768px) 50vw, 33vw" className="object-cover hover:scale-[1.04] transition-transform duration-500 ease-[0.22,1,0.36,1]" quality={80} />

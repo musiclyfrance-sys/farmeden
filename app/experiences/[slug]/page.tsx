@@ -8,6 +8,10 @@ import { Picto } from '@/components/ui/Pictos';
 import { CTASection } from '@/components/CTASection';
 import { WhatsAppBtn } from '@/components/WhatsAppFloat';
 import { EXPERIENCES, getExperience, WA_MESSAGES } from '@/lib/content';
+import { getSiteImages } from '@/lib/admin/store';
+import { resolveImg } from '@/lib/siteImages';
+
+export const dynamic = 'force-dynamic';
 
 export function generateStaticParams() {
   return EXPERIENCES.map((e) => ({ slug: e.slug }));
@@ -35,6 +39,8 @@ export default async function ExperienceDetailPage({ params }: { params: Promise
   if (!exp) notFound();
 
   const others = EXPERIENCES.filter((e) => e.slug !== exp.slug).slice(0, 3);
+  const ov = await getSiteImages();
+  const hero = resolveImg(`exp.${exp.slug}.hero`, ov);
 
   const breadcrumb = {
     '@context': 'https://schema.org',
@@ -56,7 +62,7 @@ export default async function ExperienceDetailPage({ params }: { params: Promise
           <div className="grid grid-cols-1 md:grid-cols-2 gap-10 md:gap-14 items-center">
             <FadeIn direction="right" className="order-2 md:order-1">
               <div className="relative w-full rounded-[1.75rem] overflow-hidden shadow-2xl shadow-[#231C14]/15" style={{ aspectRatio: '4 / 5' }}>
-                <Image src={exp.heroImage} alt={exp.title} fill priority sizes="(max-width: 768px) 100vw, 50vw" className="object-cover" quality={86} />
+                <Image src={hero.src} alt={hero.alt || exp.title} fill priority sizes="(max-width: 768px) 100vw, 50vw" className="object-cover" quality={86} />
               </div>
             </FadeIn>
             <div className="order-1 md:order-2">
@@ -146,13 +152,16 @@ export default async function ExperienceDetailPage({ params }: { params: Promise
         <div className="mx-auto max-w-6xl px-5 md:px-8">
           <FadeIn><p className="text-xs font-medium tracking-widest uppercase text-[#A84A26] mb-10">En images</p></FadeIn>
           <div className="grid grid-cols-2 md:grid-cols-3 gap-3 md:gap-4">
-            {exp.gallery.map((src, i) => (
-              <FadeIn key={src} delay={(i % 3) * 0.06} blur={false}>
-                <div className="relative aspect-[2/3] rounded-2xl overflow-hidden bg-[#EDE5D0]">
-                  <Image src={src} alt={`${exp.title}, photo ${i + 1}`} fill sizes="(max-width: 768px) 50vw, 33vw" className="object-cover hover:scale-[1.04] transition-transform duration-500" quality={78} />
-                </div>
-              </FadeIn>
-            ))}
+            {exp.gallery.map((_, i) => {
+              const g = resolveImg(`exp.${exp.slug}.gallery.${i}`, ov);
+              return (
+                <FadeIn key={i} delay={(i % 3) * 0.06} blur={false}>
+                  <div className="relative aspect-[2/3] rounded-2xl overflow-hidden bg-[#EDE5D0]">
+                    <Image src={g.src} alt={g.alt || `${exp.title}, photo ${i + 1}`} fill sizes="(max-width: 768px) 50vw, 33vw" className="object-cover hover:scale-[1.04] transition-transform duration-500" quality={78} />
+                  </div>
+                </FadeIn>
+              );
+            })}
           </div>
         </div>
       </section>
@@ -165,11 +174,13 @@ export default async function ExperienceDetailPage({ params }: { params: Promise
         <div className="mx-auto max-w-6xl px-5 md:px-8">
           <FadeIn><p className="text-xs font-medium tracking-widest uppercase text-[#A84A26] mb-10">Autres occasions</p></FadeIn>
           <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-            {others.map((o, i) => (
+            {others.map((o, i) => {
+              const oc = resolveImg(`exp.${o.slug}.card`, ov);
+              return (
               <FadeIn key={o.slug} delay={i * 0.08}>
                 <Link href={`/experiences/${o.slug}`} className="group block bg-[#F5EFE0] rounded-2xl overflow-hidden h-full hover:shadow-lg hover:shadow-black/8 transition-shadow duration-300">
                   <div className="relative aspect-[16/10] overflow-hidden bg-[#EDE5D0]">
-                    <Image src={o.cardImage} alt={o.title} fill sizes="(max-width: 768px) 100vw, 33vw" className="object-cover transition-transform duration-500 group-hover:scale-[1.04]" quality={78} />
+                    <Image src={oc.src} alt={oc.alt || o.title} fill sizes="(max-width: 768px) 100vw, 33vw" className="object-cover transition-transform duration-500 group-hover:scale-[1.04]" quality={78} />
                   </div>
                   <div className="p-6 flex items-center justify-between gap-3">
                     <h3 className="font-display font-normal text-[#231C14] text-lg">{o.title}</h3>
@@ -177,7 +188,8 @@ export default async function ExperienceDetailPage({ params }: { params: Promise
                   </div>
                 </Link>
               </FadeIn>
-            ))}
+              );
+            })}
           </div>
         </div>
       </section>

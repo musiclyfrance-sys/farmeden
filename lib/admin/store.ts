@@ -5,6 +5,7 @@ import { DEFAULT_GALLERY, POSTS, type GalleryRubric, type Post } from '@/lib/con
 
 const GALLERY_PATH = 'data/gallery.json';
 const ARTICLES_PATH = 'data/articles.json';
+const SITE_IMAGES_PATH = 'data/site-images.json';
 
 function hasBlob(): boolean {
   return Boolean(process.env.BLOB_READ_WRITE_TOKEN);
@@ -53,6 +54,16 @@ export async function getPostBySlug(slug: string): Promise<Post | undefined> {
 }
 export async function savePosts(data: Post[]): Promise<void> {
   await writeJson(ARTICLES_PATH, data);
+}
+
+/* ── Images du site (overrides par slot) ── */
+import type { SiteImageOverrides } from '@/lib/siteImages';
+export async function getSiteImages(): Promise<SiteImageOverrides> {
+  const data = await readJson<SiteImageOverrides>(SITE_IMAGES_PATH);
+  return data && typeof data === 'object' ? data : {};
+}
+export async function saveSiteImages(data: SiteImageOverrides): Promise<void> {
+  await writeJson(SITE_IMAGES_PATH, data);
 }
 
 export const adminConfigured = hasBlob;

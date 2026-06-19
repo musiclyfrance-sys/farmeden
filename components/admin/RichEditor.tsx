@@ -99,9 +99,9 @@ export function RichEditor({ value, onChange }: { value: string; onChange: (html
   const curColor = (editor.getAttributes('textStyle').color as string) || '';
 
   return (
-    <div className="border border-neutral-200 rounded-xl overflow-hidden bg-white">
+    <div className="border border-neutral-200 rounded-xl bg-white flex flex-col">
       {/* Barre d'outils */}
-      <div className="flex flex-wrap items-center gap-0.5 p-2 border-b border-neutral-200 bg-neutral-50 sticky top-16 z-10">
+      <div className="flex flex-wrap items-center gap-0.5 p-2 border-b border-neutral-200 bg-neutral-50 rounded-t-xl">
         <Btn title="Gras" active={editor.isActive('bold')} onClick={() => editor.chain().focus().toggleBold().run()}><b>B</b></Btn>
         <Btn title="Italique" active={editor.isActive('italic')} onClick={() => editor.chain().focus().toggleItalic().run()}><i>I</i></Btn>
         <Btn title="Souligné" active={editor.isActive('underline')} onClick={() => editor.chain().focus().toggleUnderline().run()}><u>U</u></Btn>
@@ -144,7 +144,9 @@ export function RichEditor({ value, onChange }: { value: string; onChange: (html
         </div>
       )}
 
-      <EditorContent editor={editor} />
+      <div className="max-h-[58vh] overflow-y-auto rounded-b-xl">
+        <EditorContent editor={editor} />
+      </div>
     </div>
   );
 }

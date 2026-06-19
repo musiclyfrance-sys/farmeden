@@ -5,6 +5,10 @@ import { ArrowRight, Volleyball, PawPrint, UtensilsCrossed } from 'lucide-react'
 import { FadeIn } from '@/components/ui/FadeIn';
 import { CTASection } from '@/components/CTASection';
 import { EXPERIENCES } from '@/lib/content';
+import { getSiteImages } from '@/lib/admin/store';
+import { resolveImg } from '@/lib/siteImages';
+
+export const dynamic = 'force-dynamic';
 
 export const metadata: Metadata = {
   title: 'Expériences',
@@ -31,7 +35,8 @@ const INCLUS = [
   },
 ];
 
-export default function ExperiencesPage() {
+export default async function ExperiencesPage() {
+  const ov = await getSiteImages();
   return (
     <>
       {/* Hero */}
@@ -54,7 +59,9 @@ export default function ExperiencesPage() {
       {/* Grille expériences */}
       <section className="bg-[#F5EFE0] pb-20 md:pb-28">
         <div className="mx-auto max-w-6xl px-5 md:px-8 grid grid-cols-2 lg:grid-cols-3 gap-3.5 md:gap-6">
-          {EXPERIENCES.map((exp, i) => (
+          {EXPERIENCES.map((exp, i) => {
+            const card = resolveImg(`exp.${exp.slug}.card`, ov);
+            return (
             <FadeIn key={exp.slug} delay={(i % 3) * 0.06}>
               <Link
                 href={`/experiences/${exp.slug}`}
@@ -63,8 +70,8 @@ export default function ExperiencesPage() {
               >
                 <div className="relative aspect-[4/3] overflow-hidden bg-[#EDE5D0]">
                   <Image
-                    src={exp.cardImage}
-                    alt={exp.title}
+                    src={card.src}
+                    alt={card.alt || exp.title}
                     fill
                     sizes="(max-width: 1024px) 50vw, 33vw"
                     className="object-cover transition-transform duration-500 ease-[0.22,1,0.36,1] group-hover:scale-[1.05]"
@@ -85,7 +92,8 @@ export default function ExperiencesPage() {
                 </div>
               </Link>
             </FadeIn>
-          ))}
+            );
+          })}
         </div>
       </section>
 

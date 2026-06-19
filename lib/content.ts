@@ -580,137 +580,56 @@ export interface Post {
 
 export const POSTS: Post[] = [
   {
-    slug: 'louer-ferme-piscine-privee-rabat',
-    title: 'Louer une ferme avec piscine privée près de Rabat, le guide complet',
-    excerpt:
-      'Tout ce qu\'il faut savoir avant de privatiser une ferme avec piscine autour de Rabat. Emplacement, capacité, services et bonnes questions à poser.',
-    date: '2026-05-12',
-    dateLabel: '12 mai 2026',
-    readingTime: '6 min de lecture',
-    cover: '/images/farm/piscine.jpg',
-    tag: 'Guide',
-    metaTitle: 'Louer une ferme avec piscine privée près de Rabat',
-    metaDescription:
-      'Le guide pour louer une ferme avec piscine privée autour de Rabat. Emplacement, capacité, cuisine, services et conseils pour réussir votre séjour.',
-    sections: [
-      {
-        paragraphs: [
-          'Louer une ferme avec piscine privée près de Rabat séduit de plus en plus de familles et de groupes d\'amis. La promesse est simple. Vous quittez la ville pour un cadre verdoyant, sans renoncer au confort ni à l\'intimité. Ce guide réunit les points essentiels pour bien choisir votre lieu.',
-        ],
-      },
-      {
-        heading: 'Pourquoi choisir une ferme plutôt qu\'un hôtel',
-        paragraphs: [
-          'Une ferme privatisée vous donne accès à un espace entier, pas seulement à une chambre. Vous profitez du jardin, de la piscine et des salons sans croiser d\'autres clients. Cette intimité change complètement l\'expérience, surtout en famille ou en groupe.',
-          'La campagne autour de Tifelt offre aussi un vrai dépaysement. À seulement 45 minutes de Rabat, vous changez d\'air sans passer des heures sur la route. C\'est l\'équilibre idéal entre évasion et accessibilité.',
-        ],
-      },
-      {
-        heading: 'Les questions à poser avant de réserver',
-        paragraphs: [
-          'Vérifiez d\'abord la capacité réelle du lieu et le nombre de chambres. Demandez si la propriété est entièrement privatisée pendant votre venue. Renseignez-vous sur la cuisine proposée et sur les services inclus comme le ménage ou le petit-déjeuner.',
-          'À Farm Eden, la villa entière se réserve pour un seul groupe. Quatre chambres accueillent jusqu\'à douze personnes au calme. Notre équipe prépare la cuisine marocaine sur place et gère l\'intendance.',
-        ],
-      },
-      {
-        heading: 'Préparer son séjour sereinement',
-        paragraphs: [
-          'Une fois le lieu choisi, communiquez vos envies à l\'avance. Les menus, les activités et les éventuelles décorations se préparent mieux en amont. Vous arrivez ainsi l\'esprit léger, prêt à profiter.',
-          'Pour réserver Farm Eden, un simple message suffit. Indiquez vos dates et votre nombre de personnes, et nous revenons vers vous avec les disponibilités et le tarif.',
-        ],
-      },
-    ],
+    "slug": "louer-ferme-piscine-privee-rabat",
+    "title": "Ferme avec piscine privée près de Rabat : le guide",
+    "excerpt": "Envie de nature, de calme et de baignade entre proches ? Voici comment louer une ferme avec piscine privée tout près de Rabat, sereinement.",
+    "date": "2026-05-12",
+    "dateLabel": "12 mai 2026",
+    "readingTime": "4 min de lecture",
+    "cover": "/images/farm/piscine.jpg",
+    "coverAlt": "Ferme avec piscine privée et jardin verdoyant près de Rabat",
+    "keyword": "ferme avec piscine privée",
+    "tag": "Guide",
+    "metaTitle": "Ferme avec piscine privée près de Rabat : le guide",
+    "metaDescription": "Découvrez comment louer une ferme avec piscine privée près de Rabat : ce que vous réservez, les questions à poser et nos conseils pour préparer votre venue.",
+    "sections": [],
+    "bodyHtml": "<p>Quitter l'agitation de la ville pour retrouver le chant des oiseaux, l'odeur de la terre humide et le reflet du ciel dans l'eau : c'est exactement ce que promet une <strong>ferme avec piscine privée</strong> près de Rabat. Imaginez un lieu rien que pour vous et vos proches, où les enfants courent pieds nus dans l'herbe pendant que les grands savourent un thé à l'ombre. À Ain Johra, dans la commune de Tiflet, à 45 minutes de Rabat, ce rêve devient une adresse bien réelle.</p>\n\n<h2>Pourquoi choisir une ferme avec piscine privée près de Rabat ?</h2>\n<p>Un hôtel, aussi confortable soit-il, reste un espace partagé. Les couloirs, la piscine, le petit-déjeuner : tout se vit au milieu d'inconnus. Une <strong>ferme avec piscine privée</strong> renverse complètement cette logique. Ici, vous êtes chez vous. Le jardin, le bassin, la cuisine et les chambres sont privatisés pour votre groupe uniquement.</p>\n<p>Cette intimité change tout. Vous fixez vos propres rythmes, vous laissez les enfants se baigner sans surveiller le regard des autres, vous organisez un déjeuner familial sans contrainte d'horaire. La nature fait le reste : un jardin de 1,5 hectare, des animaux en liberté et un grand ciel dégagé loin de la pollution urbaine. C'est le luxe simple d'un lieu authentique, à deux pas de la capitale.</p>\n\n<h2>Ce que vous louez exactement</h2>\n<p>Quand vous réservez une ferme de ce type, vous ne louez pas une simple chambre. Vous privatisez un véritable domaine. Chez Farm Eden, la <strong>villa entière</strong> est à vous, avec un accueil pensé pour les familles comme pour les groupes d'amis. Voici ce que comprend le séjour :</p>\n<ul>\n<li><strong>La villa privatisée</strong> dans son intégralité, capable d'accueillir jusqu'à 12 personnes en toute tranquillité.</li>\n<li><strong>La piscine privée</strong>, réservée à votre groupe, parfaite pour les baignades en famille ou les après-midis paresseux.</li>\n<li><strong>Une cuisine marocaine</strong> généreuse et faite maison, qui met à l'honneur les saveurs du terroir.</li>\n<li><strong>Un jardin de 1,5 hectare</strong>, avec des espaces à l'ombre, des coins pour jouer et des animaux qui vivent en liberté.</li>\n<li><strong>Le calme absolu</strong> de la campagne d'Ain Johra, sans vis-à-vis ni voisinage bruyant.</li>\n</ul>\n<p>Pour découvrir en détail le domaine, les espaces de vie et l'esprit du lieu, prenez le temps de <a href=\"/la-ferme\">parcourir la présentation complète de notre ferme</a>. Vous y verrez à quoi ressemble vraiment l'expérience avant même d'arriver.</p>\n\n<h2>Les bonnes questions à poser avant de réserver</h2>\n<p>Louer un lieu privé mérite quelques vérifications simples. Avant de confirmer, posez les questions qui comptent vraiment pour vous et votre groupe :</p>\n<ul>\n<li><strong>La privatisation est-elle totale ?</strong> Assurez-vous que la piscine et le jardin sont exclusivement réservés à votre groupe, sans partage.</li>\n<li><strong>Combien de personnes le lieu accueille-t-il ?</strong> Vérifiez la capacité maximale pour que chacun soit installé confortablement.</li>\n<li><strong>Les repas sont-ils inclus ou préparés sur place ?</strong> La cuisine maison fait souvent toute la différence d'un séjour réussi.</li>\n<li><strong>Le cadre est-il adapté aux enfants ?</strong> Les espaces ombragés, les animaux et la sécurité autour du bassin sont des points clés.</li>\n<li><strong>Comment se déroule la réservation ?</strong> Chez Farm Eden, tout se fait simplement par WhatsApp, avec un contact humain et réactif.</li>\n</ul>\n\n<h2>Comment préparer sa venue dans une ferme avec piscine privée</h2>\n<p>Une fois la réservation confirmée, quelques préparatifs rendent l'arrivée encore plus douce. Pensez à prévoir maillots de bain, serviettes et crème solaire pour profiter pleinement de la piscine. Un chapeau et des chaussures confortables vous accompagneront dans les allées du jardin.</p>\n<p>Anticipez aussi le trajet : depuis Rabat, la route vers Ain Johra est directe et agréable, et l'arrivée à la campagne se savoure dès les derniers kilomètres. Si vous voyagez avec des enfants, prévoyez de quoi les occuper en extérieur, même si la <strong>ferme avec piscine privée</strong> leur offrira déjà mille découvertes entre les animaux en liberté et les grands espaces verts.</p>\n<p>Enfin, échangez en amont sur vos envies de repas. La cuisine marocaine maison peut s'adapter à vos goûts et au nombre de convives. Plus vous partagez vos attentes tôt, plus le séjour sera taillé sur mesure pour votre groupe.</p>\n\n<h2>Un cadre pensé pour les vrais moments ensemble</h2>\n<p>Au fond, ce que l'on vient chercher dans une <strong>ferme avec piscine privée</strong>, c'est du temps de qualité. Du temps pour rire autour d'une table, pour plonger dans l'eau fraîche, pour regarder les enfants jouer et pour respirer un air pur. À Ain Johra, tout est réuni pour cela, dans un écrin de verdure protégé, à quelques minutes seulement de Rabat. Il ne vous reste plus qu'à choisir vos dates et à écrire un message pour réserver votre escapade.</p>",
+    "published": true
   },
   {
-    slug: 'idees-seminaire-entreprise-campagne-maroc',
-    title: 'Cinq idées pour réussir un séminaire d\'entreprise à la campagne au Maroc',
-    excerpt:
-      'Un séminaire au vert change la dynamique d\'une équipe. Voici cinq idées concrètes pour organiser une journée productive et conviviale près de Rabat.',
-    date: '2026-04-23',
-    dateLabel: '23 avril 2026',
-    readingTime: '5 min de lecture',
-    cover: '/images/farm/sejour-pano.jpg',
-    tag: 'Entreprise',
-    metaTitle: 'Réussir un séminaire d\'entreprise à la campagne au Maroc',
-    metaDescription:
-      'Cinq idées pour organiser un séminaire d\'entreprise réussi à la campagne près de Rabat. Cadre au calme, ateliers, repas et moments de cohésion.',
-    sections: [
-      {
-        paragraphs: [
-          'Organiser un séminaire loin du bureau aide une équipe à prendre du recul. Le cadre naturel favorise la concentration et les échanges sincères. Voici cinq idées pour tirer le meilleur de votre journée à la campagne.',
-        ],
-      },
-      {
-        heading: '1. Alterner travail et respiration',
-        paragraphs: [
-          'Découpez la journée en sessions courtes entrecoupées de pauses au grand air. Une marche dans le jardin ou un café au bord de la piscine relance l\'attention. Le cerveau travaille mieux quand il souffle régulièrement.',
-        ],
-      },
-      {
-        heading: '2. Soigner le déjeuner',
-        paragraphs: [
-          'Un bon repas partagé renforce la cohésion bien plus qu\'une salle de réunion. Optez pour une cuisine locale préparée sur place. À Farm Eden, le déjeuner marocain se savoure en terrasse, face au jardin.',
-        ],
-      },
-      {
-        heading: '3. Prévoir un temps informel',
-        paragraphs: [
-          'Les meilleures conversations naissent souvent en dehors du programme. Laissez un créneau libre autour de la piscine ou dans les salons. Ces moments détendus révèlent une autre facette de l\'équipe.',
-        ],
-      },
-      {
-        heading: '4. Choisir un lieu vraiment privatisé',
-        paragraphs: [
-          'Un espace réservé à votre seule équipe garantit le calme et la confidentialité. Personne ne vient interrompre vos échanges. La propriété entière de Farm Eden se réserve pour un seul groupe.',
-        ],
-      },
-      {
-        heading: '5. Rester proche de la ville',
-        paragraphs: [
-          'Un lieu accessible évite la fatigue du trajet et facilite la logistique. À 45 minutes de Rabat, Farm Eden combine dépaysement et proximité. Vous changez de décor sans perdre une demi-journée sur la route.',
-        ],
-      },
-    ],
+    "slug": "idees-seminaire-entreprise-campagne-maroc",
+    "title": "Séminaire d'entreprise à la campagne près de Rabat",
+    "excerpt": "Des idées concrètes pour réussir un séminaire d'entreprise à la campagne près de Rabat, entre travail au calme, repas soignés et lieu privatisé.",
+    "date": "2026-04-23",
+    "dateLabel": "23 avril 2026",
+    "readingTime": "3 min de lecture",
+    "cover": "/images/farm/sejour-pano.jpg",
+    "coverAlt": "Ferme avec piscine et jardin accueillant un séminaire d'entreprise à la campagne près de Rabat",
+    "keyword": "séminaire d'entreprise",
+    "tag": "Entreprise",
+    "metaTitle": "Séminaire d'entreprise à la campagne près de Rabat",
+    "metaDescription": "Organisez un séminaire d'entreprise à la campagne près de Rabat : nos idées pour alterner travail et respiration, soigner les repas et choisir un lieu privatisé.",
+    "sections": [],
+    "bodyHtml": "<p>Réunir une équipe loin du bureau change tout. Un <strong>séminaire d'entreprise</strong> à la campagne offre cette respiration rare où les idées circulent autrement, où les conversations se prolongent et où chacun retrouve l'envie de construire ensemble. À Farm Eden, ferme avec piscine privée nichée à Ain Johra, dans la commune de Tiflet, vous profitez d'un cadre apaisant à seulement 45 minutes de Rabat. Voici nos idées pour transformer ce moment en véritable réussite collective.</p>\n\n<h2>Pourquoi organiser un séminaire d'entreprise à la campagne ?</h2>\n<p>Le bureau impose ses automatismes : les notifications, les couloirs, les réunions qui s'enchaînent. À la campagne, le rythme ralentit et l'attention revient. Le silence des champs, le jardin de 1,5 hectare et les animaux en liberté créent une atmosphère propice à la réflexion comme à la complicité. Loin de l'agitation urbaine, les équipes se parlent vraiment, prennent du recul et reviennent avec des décisions plus mûres. Choisir la nature, c'est offrir un terrain neutre où chacun se livre plus volontiers.</p>\n\n<h2>Alterner temps de travail et moments de respiration</h2>\n<p>Un programme dense épuise plus qu'il ne mobilise. La clé d'un <strong>séminaire d'entreprise</strong> efficace tient dans l'équilibre. Séquencez les ateliers de travail avec de vraies pauses, dans le jardin ou au bord de la piscine. Une marche entre deux sessions, un café partagé sous les arbres, une baignade en fin de programme : ces respirations relancent l'énergie et la créativité.</p>\n<ul>\n<li><strong>Sessions de travail</strong> au calme, dans des espaces lumineux et privatisés.</li>\n<li><strong>Pauses au grand air</strong> pour reposer l'esprit et libérer la parole.</li>\n<li><strong>Activités douces</strong> autour de la piscine et dans le jardin pour souder l'équipe.</li>\n</ul>\n\n<h2>Soigner les repas, un levier sous-estimé</h2>\n<p>On néglige souvent ce point, à tort. Autour d'une table généreuse, les barrières tombent et les liens se renforcent. La cuisine marocaine de Farm Eden, préparée avec des produits frais, transforme chaque repas en moment de partage. Un tajine fumant, des saveurs authentiques et une table dressée dans le jardin valent tous les exercices de cohésion. Vos collaborateurs s'en souviendront longtemps, et c'est précisément l'effet recherché.</p>\n\n<h2>Prévoir des temps informels pour souder l'équipe</h2>\n<p>Les meilleures conversations naissent rarement en réunion. Elles surgissent autour d'un feu le soir, lors d'une partie improvisée ou pendant une promenade entre les oliviers. Laissez de l'espace dans le programme pour ces instants non planifiés. C'est là que se créent la confiance et les complicités qui dureront bien après le retour au travail. Un cadre privatisé rend ces moments naturels et spontanés.</p>\n\n<h2>Choisir un lieu vraiment privatisé et proche de la ville</h2>\n<p>Pour qu'une équipe se sente libre, elle a besoin d'être chez elle. Farm Eden se privatise entièrement, villa comprise, pour accueillir jusqu'à 12 personnes. Pas de voisins, pas de regards extérieurs : seulement votre groupe, le jardin et la piscine. Cette intimité libère la parole et renforce le sentiment d'appartenance. Pour découvrir comment nous accompagnons votre projet, explorez notre <a href=\"/experiences/seminaire\">offre dédiée aux séminaires en pleine nature</a>.</p>\n<p>La proximité avec Rabat est un atout décisif. À 45 minutes de la ville, le trajet reste court et l'organisation simple. Vos équipes arrivent reposées, sans logistique pesante, et basculent immédiatement dans l'ambiance du lieu. Vous gagnez ce dépaysement précieux tout en restant accessible pour ceux qui viennent de la capitale.</p>\n\n<h2>Composer un séminaire à votre image</h2>\n<p>Chaque entreprise a sa culture, ses objectifs et son rythme. Un bon programme respecte cette singularité. Définissez en amont vos priorités : renforcer la cohésion, lancer une nouvelle stratégie, célébrer une réussite. Adaptez ensuite les ateliers, les repas et les temps libres en conséquence. À Farm Eden, le cadre se prête à toutes les ambitions, du travail concentré à la fête conviviale au bord de l'eau.</p>\n<p>Un <strong>séminaire d'entreprise</strong> réussi laisse une empreinte durable : des décisions claires, des liens renforcés et le souvenir partagé d'un moment hors du commun. La campagne près de Rabat offre ce mélange rare d'efficacité et de douceur de vivre. Pour imaginer ensemble votre prochain rendez-vous d'équipe, contactez-nous simplement par <strong>WhatsApp</strong>, et composons un programme à votre mesure.</p>",
+    "published": true
   },
   {
-    slug: 'que-faire-autour-rabat-nature',
-    title: 'Que faire autour de Rabat pour une escapade nature le temps d\'un week-end',
-    excerpt:
-      'La région de Rabat regorge de coins verts à découvrir. Tour d\'horizon des idées d\'escapade nature, de la campagne de Tifelt aux plaisirs simples du plein air.',
-    date: '2026-03-30',
-    dateLabel: '30 mars 2026',
-    readingTime: '4 min de lecture',
-    cover: '/images/farm/palmeraie.jpg',
-    tag: 'Découverte',
-    metaTitle: 'Que faire autour de Rabat pour une escapade nature',
-    metaDescription:
-      'Idées d\'escapade nature autour de Rabat. Découvrez la campagne de Tifelt, ses fermes verdoyantes et les plaisirs du plein air à moins d\'une heure de la ville.',
-    sections: [
-      {
-        paragraphs: [
-          'Rabat offre bien plus que sa médina et son littoral. Dès qu\'on s\'éloigne un peu, la campagne dévoile des paysages verdoyants et apaisants. Voici quelques idées pour une escapade nature à portée de route.',
-        ],
-      },
-      {
-        heading: 'Respirer dans la campagne de Tifelt',
-        paragraphs: [
-          'La région de Tifelt, à 45 minutes de Rabat, déroule des champs, des palmeraies et des fermes paisibles. C\'est une destination idéale pour échapper à l\'agitation urbaine. On y retrouve le rythme lent de la campagne marocaine.',
-        ],
-      },
-      {
-        heading: 'Profiter d\'une ferme privatisée',
-        paragraphs: [
-          'Privatiser une ferme reste la meilleure façon de savourer cette nature en toute intimité. Vous avez la piscine, le jardin et les animaux pour vous seuls. Farm Eden propose exactement ce cadre, à quelques minutes de Tifelt.',
-        ],
-      },
-      {
-        heading: 'Renouer avec les plaisirs simples',
-        paragraphs: [
-          'Une baignade au soleil, un repas marocain en plein air, une partie de jeux sur la pelouse. Les plaisirs simples prennent une autre dimension loin de la ville. C\'est souvent de ces moments que naissent les meilleurs souvenirs.',
-        ],
-      },
-    ],
-  },
+    "slug": "que-faire-autour-rabat-nature",
+    "title": "Que faire autour de Rabat : notre escapade nature",
+    "excerpt": "Envie de vert et de calme près de la capitale ? Voici nos idées d'escapade nature pour respirer, ralentir et renouer avec les plaisirs simples à la campagne.",
+    "date": "2026-03-30",
+    "dateLabel": "30 mars 2026",
+    "readingTime": "4 min de lecture",
+    "cover": "/images/farm/palmeraie.jpg",
+    "coverAlt": "Jardin verdoyant et piscine d'une ferme à la campagne, idée de que faire autour de Rabat dans la nature",
+    "keyword": "que faire autour de Rabat",
+    "tag": "Découverte",
+    "metaTitle": "Que faire autour de Rabat : notre escapade nature",
+    "metaDescription": "Découvrez que faire autour de Rabat pour une escapade nature : campagne de Tiflet, ferme privatisée avec piscine, calme et plaisirs simples loin de la ville.",
+    "sections": [],
+    "bodyHtml": "<p>Vous cherchez à savoir <strong>que faire autour de Rabat</strong> quand l'envie de verdure et de silence se fait sentir ? La capitale a beaucoup de charme, mais il vient un moment où l'on rêve d'horizons plus doux, de matins lents et d'un ciel sans béton. La bonne nouvelle, c'est que la vraie campagne marocaine commence à quelques kilomètres de la ville, du côté de Tiflet. Ici, on troque le bruit contre le chant des oiseaux et l'agitation contre la lenteur retrouvée.</p>\n\n<h2>Cap sur la campagne de Tiflet pour respirer</h2>\n<p>À <strong>45 minutes de Rabat</strong>, la région d'Ain Johra déroule ses champs, ses oliviers et ses collines paisibles. C'est une campagne authentique, encore préservée, où la lumière du soir donne aux paysages des teintes dorées. On y vient pour ralentir, pour marcher dans la nature, pour écouter le vent dans les arbres et pour réapprendre à ne rien faire. Loin des circuits touristiques saturés, cette campagne offre exactement ce que l'on recherche : de l'espace, du vert et du calme.</p>\n<p>Sur place, les plaisirs sont simples et vrais. Vous pouvez vous promener entre les arbres fruitiers, observer les animaux qui vivent en liberté, ou simplement vous installer à l'ombre avec un thé à la menthe. La campagne de Tiflet est une invitation à la déconnexion, celle que beaucoup de citadins cherchent sans toujours savoir où la trouver.</p>\n\n<h2>Privatiser une ferme : l'idée d'escapade nature par excellence</h2>\n<p>Parmi toutes les options, privatiser une ferme reste la plus belle façon de vivre la campagne pleinement. À Farm Eden, vous réservez la <strong>villa entière</strong>, rien que pour vous et vos proches. Pas de voisins, pas de regards, juste votre tribu et un cadre qui vous appartient le temps de votre séjour. C'est l'endroit idéal pour se retrouver en famille ou entre amis, avec la liberté de vivre à votre rythme.</p>\n<p>Découvrez <a href=\"/la-ferme\">notre ferme avec piscine privée à Ain Johra</a>, pensée pour accueillir jusqu'à 12 personnes dans une atmosphère chaleureuse. Le décor mêle l'authenticité de la campagne au confort d'une maison soignée. Voici ce qui rend l'expérience unique :</p>\n<ul>\n<li><strong>Une piscine privée</strong> où plonger en toute intimité, sans partager le bassin avec personne.</li>\n<li><strong>Un jardin de 1,5 hectare</strong>, vaste terrain de jeu pour les enfants et havre de paix pour les adultes.</li>\n<li><strong>Des animaux en liberté</strong> qui ravissent petits et grands et reconnectent à la vie simple.</li>\n<li><strong>Une cuisine marocaine généreuse</strong>, préparée avec des produits frais et des saveurs du terroir.</li>\n</ul>\n<p>Privatiser un lieu, c'est s'offrir le luxe de la tranquillité. On se lève quand on veut, on déjeune dehors, on laisse les enfants courir librement et on savoure chaque instant sans contrainte.</p>\n\n<h2>Alors, que faire autour de Rabat pour se ressourcer ?</h2>\n<p>Se ressourcer ne demande pas grand-chose, seulement un cadre apaisant et la volonté de ralentir. À la campagne, les gestes simples reprennent toute leur valeur. Voici quelques idées pour renouer avec l'essentiel :</p>\n<ul>\n<li>Prendre un <strong>petit-déjeuner au grand air</strong>, face au jardin, avec du pain maison et du miel local.</li>\n<li>Nager dans la piscine privée puis s'allonger au soleil, sans aucune montre à surveiller.</li>\n<li>Partager un repas marocain convivial autour d'une grande table, à l'ombre des arbres.</li>\n<li>Observer les étoiles le soir, loin de la pollution lumineuse de la ville.</li>\n<li>Marcher dans la nature environnante et redécouvrir le plaisir du silence.</li>\n</ul>\n<p>Ce sont ces petits bonheurs qui font la différence. La nature offre un vrai repos, celui qui détend le corps et apaise l'esprit. La réponse à cette question tient souvent dans la simplicité d'une journée à la ferme.</p>\n\n<h2>Comment organiser votre escapade nature</h2>\n<p>Tout est pensé pour que votre venue soit fluide et sereine. Vous choisissez votre période librement, vous arrivez les bras chargés d'envies et vous repartez ressourcés. La <strong>réservation se fait par WhatsApp</strong>, simplement, avec un échange direct et chaleureux pour préparer votre séjour selon vos souhaits.</p>\n<p>Que vous veniez en famille, entre amis ou pour célébrer une occasion spéciale, la campagne de Tiflet et Farm Eden vous accueillent dans un esprit de partage et de douceur de vivre. Alors, la prochaine fois que vous penserez à <strong>que faire autour de Rabat</strong>, imaginez le vert, le calme et les plaisirs simples qui vous attendent à quelques minutes de la capitale.</p>",
+    "published": true
+  }
 ];
 
 export function getPost(slug: string): Post | undefined {

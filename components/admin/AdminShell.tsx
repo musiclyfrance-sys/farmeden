@@ -7,6 +7,7 @@ import type { ReactNode } from 'react';
 const NAV = [
   { href: '/admin', label: 'Tableau de bord' },
   { href: '/admin/photos', label: 'Photos' },
+  { href: '/admin/site-images', label: 'Médias du site' },
   { href: '/admin/journal', label: 'Journal' },
 ];
 
