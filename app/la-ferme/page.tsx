@@ -103,7 +103,7 @@ export default async function LaFermePage() {
                     Farm Eden se trouve à Ain Johra, dans la région de Tiflet, à 45 minutes de Rabat. C&apos;est une vraie ferme, avec un grand terrain verdoyant, une palmeraie, des animaux et une belle villa marocaine.
                   </p>
                   <p>
-                    Quand vous réservez, vous prenez <strong className="text-[#231C14]">toute la propriété</strong>. Il n&apos;y a aucun autre client. La piscine, la villa et le jardin sont entièrement pour vous.
+                    Quand vous réservez, vous <Link href="/privatiser-la-ferme" className="text-[#52632E] underline underline-offset-2 hover:text-[#3f4d23]">privatisez toute la propriété</Link>. Il n&apos;y a aucun autre client. La piscine, la villa et le jardin sont entièrement pour vous.
                   </p>
                   <p>
                     La ferme accueille jusqu&apos;à <strong className="text-[#231C14]">12 personnes</strong> confortablement. C&apos;est l&apos;endroit idéal pour une réunion de famille, un groupe d&apos;amis ou une équipe en séminaire.

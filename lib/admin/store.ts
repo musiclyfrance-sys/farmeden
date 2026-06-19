@@ -52,8 +52,13 @@ export async function saveGallery(data: GalleryRubric[]): Promise<void> {
 
 /* ── Articles ── */
 export async function getPosts(): Promise<Post[]> {
-  const data = await readJson<Post[]>(ARTICLES_PATH);
-  return Array.isArray(data) && data.length ? data : POSTS;
+  const saved = await readJson<Post[]>(ARTICLES_PATH);
+  if (!Array.isArray(saved) || !saved.length) return POSTS;
+  // Fusion : on garde les articles enregistrés (édités dans l'admin) et on ajoute
+  // tout nouvel article par défaut absent du manifeste.
+  const savedSlugs = new Set(saved.map((p) => p.slug));
+  const extras = POSTS.filter((p) => !savedSlugs.has(p.slug));
+  return [...saved, ...extras];
 }
 export async function getPostBySlug(slug: string): Promise<Post | undefined> {
   return (await getPosts()).find((p) => p.slug === slug);

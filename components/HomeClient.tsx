@@ -86,7 +86,7 @@ export function HomeClient({ hero, heroAccent, featured, marquee }: { hero: Img;
               <FadeIn><p className="text-xs font-medium tracking-widest uppercase text-[#D4B78A] mb-5">Comment ça marche</p></FadeIn>
               <FadeIn delay={0.08}><h2 className="font-display font-normal text-[#F5EFE0] leading-[1.1] mb-6" style={{ fontSize: 'clamp(2rem, 4vw, 3.4rem)' }}>La propriété entière<br /><em className="italic">est réservée pour vous.</em></h2></FadeIn>
               <FadeIn delay={0.14}>
-                <p className="text-[#F5EFE0]/75 text-lg leading-relaxed mb-4">La villa, la piscine, le jardin et tous les espaces sont réservés à vous et à vos invités. Aucun autre groupe ne partage les lieux pendant votre venue.</p>
+                <p className="text-[#F5EFE0]/75 text-lg leading-relaxed mb-4">La villa, la piscine, le jardin et tous les espaces sont <Link href="/privatiser-la-ferme" className="underline underline-offset-2 decoration-[#F5EFE0]/40 hover:decoration-[#F5EFE0]">réservés à vous et à vos invités</Link>. Aucun autre groupe ne partage les lieux pendant votre venue.</p>
                 <p className="text-[#F5EFE0]/75 text-lg leading-relaxed mb-10">Vous arrivez, vous profitez et vous repartez avec de beaux souvenirs. Tout est simple et tranquille.</p>
               </FadeIn>
               <FadeIn delay={0.2}><WhatsAppBtn message={WA_MESSAGES.reservation} label="Demander les disponibilités" variant="cream" size="lg" icon="calendar" /></FadeIn>

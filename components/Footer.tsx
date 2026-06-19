@@ -39,6 +39,11 @@ export function Footer() {
                 Journal
               </Link>
             </li>
+            <li>
+              <Link href="/privatiser-la-ferme" className="text-[#F5EFE0]/60 hover:text-[#F5EFE0] text-sm transition-colors">
+                Privatiser la ferme
+              </Link>
+            </li>
           </ul>
         </nav>
 
