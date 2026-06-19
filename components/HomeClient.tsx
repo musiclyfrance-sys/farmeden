@@ -37,7 +37,7 @@ export function HomeClient({ hero, heroAccent, featured, marquee }: { hero: Img;
             </motion.div>
 
             <motion.h1 className="font-display font-normal text-[#231C14] leading-[1.05] mb-6" style={{ fontSize: 'clamp(2.6rem, 3.8vw, 3.6rem)' }} initial={{ opacity: 0, y: 28 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: 0.05, duration: 0.7, ease: [0.22, 1, 0.36, 1] }}>
-              Un séjour à la ferme<br /><em className="italic text-[#52632E]">dont tout le monde se souvient.</em>
+              Un séjour à la ferme <em className="italic text-[#52632E]">dont tout le monde se souvient.</em>
             </motion.h1>
 
             <motion.p className="text-[#231C14]/65 text-lg leading-relaxed mb-9 max-w-md" initial={{ opacity: 0, y: 18 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: 0.2, duration: 0.6 }}>
@@ -87,13 +87,12 @@ export function HomeClient({ hero, heroAccent, featured, marquee }: { hero: Img;
           <FadeIn delay={0.06}>
             <h2 className="font-display font-normal text-[#231C14] leading-[1.1] mb-6 max-w-3xl" style={{ fontSize: 'clamp(1.9rem, 3.5vw, 3rem)' }}>
               Une ferme avec <em className="italic text-[#52632E]">piscine privée à louer</em>
-              <br />
               près de Rabat
             </h2>
           </FadeIn>
           <FadeIn delay={0.12}>
             <p className="text-[#231C14]/65 text-lg leading-relaxed max-w-2xl">
-              Farm Eden est une ferme avec piscine privée à louer à Ain Johra, près de Tiflet, dans la région Rabat-Salé-Kénitra, à 45 minutes de Rabat. Vous réservez la <Link href="/la-ferme" className="underline underline-offset-2 decoration-[#52632E]/40 hover:decoration-[#52632E] text-[#231C14]">villa entière, ses 4 chambres et son grand jardin</Link> pour douze personnes, sans aucun autre groupe sur place. C&apos;est un cadre simple et tranquille pour un <Link href="/experiences" className="underline underline-offset-2 decoration-[#52632E]/40 hover:decoration-[#52632E] text-[#231C14]">séjour en famille, un brunch ou un événement privé</Link>, comme pour un <Link href="/privatiser-la-ferme" className="underline underline-offset-2 decoration-[#52632E]/40 hover:decoration-[#52632E] text-[#231C14]">séminaire d&apos;entreprise</Link>.
+              Farm Eden est une ferme avec piscine privée à louer à Ain Johra, près de Tiflet, dans la région Rabat-Salé-Kénitra, à 45 minutes de Rabat. Vous réservez la <Link href="/la-ferme" className="text-[#52632E] hover:text-[#3f4d23] transition-colors">villa entière, ses 4 chambres et son grand jardin</Link> pour douze personnes, sans aucun autre groupe sur place. C&apos;est un cadre simple et tranquille pour un <Link href="/experiences" className="text-[#52632E] hover:text-[#3f4d23] transition-colors">séjour en famille, un brunch ou un événement privé</Link>, comme pour un <Link href="/privatiser-la-ferme" className="text-[#52632E] hover:text-[#3f4d23] transition-colors">séminaire d&apos;entreprise</Link>.
             </p>
           </FadeIn>
         </div>
@@ -105,9 +104,9 @@ export function HomeClient({ hero, heroAccent, featured, marquee }: { hero: Img;
           <div className="grid grid-cols-1 md:grid-cols-2 gap-14 md:gap-20 items-center">
             <div>
               <FadeIn><p className="text-xs font-medium tracking-widest uppercase text-[#D4B78A] mb-5">Comment ça marche</p></FadeIn>
-              <FadeIn delay={0.08}><h2 className="font-display font-normal text-[#F5EFE0] leading-[1.1] mb-6" style={{ fontSize: 'clamp(2rem, 4vw, 3.4rem)' }}>La propriété entière<br /><em className="italic">est réservée pour vous.</em></h2></FadeIn>
+              <FadeIn delay={0.08}><h2 className="font-display font-normal text-[#F5EFE0] leading-[1.1] mb-6" style={{ fontSize: 'clamp(2rem, 4vw, 3.4rem)' }}>La propriété entière <em className="italic">est réservée pour vous.</em></h2></FadeIn>
               <FadeIn delay={0.14}>
-                <p className="text-[#F5EFE0]/75 text-lg leading-relaxed mb-4">La villa, la piscine, le jardin et tous les espaces sont <Link href="/privatiser-la-ferme" className="underline underline-offset-2 decoration-[#F5EFE0]/40 hover:decoration-[#F5EFE0]">réservés à vous et à vos invités</Link>. Aucun autre groupe ne partage les lieux pendant votre venue.</p>
+                <p className="text-[#F5EFE0]/75 text-lg leading-relaxed mb-4">La villa, la piscine, le jardin et tous les espaces sont <Link href="/privatiser-la-ferme" className="text-[#D4B78A] hover:text-[#e6d3b0] transition-colors">réservés à vous et à vos invités</Link>. Aucun autre groupe ne partage les lieux pendant votre venue.</p>
                 <p className="text-[#F5EFE0]/75 text-lg leading-relaxed mb-10">Vous arrivez, vous profitez et vous repartez avec de beaux souvenirs. Tout est simple et tranquille.</p>
               </FadeIn>
               <FadeIn delay={0.2}><WhatsAppBtn message={WA_MESSAGES.reservation} label="Demander les disponibilités" variant="cream" size="lg" icon="calendar" /></FadeIn>
@@ -130,7 +129,7 @@ export function HomeClient({ hero, heroAccent, featured, marquee }: { hero: Img;
       <section className="bg-[#F5EFE0] py-20 md:py-32">
         <div className="mx-auto max-w-6xl px-5 md:px-8">
           <FadeIn><p className="text-xs font-medium tracking-widest uppercase text-[#A84A26] mb-5">Ce qui vous attend</p></FadeIn>
-          <FadeIn delay={0.06}><h2 className="font-display font-normal text-[#231C14] leading-[1.1] mb-14 max-w-xl" style={{ fontSize: 'clamp(1.9rem, 3.5vw, 3rem)' }}>Tout ce qu&apos;il faut pour passer<br /><em className="italic text-[#52632E]">un très bon moment.</em></h2></FadeIn>
+          <FadeIn delay={0.06}><h2 className="font-display font-normal text-[#231C14] leading-[1.1] mb-14 max-w-xl" style={{ fontSize: 'clamp(1.9rem, 3.5vw, 3rem)' }}>Tout ce qu&apos;il faut pour passer <em className="italic text-[#52632E]">un très bon moment.</em></h2></FadeIn>
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5">
             {FEATURES.map((f, i) => {
               const Icon = ICONS[f.icon] ?? ShieldCheck;
@@ -152,7 +151,7 @@ export function HomeClient({ hero, heroAccent, featured, marquee }: { hero: Img;
         <div className="mx-auto max-w-6xl px-5 md:px-8 grid grid-cols-1 md:grid-cols-12 gap-12 md:gap-16 items-center">
           <div className="md:col-span-5">
             <FadeIn><p className="text-xs font-medium tracking-widest uppercase text-[#A84A26] mb-5">Réservation</p></FadeIn>
-            <FadeIn delay={0.06}><h2 className="font-display font-normal text-[#231C14] leading-[1.1] mb-8" style={{ fontSize: 'clamp(1.9rem, 3.5vw, 3rem)' }}>Simple comme<br /><em className="italic text-[#52632E]">un message WhatsApp.</em></h2></FadeIn>
+            <FadeIn delay={0.06}><h2 className="font-display font-normal text-[#231C14] leading-[1.1] mb-8" style={{ fontSize: 'clamp(1.9rem, 3.5vw, 3rem)' }}>Simple comme <em className="italic text-[#52632E]">un message WhatsApp.</em></h2></FadeIn>
             <FadeIn delay={0.12}><WhatsAppBtn message={WA_MESSAGES.reservation} label="Réserver les dates" variant="olive" size="lg" icon="calendar" /></FadeIn>
           </div>
           <div className="md:col-span-7"><ReservationSteps steps={RESERVATION_STEPS} /></div>
@@ -165,7 +164,7 @@ export function HomeClient({ hero, heroAccent, featured, marquee }: { hero: Img;
           <div className="flex flex-col md:flex-row md:items-end md:justify-between gap-6">
             <div>
               <FadeIn><p className="text-xs font-medium tracking-widest uppercase text-[#52632E] mb-5">La galerie</p></FadeIn>
-              <FadeIn delay={0.06}><h2 className="font-display font-normal text-[#231C14] leading-[1.1] max-w-lg" style={{ fontSize: 'clamp(1.9rem, 3.5vw, 3rem)' }}>Un avant-goût<br /><em className="italic text-[#52632E]">de votre séjour.</em></h2></FadeIn>
+              <FadeIn delay={0.06}><h2 className="font-display font-normal text-[#231C14] leading-[1.1] max-w-lg" style={{ fontSize: 'clamp(1.9rem, 3.5vw, 3rem)' }}>Un avant-goût <em className="italic text-[#52632E]">de votre séjour.</em></h2></FadeIn>
             </div>
             <FadeIn delay={0.1}>
               <Link href="/galerie" className="inline-flex items-center gap-2.5 bg-[#52632E] text-white text-base font-medium px-8 py-4 rounded-full min-h-[52px] hover:bg-[#3f4d23] transition-colors duration-200">Voir toutes les photos<ArrowRight className="w-4 h-4" aria-hidden="true" /></Link>
@@ -179,7 +178,7 @@ export function HomeClient({ hero, heroAccent, featured, marquee }: { hero: Img;
       <section className="bg-white py-20 md:py-32">
         <div className="mx-auto max-w-6xl px-5 md:px-8">
           <FadeIn><p className="text-xs font-medium tracking-widest uppercase text-[#A84A26] mb-5">Pourquoi venir</p></FadeIn>
-          <FadeIn delay={0.06}><h2 className="font-display font-normal text-[#231C14] leading-[1.1] mb-14" style={{ fontSize: 'clamp(1.9rem, 3.5vw, 3rem)' }}>Pour chaque occasion,<br /><em className="italic text-[#52632E]">Farm Eden s&apos;adapte.</em></h2></FadeIn>
+          <FadeIn delay={0.06}><h2 className="font-display font-normal text-[#231C14] leading-[1.1] mb-14" style={{ fontSize: 'clamp(1.9rem, 3.5vw, 3rem)' }}>Pour chaque occasion, <em className="italic text-[#52632E]">Farm Eden s&apos;adapte.</em></h2></FadeIn>
           <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
             {featured.map((exp, i) => (
               <FadeIn key={exp.slug} delay={i * 0.08}>
@@ -208,7 +207,7 @@ export function HomeClient({ hero, heroAccent, featured, marquee }: { hero: Img;
       <section className="bg-[#F5EFE0] py-20 md:py-32">
         <div className="mx-auto max-w-6xl px-5 md:px-8">
           <FadeIn><p className="text-xs font-medium tracking-widest uppercase text-[#A84A26] mb-5">Ce qu&apos;ils en disent</p></FadeIn>
-          <FadeIn delay={0.06}><h2 className="font-display font-normal text-[#231C14] leading-[1.1] mb-14" style={{ fontSize: 'clamp(1.9rem, 3.5vw, 3rem)' }}>Ils sont venus,<br /><em className="italic text-[#52632E]">ils sont revenus.</em></h2></FadeIn>
+          <FadeIn delay={0.06}><h2 className="font-display font-normal text-[#231C14] leading-[1.1] mb-14" style={{ fontSize: 'clamp(1.9rem, 3.5vw, 3rem)' }}>Ils sont venus, <em className="italic text-[#52632E]">ils sont revenus.</em></h2></FadeIn>
           <div className="grid grid-cols-1 md:grid-cols-3 gap-5">
             {TESTIMONIALS.map((t, i) => (
               <FadeIn key={t.name} delay={i * 0.1}>
@@ -227,7 +226,7 @@ export function HomeClient({ hero, heroAccent, featured, marquee }: { hero: Img;
       <section className="bg-white py-20 md:py-28">
         <div className="mx-auto max-w-3xl px-5 md:px-8">
           <FadeIn><p className="text-xs font-medium tracking-widest uppercase text-[#A84A26] mb-5">Questions fréquentes</p></FadeIn>
-          <FadeIn delay={0.06}><h2 className="font-display font-normal text-[#231C14] leading-[1.1] mb-12" style={{ fontSize: 'clamp(1.9rem, 3.5vw, 3rem)' }}>Des questions ?<br /><em className="italic text-[#52632E]">On a les réponses.</em></h2></FadeIn>
+          <FadeIn delay={0.06}><h2 className="font-display font-normal text-[#231C14] leading-[1.1] mb-12" style={{ fontSize: 'clamp(1.9rem, 3.5vw, 3rem)' }}>Des questions ? <em className="italic text-[#52632E]">On a les réponses.</em></h2></FadeIn>
           <FadeIn delay={0.1}><FaqAccordion items={FAQ} /></FadeIn>
         </div>
       </section>

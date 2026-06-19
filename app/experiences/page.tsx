@@ -45,7 +45,7 @@ export default async function ExperiencesPage() {
           <FadeIn><p className="text-xs font-medium tracking-widest uppercase text-[#A84A26] mb-4">Expériences</p></FadeIn>
           <FadeIn delay={0.07}>
             <h1 className="font-display font-normal text-[#231C14] leading-[1.0] max-w-2xl" style={{ fontSize: 'clamp(2.5rem, 6vw, 5rem)' }}>
-              Pour chaque occasion,<br /><em className="italic text-[#52632E]">on s&apos;adapte.</em>
+              Pour chaque occasion, <em className="italic text-[#52632E]">on s&apos;adapte.</em>
             </h1>
           </FadeIn>
           <FadeIn delay={0.14}>
@@ -104,7 +104,7 @@ export default async function ExperiencesPage() {
             <FadeIn><p className="text-xs font-medium tracking-widest uppercase text-[#A84A26] mb-4">La ferme, c&apos;est aussi</p></FadeIn>
             <FadeIn delay={0.07}>
               <h2 className="font-display font-normal text-[#231C14] leading-[1.1]" style={{ fontSize: 'clamp(1.9rem, 3.5vw, 3rem)' }}>
-                Bien plus que<br /><em className="italic text-[#52632E]">des occasions.</em>
+                Bien plus que <em className="italic text-[#52632E]">des occasions.</em>
               </h2>
             </FadeIn>
             <FadeIn delay={0.12}>

@@ -32,7 +32,7 @@ export default function ContactPage() {
           <FadeIn><p className="text-xs font-medium tracking-widest uppercase text-[#A84A26] mb-4">Contact</p></FadeIn>
           <FadeIn delay={0.07}>
             <h1 className="font-display font-normal text-[#231C14] leading-[1.0] max-w-xl" style={{ fontSize: 'clamp(2.5rem, 6vw, 5rem)' }}>
-              On vous répond<br /><em className="italic text-[#52632E]">rapidement.</em>
+              On vous répond <em className="italic text-[#52632E]">rapidement.</em>
             </h1>
           </FadeIn>
           <FadeIn delay={0.14}>
@@ -115,7 +115,7 @@ export default function ContactPage() {
           <FadeIn><p className="text-xs font-medium tracking-widest uppercase text-[#52632E] mb-4">Où nous trouver</p></FadeIn>
           <FadeIn delay={0.07}>
             <h2 className="font-display font-normal text-[#231C14] leading-[1.1] mb-2" style={{ fontSize: 'clamp(1.6rem, 2.5vw, 2.4rem)' }}>
-              À 45 minutes de Rabat,<br /><em className="italic text-[#52632E]">dans la région de Tiflet.</em>
+              À 45 minutes de Rabat, <em className="italic text-[#52632E]">dans la région de Tiflet.</em>
             </h2>
           </FadeIn>
           <FadeIn delay={0.12}>

@@ -71,7 +71,7 @@ export default async function LaFermePage() {
           <FadeIn><p className="text-xs font-medium tracking-widest uppercase text-[#A84A26] mb-5">La Ferme</p></FadeIn>
           <FadeIn delay={0.07}>
             <h1 className="font-display font-normal text-[#231C14] leading-[1.0] max-w-2xl" style={{ fontSize: 'clamp(2.6rem, 6vw, 5rem)' }}>
-              Un endroit calme,<br /><em className="italic text-[#52632E]">grand et beau.</em>
+              Un endroit calme, <em className="italic text-[#52632E]">grand et beau.</em>
             </h1>
           </FadeIn>
           <FadeIn delay={0.14}>
@@ -94,7 +94,7 @@ export default async function LaFermePage() {
             <div className="order-1 md:order-2">
               <FadeIn>
                 <h2 className="font-display font-normal text-[#231C14] leading-[1.1] mb-6" style={{ fontSize: 'clamp(1.9rem, 3.2vw, 2.8rem)' }}>
-                  Tout le domaine<br /><em className="italic text-[#52632E]">rien que pour vous.</em>
+                  Tout le domaine <em className="italic text-[#52632E]">rien que pour vous.</em>
                 </h2>
               </FadeIn>
               <FadeIn delay={0.1}>
@@ -103,7 +103,7 @@ export default async function LaFermePage() {
                     Farm Eden se trouve à Ain Johra, dans la région de Tiflet, à 45 minutes de Rabat. C&apos;est une vraie ferme, avec un grand terrain verdoyant, une palmeraie, des animaux et une belle villa marocaine.
                   </p>
                   <p>
-                    Quand vous réservez, vous <Link href="/privatiser-la-ferme" className="text-[#52632E] underline underline-offset-2 hover:text-[#3f4d23]">privatisez toute la propriété</Link>. Il n&apos;y a aucun autre client. La piscine, la villa et le jardin sont entièrement pour vous.
+                    Quand vous réservez, vous <Link href="/privatiser-la-ferme" className="text-[#52632E] hover:text-[#3f4d23] transition-colors">privatisez toute la propriété</Link>. Il n&apos;y a aucun autre client. La piscine, la villa et le jardin sont entièrement pour vous.
                   </p>
                   <p>
                     La ferme accueille jusqu&apos;à <strong className="text-[#231C14]">12 personnes</strong> confortablement. C&apos;est l&apos;endroit idéal pour une réunion de famille, un groupe d&apos;amis ou une équipe en séminaire.
@@ -141,7 +141,7 @@ export default async function LaFermePage() {
           <FadeIn><p className="text-xs font-medium tracking-widest uppercase text-[#A84A26] mb-4">Ce qui est inclus</p></FadeIn>
           <FadeIn delay={0.06}>
             <h2 className="font-display font-normal text-[#231C14] leading-[1.1] mb-14" style={{ fontSize: 'clamp(1.8rem, 3vw, 2.8rem)' }}>
-              Tout ce qu&apos;il vous faut<br /><em className="italic text-[#52632E]">dans un seul endroit.</em>
+              Tout ce qu&apos;il vous faut <em className="italic text-[#52632E]">dans un seul endroit.</em>
             </h2>
           </FadeIn>
           <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
@@ -169,7 +169,7 @@ export default async function LaFermePage() {
           <FadeIn><p className="text-xs font-medium tracking-widest uppercase text-[#A84A26] mb-5">Comment venir</p></FadeIn>
           <FadeIn delay={0.07}>
             <h2 className="font-display font-normal text-[#231C14] leading-[1.1] mb-4" style={{ fontSize: 'clamp(1.9rem, 3.5vw, 3rem)' }}>
-              La campagne est plus proche<br /><em className="italic text-[#52632E]">que vous ne le pensez.</em>
+              La campagne est plus proche <em className="italic text-[#52632E]">que vous ne le pensez.</em>
             </h2>
           </FadeIn>
           <FadeIn delay={0.12}>

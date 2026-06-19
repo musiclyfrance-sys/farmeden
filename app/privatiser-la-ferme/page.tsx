@@ -75,7 +75,7 @@ export default async function PrivatiserPage() {
               <FadeIn><p className="text-xs font-medium tracking-widest uppercase text-[#A84A26] mb-5">Privatisation</p></FadeIn>
               <FadeIn delay={0.06}>
                 <h1 className="font-display font-normal text-[#231C14] leading-[1.05]" style={{ fontSize: 'clamp(2.4rem, 5vw, 4rem)' }}>
-                  Privatisez la ferme,<br /><em className="italic text-[#52632E]">rien que pour vous.</em>
+                  Privatisez la ferme, <em className="italic text-[#52632E]">rien que pour vous.</em>
                 </h1>
               </FadeIn>
               <FadeIn delay={0.12}>
@@ -129,7 +129,7 @@ export default async function PrivatiserPage() {
           <FadeIn><p className="text-xs font-medium tracking-widest uppercase text-[#A84A26] mb-5">Pour qui</p></FadeIn>
           <FadeIn delay={0.06}>
             <h2 className="font-display font-normal text-[#231C14] leading-[1.1] mb-4" style={{ fontSize: 'clamp(1.9rem, 3.5vw, 3rem)' }}>
-              Une ferme privatisée<br /><em className="italic text-[#52632E]">pour chaque occasion.</em>
+              Une ferme privatisée <em className="italic text-[#52632E]">pour chaque occasion.</em>
             </h2>
           </FadeIn>
           <FadeIn delay={0.1}>
@@ -160,7 +160,7 @@ export default async function PrivatiserPage() {
               <FadeIn><p className="text-xs font-medium tracking-widest uppercase text-[#52632E] mb-5">La galerie</p></FadeIn>
               <FadeIn delay={0.06}>
                 <h2 className="font-display font-normal text-[#231C14] leading-[1.1] max-w-lg" style={{ fontSize: 'clamp(1.9rem, 3.5vw, 3rem)' }}>
-                  La ferme<br /><em className="italic text-[#52632E]">que vous privatisez.</em>
+                  La ferme <em className="italic text-[#52632E]">que vous privatisez.</em>
                 </h2>
               </FadeIn>
             </div>

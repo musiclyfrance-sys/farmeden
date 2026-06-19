@@ -27,7 +27,7 @@ export default async function JournalPage() {
           <FadeIn><p className="text-xs font-medium tracking-widest uppercase text-[#A84A26] mb-4">Le journal</p></FadeIn>
           <FadeIn delay={0.07}>
             <h1 className="font-display font-normal text-[#231C14] leading-[1.0] max-w-2xl" style={{ fontSize: 'clamp(2.5rem, 6vw, 5rem)' }}>
-              Idées et inspirations<br /><em className="italic text-[#52632E]">pour s&apos;évader.</em>
+              Idées et inspirations <em className="italic text-[#52632E]">pour s&apos;évader.</em>
             </h1>
           </FadeIn>
           <FadeIn delay={0.14}>
