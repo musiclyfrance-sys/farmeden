@@ -1,0 +1,5 @@
+{
+  "/journal/[slug]/page": "app/journal/[slug]/page.js",
+  "/journal/page": "app/journal/page.js",
+  "/page": "app/page.js"
+}

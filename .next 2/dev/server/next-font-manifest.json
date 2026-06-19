@@ -1,0 +1,28 @@
+{
+  "app": {
+    "[project]/app/journal/[slug]/page": [
+      "static/media/83afe278b6a6bb3c-s.p.0q-301v4kxxnr.woff2",
+      "static/media/URWClassico_Regular-s.p.0k2wzdivx-da0.woff2",
+      "static/media/URWClassico_Italic-s.p.0tepinpqull21.woff2",
+      "static/media/URWClassico_Bold-s.p.07x2.d.43-ol8.woff2",
+      "static/media/URWClassico_BoldItalic-s.p.13twx9607wdw5.woff2"
+    ],
+    "[project]/app/journal/page": [
+      "static/media/83afe278b6a6bb3c-s.p.0q-301v4kxxnr.woff2",
+      "static/media/URWClassico_Regular-s.p.0k2wzdivx-da0.woff2",
+      "static/media/URWClassico_Italic-s.p.0tepinpqull21.woff2",
+      "static/media/URWClassico_Bold-s.p.07x2.d.43-ol8.woff2",
+      "static/media/URWClassico_BoldItalic-s.p.13twx9607wdw5.woff2"
+    ],
+    "[project]/app/page": [
+      "static/media/83afe278b6a6bb3c-s.p.0q-301v4kxxnr.woff2",
+      "static/media/URWClassico_Regular-s.p.0k2wzdivx-da0.woff2",
+      "static/media/URWClassico_Italic-s.p.0tepinpqull21.woff2",
+      "static/media/URWClassico_Bold-s.p.07x2.d.43-ol8.woff2",
+      "static/media/URWClassico_BoldItalic-s.p.13twx9607wdw5.woff2"
+    ]
+  },
+  "appUsingSizeAdjust": true,
+  "pages": {},
+  "pagesUsingSizeAdjust": false
+}

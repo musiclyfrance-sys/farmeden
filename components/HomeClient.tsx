@@ -78,6 +78,27 @@ export function HomeClient({ hero, heroAccent, featured, marquee }: { hero: Img;
         </div>
       </section>
 
+      {/* ═══ FERME PISCINE PRIVÉE RABAT (SEO) ═══ */}
+      <section className="bg-white py-16 md:py-24">
+        <div className="mx-auto max-w-6xl px-5 md:px-8">
+          <FadeIn>
+            <p className="text-xs font-medium tracking-widest uppercase text-[#A84A26] mb-5">Ferme privatisée près de Rabat</p>
+          </FadeIn>
+          <FadeIn delay={0.06}>
+            <h2 className="font-display font-normal text-[#231C14] leading-[1.1] mb-6 max-w-3xl" style={{ fontSize: 'clamp(1.9rem, 3.5vw, 3rem)' }}>
+              Une ferme avec <em className="italic text-[#52632E]">piscine privée à louer</em>
+              <br />
+              près de Rabat
+            </h2>
+          </FadeIn>
+          <FadeIn delay={0.12}>
+            <p className="text-[#231C14]/65 text-lg leading-relaxed max-w-2xl">
+              Farm Eden est une ferme avec piscine privée à louer à Ain Johra, près de Tiflet, dans la région Rabat-Salé-Kénitra, à 45 minutes de Rabat. Vous réservez la <Link href="/la-ferme" className="underline underline-offset-2 decoration-[#52632E]/40 hover:decoration-[#52632E] text-[#231C14]">villa entière, ses 4 chambres et son grand jardin</Link> pour douze personnes, sans aucun autre groupe sur place. C&apos;est un cadre simple et tranquille pour un <Link href="/experiences" className="underline underline-offset-2 decoration-[#52632E]/40 hover:decoration-[#52632E] text-[#231C14]">séjour en famille, un brunch ou un événement privé</Link>, comme pour un <Link href="/privatiser-la-ferme" className="underline underline-offset-2 decoration-[#52632E]/40 hover:decoration-[#52632E] text-[#231C14]">séminaire d&apos;entreprise</Link>.
+            </p>
+          </FadeIn>
+        </div>
+      </section>
+
       {/* ═══ COMMENT ÇA MARCHE ═══ */}
       <section className="bg-[#52632E] grain relative overflow-hidden py-20 md:py-32">
         <div className="mx-auto max-w-6xl px-5 md:px-8">
