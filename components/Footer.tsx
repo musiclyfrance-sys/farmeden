@@ -7,10 +7,10 @@ export function Footer() {
 
   return (
     <footer className="bg-[#231C14] text-[#F5EFE0]" role="contentinfo">
-      <div className="mx-auto max-w-6xl px-5 md:px-8 py-16 grid grid-cols-1 md:grid-cols-3 gap-12">
+      <div className="mx-auto max-w-6xl px-5 md:px-8 py-16 grid grid-cols-2 md:grid-cols-4 gap-10 md:gap-12">
 
         {/* Brand */}
-        <div className="md:pr-8">
+        <div className="col-span-2 md:col-span-1 md:pr-8">
           <img src="/images/logo-noir.svg" alt="Farm Eden" className="h-12 w-auto mb-4" />
           <p className="text-[#F5EFE0]/60 text-sm leading-relaxed max-w-xs">
             Une ferme avec piscine privée, rien que pour vous. Villa entière, verdure et cuisine
@@ -18,7 +18,7 @@ export function Footer() {
           </p>
         </div>
 
-        {/* Navigation */}
+        {/* Navigation principale */}
         <nav aria-label="Pages du site">
           <p className="text-xs font-medium tracking-widest uppercase text-[#D4B78A] mb-5">Pages</p>
           <ul className="flex flex-col gap-3" role="list">
@@ -34,6 +34,13 @@ export function Footer() {
                 </Link>
               </li>
             ))}
+          </ul>
+        </nav>
+
+        {/* À découvrir */}
+        <nav aria-label="À découvrir">
+          <p className="text-xs font-medium tracking-widest uppercase text-[#D4B78A] mb-5">Découvrir</p>
+          <ul className="flex flex-col gap-3" role="list">
             <li>
               <Link href="/journal" className="text-[#F5EFE0]/60 hover:text-[#F5EFE0] text-sm transition-colors">
                 Journal
