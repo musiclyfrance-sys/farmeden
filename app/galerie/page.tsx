@@ -48,9 +48,6 @@ export default async function GaleriePage() {
         <section key={section.id} id={section.id} className={`py-16 md:py-24 scroll-mt-20 ${si % 2 === 0 ? 'bg-white' : 'bg-[#F5EFE0]'}`}>
           <div className="mx-auto max-w-6xl px-5 md:px-8">
             <FadeIn>
-              <p className="text-xs font-medium tracking-widest uppercase text-[#A84A26] mb-3">
-                Rubrique {String(si + 1).padStart(2, '0')}
-              </p>
               <h2 className="font-display font-normal text-[#231C14] leading-[1.04]" style={{ fontSize: 'clamp(2rem, 4.2vw, 3.4rem)' }}>
                 {section.label}
               </h2>

@@ -404,55 +404,6 @@ export const EXPERIENCES: Experience[] = [
     wa: 'evenement',
   },
   {
-    slug: 'mariage',
-    title: 'Mariage et fiançailles',
-    tag: 'Mariage',
-    subtitle: 'Le grand jour dans un écrin de verdure',
-    cardImage: '/images/farm/palmeraie.jpg',
-    cardDescription:
-      'Un grand terrain verdoyant, des espaces extérieurs pour de nombreux invités, un traiteur et une décoration sur mesure. Parlez-nous de votre projet et nous construisons la formule idéale.',
-    heroImage: '/images/farm/palmeraie.jpg',
-    heroKicker: 'Mariage',
-    intro:
-      'Un mariage se grave dans la mémoire de ceux qui le vivent. Farm Eden offre un cadre naturel et intime pour célébrer votre union près de Rabat. La palmeraie, le jardin et la villa composent un décor authentique et chaleureux.',
-    story: [
-      {
-        title: 'Un cadre naturel et photogénique',
-        body: 'La palmeraie, les allées fleuries et la piscine forment un décor élégant pour votre cérémonie. La lumière de la campagne sublime vos photos du matin au soir. Chaque recoin de la propriété raconte une atmosphère.',
-      },
-      {
-        title: 'Un espace pensé pour recevoir',
-        body: 'Le grand terrain accueille vos invités en nombre, en intérieur comme en extérieur. Les terrasses et les salons offrent un repli confortable selon la météo. Vous recevez sereinement, sans crainte de manquer de place.',
-      },
-      {
-        title: 'Un accompagnement sur mesure',
-        body: 'Nous travaillons avec vous le traiteur, la décoration et le déroulé de la journée. Notre équipe veille à chaque détail pour vous laisser pleinement présents. Vous profitez de votre mariage, nous gérons l\'organisation.',
-      },
-    ],
-    highlights: [
-      { icon: 'nature', title: 'Décor de campagne', text: 'Palmeraie, jardin et allées fleuries pour vos photos.' },
-      { icon: 'villa', title: 'Grande capacité', text: 'Des espaces extérieurs pour de nombreux invités.' },
-      { icon: 'cuisine', title: 'Traiteur et décoration', text: 'Une formule construite autour de votre projet.' },
-    ],
-    gallery: [
-      '/images/farm/palmeraie.jpg',
-      '/images/farm/facade.jpg',
-      '/images/farm/jardin-tropical.jpg',
-      '/images/farm/terrasse-repas.jpg',
-      '/images/farm/salon.jpg',
-      '/images/farm/allee-palmier.jpg',
-    ],
-    metaTitle: 'Lieu de mariage et de fiançailles près de Rabat',
-    metaDescription:
-      'Célébrez votre mariage à Farm Eden, à 45 minutes de Rabat. Palmeraie, grand jardin, espaces extérieurs pour vos invités, traiteur et décoration sur mesure.',
-    cta: {
-      title: 'Imaginons votre mariage ensemble',
-      text: 'Présentez-nous votre projet et nous construisons une formule à la mesure de votre journée.',
-      label: 'Discuter de mon projet',
-    },
-    wa: 'mariage',
-  },
-  {
     slug: 'retraite-bien-etre',
     title: 'Retraite bien-être',
     tag: 'Bien-être',
@@ -733,6 +684,19 @@ export const DEFAULT_GALLERY: GalleryRubric[] = [
       { id: 'j4', src: '/images/farm/allee.jpg', alt: 'Allée dallée vers la villa et le bananier' },
       { id: 'j5', src: '/images/farm/fleurs-jaunes.jpg', alt: 'Tapis de fleurs jaunes au printemps' },
       { id: 'j6', src: '/images/farm/pechers.jpg', alt: 'Pêchers en fruits dans le champ fleuri' },
+    ],
+  },
+  {
+    id: 'activites',
+    label: 'Activités',
+    desc: 'Trampoline, ping-pong, badminton, tir à l\'arc, football et grands espaces. La ferme est un terrain de jeu pour les petits comme pour les grands.',
+    photos: [
+      { id: 'ac1', src: '/images/farm/jardin-tropical.jpg', alt: 'Grand jardin pour les activités de plein air à Farm Eden' },
+      { id: 'ac2', src: '/images/farm/daybed.jpg', alt: 'Coin détente sur la pelouse de la ferme' },
+      { id: 'ac3', src: '/images/farm/palmeraie.jpg', alt: 'Espaces verts pour jouer et se dépenser' },
+      { id: 'ac4', src: '/images/farm/terrasse-salon.jpg', alt: 'Terrasse pour se retrouver entre deux activités' },
+      { id: 'ac5', src: '/images/farm/allee.jpg', alt: 'Allées et grands espaces ouverts de la ferme' },
+      { id: 'ac6', src: '/images/farm/chevre.jpg', alt: 'Rencontre avec les animaux de la ferme' },
     ],
   },
   {
