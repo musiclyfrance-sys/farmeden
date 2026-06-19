@@ -4,8 +4,12 @@ import Link from 'next/link';
 import { ArrowRight, ShieldCheck, Waves, UtensilsCrossed } from 'lucide-react';
 import { FadeIn } from '@/components/ui/FadeIn';
 import { CTASection } from '@/components/CTASection';
+import { InfiniteMarquee } from '@/components/InfiniteMarquee';
 import { WhatsAppBtn } from '@/components/WhatsAppFloat';
 import { WA_MESSAGES } from '@/lib/content';
+import { getGallery } from '@/lib/admin/store';
+
+export const dynamic = 'force-dynamic';
 
 export const metadata: Metadata = {
   title: 'Privatiser une ferme avec piscine près de Rabat',
@@ -35,7 +39,10 @@ const FAQ = [
   { q: 'Comment réserver une ferme privatisée près de Rabat ?', a: 'Tout se fait sur WhatsApp. Envoyez vos dates et votre nombre de personnes, et nous revenons vers vous rapidement avec les disponibilités et le tarif.' },
 ];
 
-export default function PrivatiserPage() {
+export default async function PrivatiserPage() {
+  const gallery = await getGallery();
+  const marquee = gallery.flatMap((r) => r.photos).slice(0, 16).map((p) => ({ src: p.src, alt: p.alt }));
+
   const faqLd = {
     '@context': 'https://schema.org',
     '@type': 'FAQPage',
@@ -145,8 +152,30 @@ export default function PrivatiserPage() {
         </div>
       </section>
 
-      {/* FAQ */}
+      {/* Galerie défilante */}
       <section className="bg-[#F5EFE0] py-20 md:py-28">
+        <div className="mx-auto max-w-6xl px-5 md:px-8 mb-12 md:mb-16">
+          <div className="flex flex-col md:flex-row md:items-end md:justify-between gap-6">
+            <div>
+              <FadeIn><p className="text-xs font-medium tracking-widest uppercase text-[#52632E] mb-5">La galerie</p></FadeIn>
+              <FadeIn delay={0.06}>
+                <h2 className="font-display font-normal text-[#231C14] leading-[1.1] max-w-lg" style={{ fontSize: 'clamp(1.9rem, 3.5vw, 3rem)' }}>
+                  La ferme<br /><em className="italic text-[#52632E]">que vous privatisez.</em>
+                </h2>
+              </FadeIn>
+            </div>
+            <FadeIn delay={0.1}>
+              <Link href="/galerie" className="inline-flex items-center gap-2.5 bg-[#52632E] text-white text-base font-medium px-8 py-4 rounded-full min-h-[52px] hover:bg-[#3f4d23] transition-colors duration-200">
+                Voir toutes les photos<ArrowRight className="w-4 h-4" aria-hidden="true" />
+              </Link>
+            </FadeIn>
+          </div>
+        </div>
+        <FadeIn delay={0.05} blur={false}><InfiniteMarquee photos={marquee} duration={60} /></FadeIn>
+      </section>
+
+      {/* FAQ */}
+      <section className="bg-white py-20 md:py-28">
         <div className="mx-auto max-w-3xl px-5 md:px-8">
           <FadeIn><p className="text-xs font-medium tracking-widest uppercase text-[#A84A26] mb-10">Questions fréquentes</p></FadeIn>
           <div className="flex flex-col divide-y divide-[#231C14]/10">
