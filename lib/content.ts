@@ -7,7 +7,7 @@
 export const SITE = {
   name: 'Farm Eden',
   tagline: 'Un séjour à la ferme dont tout le monde se souvient.',
-  whatsapp: '212600000000',
+  whatsapp: '33612220024',
   email: 'contact@farmeden.ma',
   address: 'Ain Johra, Tiflet, à 45 minutes de Rabat',
   addressLine: 'Farm Eden - Ferme Rabat, XJ6V+44H, Tiflet, Maroc',
@@ -27,13 +27,13 @@ export function whatsappUrl(message: string): string {
 }
 
 export const WA_MESSAGES = {
-  general:     'Bonjour, je voudrais avoir plus d\'informations sur Farm Eden.',
-  reservation: 'Bonjour, je voudrais réserver Farm Eden. Pouvez-vous me donner les disponibilités et le tarif ?',
-  seminaire:   'Bonjour, je souhaite organiser un séminaire d\'équipe à Farm Eden. Pouvez-vous me contacter ?',
-  evenement:   'Bonjour, je voudrais organiser un événement à Farm Eden. Merci de me contacter.',
-  brunch:      'Bonjour, je suis intéressé(e) par un brunch à Farm Eden. Quelles sont les prochaines dates ?',
-  mariage:     'Bonjour, nous aimerions organiser notre mariage à Farm Eden. Pouvez-vous nous contacter ?',
-  evjf:        'Bonjour, je voudrais organiser un EVJF ou un EVG à Farm Eden. Pouvez-vous me renseigner ?',
+  general:     'Bonjour, j\'ai vu votre site web et je voudrais avoir plus d\'informations sur Farm Eden.',
+  reservation: 'Bonjour, j\'ai vu votre site web et je voudrais réserver Farm Eden. Pouvez-vous me donner les disponibilités et le tarif ?',
+  seminaire:   'Bonjour, j\'ai vu votre site web et je souhaite organiser un séminaire d\'équipe à Farm Eden. Pouvez-vous me contacter ?',
+  evenement:   'Bonjour, j\'ai vu votre site web et je voudrais organiser un événement à Farm Eden. Merci de me contacter.',
+  brunch:      'Bonjour, j\'ai vu votre site web et je suis intéressé(e) par un brunch à Farm Eden. Quelles sont les prochaines dates ?',
+  mariage:     'Bonjour, j\'ai vu votre site web et nous aimerions organiser notre mariage à Farm Eden. Pouvez-vous nous contacter ?',
+  evjf:        'Bonjour, j\'ai vu votre site web et je voudrais organiser un EVJF ou un EVG à Farm Eden. Pouvez-vous me renseigner ?',
 };
 
 /* ─── Chiffres clés ──────────────────────────────────────── */
