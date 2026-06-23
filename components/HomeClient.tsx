@@ -78,22 +78,17 @@ export function HomeClient({ hero, heroAccent, featured, marquee }: { hero: Img;
         </div>
       </section>
 
-      {/* ═══ FERME PISCINE PRIVÉE RABAT (SEO) ═══ */}
-      <section className="bg-white py-16 md:py-24">
-        <div className="mx-auto max-w-6xl px-5 md:px-8">
-          <FadeIn>
-            <p className="text-xs font-medium tracking-widest uppercase text-[#A84A26] mb-5">Ferme privatisée près de Rabat</p>
-          </FadeIn>
-          <FadeIn delay={0.06}>
-            <h2 className="font-display font-normal text-[#231C14] leading-[1.1] mb-6 max-w-3xl" style={{ fontSize: 'clamp(1.9rem, 3.5vw, 3rem)' }}>
-              Une ferme avec <em className="italic text-[#52632E]">piscine privée à louer</em> près de Rabat
-            </h2>
-          </FadeIn>
-          <FadeIn delay={0.12}>
-            <p className="text-[#231C14]/65 text-lg leading-relaxed max-w-2xl">
-              Farm Eden est une ferme avec piscine privée à louer à Ain Johra, près de Tiflet, dans la région Rabat-Salé-Kénitra, à 45 minutes de Rabat. Vous réservez la <Link href="/la-ferme" className="text-[#52632E] hover:text-[#3f4d23] transition-colors">villa entière, ses 4 chambres et son grand jardin</Link> pour douze personnes, sans aucun autre groupe sur place. C&apos;est un cadre simple et tranquille pour un <Link href="/experiences" className="text-[#52632E] hover:text-[#3f4d23] transition-colors">séjour en famille, un brunch ou un événement privé</Link>, comme pour un <Link href="/privatiser-la-ferme" className="text-[#52632E] hover:text-[#3f4d23] transition-colors">séminaire d&apos;entreprise</Link>.
-            </p>
-          </FadeIn>
+      {/* ═══ PHOTO PLEINE LARGEUR ═══ */}
+      <section className="w-full bg-[#F5EFE0]">
+        <div className="relative w-full aspect-[3/2] sm:aspect-[2/1] md:aspect-[12/5]">
+          <Image
+            src="/images/home/villa-large.jpg"
+            alt="La villa de Farm Eden, ferme avec piscine privée à louer près de Rabat"
+            fill
+            sizes="100vw"
+            className="object-cover object-center"
+            quality={85}
+          />
         </div>
       </section>
 
@@ -102,11 +97,11 @@ export function HomeClient({ hero, heroAccent, featured, marquee }: { hero: Img;
         <div className="mx-auto max-w-6xl px-5 md:px-8">
           <div className="grid grid-cols-1 md:grid-cols-2 gap-14 md:gap-20 items-center">
             <div>
-              <FadeIn><p className="text-xs font-medium tracking-widest uppercase text-[#D4B78A] mb-5">Comment ça marche</p></FadeIn>
-              <FadeIn delay={0.08}><h2 className="font-display font-normal text-[#F5EFE0] leading-[1.1] mb-6" style={{ fontSize: 'clamp(2rem, 4vw, 3.4rem)' }}>La propriété entière <em className="italic">est réservée pour vous.</em></h2></FadeIn>
+              <FadeIn><p className="text-xs font-medium tracking-widest uppercase text-[#D4B78A] mb-5">Ferme privatisée près de Rabat</p></FadeIn>
+              <FadeIn delay={0.08}><h2 className="font-display font-normal text-[#F5EFE0] leading-[1.1] mb-6" style={{ fontSize: 'clamp(2rem, 4vw, 3.4rem)' }}>Une ferme avec <em className="italic">piscine privée à louer</em> près de Rabat</h2></FadeIn>
               <FadeIn delay={0.14}>
-                <p className="text-[#F5EFE0]/75 text-lg leading-relaxed mb-4">La villa, la piscine, le jardin et tous les espaces sont <Link href="/privatiser-la-ferme" className="text-[#D4B78A] hover:text-[#e6d3b0] transition-colors">réservés à vous et à vos invités</Link>. Aucun autre groupe ne partage les lieux pendant votre venue.</p>
-                <p className="text-[#F5EFE0]/75 text-lg leading-relaxed mb-10">Vous arrivez, vous profitez et vous repartez avec de beaux souvenirs. Tout est simple et tranquille.</p>
+                <p className="text-[#F5EFE0]/75 text-lg leading-relaxed mb-4">Farm Eden est une ferme avec piscine privée à louer à Ain Johra, près de Tiflet, dans la région Rabat-Salé-Kénitra. Vous réservez la <Link href="/la-ferme" className="text-[#D4B78A] hover:text-[#e6d3b0] transition-colors">villa entière et son grand jardin</Link>, rien que pour votre groupe.</p>
+                <p className="text-[#F5EFE0]/75 text-lg leading-relaxed mb-10">La villa, la piscine et tous les espaces sont <Link href="/privatiser-la-ferme" className="text-[#D4B78A] hover:text-[#e6d3b0] transition-colors">réservés à vous et à vos invités</Link>. C&apos;est le cadre idéal pour un <Link href="/experiences" className="text-[#D4B78A] hover:text-[#e6d3b0] transition-colors">séjour en famille, un brunch ou un séminaire d&apos;entreprise</Link>. Vous arrivez, vous profitez et vous repartez avec de beaux souvenirs.</p>
               </FadeIn>
               <FadeIn delay={0.2}><WhatsAppBtn message={WA_MESSAGES.reservation} label="Demander les disponibilités" variant="cream" size="lg" icon="calendar" /></FadeIn>
             </div>
