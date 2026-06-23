@@ -11,7 +11,7 @@ export const dynamic = 'force-dynamic';
 export const metadata: Metadata = {
   title: 'Journal : escapades et idées près de Rabat',
   description:
-    'Conseils et idées pour profiter de la campagne près de Rabat : louer une ferme avec piscine, organiser un séminaire ou réussir une escapade nature.',
+    'Conseils et idées pour profiter de la campagne près de Rabat : louer une ferme avec piscine privée, organiser un séminaire ou réussir une escapade nature.',
   alternates: { canonical: '/journal' },
 };
 

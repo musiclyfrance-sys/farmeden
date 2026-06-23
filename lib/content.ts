@@ -149,7 +149,7 @@ export const EXPERIENCES: Experience[] = [
       '/images/farm/terrasse-repas.jpg',
       '/images/farm/chambre-double.jpg',
     ],
-    metaTitle: 'Séjour en famille près de Rabat dans une ferme avec piscine privée',
+    metaTitle: 'Séjour en famille en ferme avec piscine, près de Rabat',
     metaDescription:
       'Réservez Farm Eden pour un séjour en famille à 45 minutes de Rabat. Piscine privée, animaux de la ferme, cuisine marocaine et villa entière privatisée.',
     cta: {
@@ -198,7 +198,7 @@ export const EXPERIENCES: Experience[] = [
       '/images/farm/sdb-doree.jpg',
       '/images/farm/fleurs-jaunes.jpg',
     ],
-    metaTitle: 'Séjour romantique en amoureux dans une ferme privée près de Rabat',
+    metaTitle: 'Séjour romantique en amoureux en ferme près de Rabat',
     metaDescription:
       'Offrez-vous un séjour en amoureux à Farm Eden, à 45 minutes de Rabat. Villa privatisée, piscine privée, jardin paisible et cuisine marocaine servie sur place.',
     cta: {
@@ -298,7 +298,7 @@ export const EXPERIENCES: Experience[] = [
     ],
     metaTitle: 'EVJF et EVG près de Rabat dans une ferme privée avec piscine',
     metaDescription:
-      'Organisez votre EVJF ou votre EVG à Farm Eden, à 45 minutes de Rabat. Piscine privée, grand jardin et villa entièrement privatisée pour votre groupe.',
+      'Organisez votre EVJF ou votre EVG à Farm Eden, à 45 minutes de Rabat. Piscine privée, grand jardin et villa entière rien que pour votre groupe d\'amis.',
     cta: {
       title: 'Préparez une fête mémorable',
       text: 'Parlez-nous de votre projet et nous construisons ensemble la journée idéale.',
@@ -396,7 +396,7 @@ export const EXPERIENCES: Experience[] = [
     ],
     metaTitle: 'Anniversaire et fêtes privées dans une ferme près de Rabat',
     metaDescription:
-      'Privatisez Farm Eden pour un anniversaire ou une fête à 45 minutes de Rabat. Grand jardin, terrasses, salons marocains et traiteur sur mesure.',
+      'Fêtez un anniversaire à Farm Eden, ferme privée à 45 minutes de Rabat. Grand jardin, piscine privée et villa entière réservés à vous et à vos invités.',
     cta: {
       title: 'Donnez à votre fête un cadre à la hauteur',
       text: 'Parlez-nous de votre événement et nous trouvons ensemble la formule idéale.',
@@ -443,7 +443,7 @@ export const EXPERIENCES: Experience[] = [
       '/images/farm/tortue.jpg',
       '/images/farm/sejour.jpg',
     ],
-    metaTitle: 'Retraite bien-être et yoga près de Rabat dans une ferme au calme',
+    metaTitle: 'Retraite bien-être et yoga en ferme au calme près de Rabat',
     metaDescription:
       'Organisez votre retraite bien-être à Farm Eden, à 45 minutes de Rabat. Cadre naturel au calme, jardin, piscine privée et cuisine de saison pour vous ressourcer.',
     cta: {
@@ -494,7 +494,7 @@ export const EXPERIENCES: Experience[] = [
     ],
     metaTitle: 'Brunch en plein air près de Rabat dans une ferme avec jardin',
     metaDescription:
-      'Réservez un brunch marocain en plein air à Farm Eden, à 45 minutes de Rabat. Table généreuse face au jardin et à la piscine, préparée sur place.',
+      'Réservez un brunch marocain en plein air à Farm Eden, à 45 minutes de Rabat. Table généreuse, piscine privée et grand jardin rien que pour votre groupe.',
     cta: {
       title: 'Réservez votre brunch à la ferme',
       text: 'Indiquez-nous la date et le nombre de convives. Nous vous proposons les prochaines disponibilités.',
