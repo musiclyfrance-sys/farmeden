@@ -8,7 +8,7 @@ import { SITE } from '@/lib/content';
 import { getSiteImages } from '@/lib/admin/store';
 import { resolveImg, LAFERME_GALLERY_DEFAULT } from '@/lib/siteImages';
 
-export const dynamic = 'force-dynamic';
+export const revalidate = 300;
 
 export const metadata: Metadata = {
   title: 'Villa avec piscine privée à louer près de Rabat',

@@ -4,7 +4,7 @@ import { FadeIn } from '@/components/ui/FadeIn';
 import { CTASection } from '@/components/CTASection';
 import { getGallery } from '@/lib/admin/store';
 
-export const dynamic = 'force-dynamic';
+export const revalidate = 300;
 
 export const metadata: Metadata = {
   title: 'Photos de la ferme avec piscine près de Rabat',

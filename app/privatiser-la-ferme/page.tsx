@@ -9,7 +9,7 @@ import { WhatsAppBtn } from '@/components/WhatsAppFloat';
 import { WA_MESSAGES } from '@/lib/content';
 import { getGallery } from '@/lib/admin/store';
 
-export const dynamic = 'force-dynamic';
+export const revalidate = 300;
 
 export const metadata: Metadata = {
   title: 'Privatiser une ferme avec piscine près de Rabat',
@@ -17,6 +17,8 @@ export const metadata: Metadata = {
     'Privatiser une ferme avec piscine près de Rabat : louez tout le domaine pour votre seul groupe, sans aucun autre client. Lieu idéal pour vos événements.',
   alternates: { canonical: '/privatiser-la-ferme' },
   openGraph: {
+    type: 'website',
+    locale: 'fr_MA',
     title: 'Farm Eden - Privatiser une ferme avec piscine près de Rabat',
     description: 'Privatiser une ferme avec piscine près de Rabat : louez tout le domaine pour votre seul groupe, sans aucun autre client. Lieu idéal pour vos événements.',
     images: [{ url: '/images/og-default.jpg', width: 1200, height: 630, alt: 'Ferme privatisée avec piscine près de Rabat' }],

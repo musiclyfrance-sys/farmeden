@@ -6,7 +6,7 @@ import { FadeIn } from '@/components/ui/FadeIn';
 import { CTASection } from '@/components/CTASection';
 import { getPosts } from '@/lib/admin/store';
 
-export const dynamic = 'force-dynamic';
+export const revalidate = 300;
 
 export const metadata: Metadata = {
   title: 'Idées d’escapade et de sortie près de Rabat',

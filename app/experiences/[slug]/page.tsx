@@ -11,7 +11,7 @@ import { EXPERIENCES, getExperience, WA_MESSAGES } from '@/lib/content';
 import { getSiteImages } from '@/lib/admin/store';
 import { resolveImg } from '@/lib/siteImages';
 
-export const dynamic = 'force-dynamic';
+export const revalidate = 300;
 
 export function generateStaticParams() {
   return EXPERIENCES.map((e) => ({ slug: e.slug }));
@@ -26,6 +26,8 @@ export async function generateMetadata({ params }: { params: Promise<{ slug: str
     description: exp.metaDescription,
     alternates: { canonical: `/experiences/${exp.slug}` },
     openGraph: {
+      type: 'website',
+      locale: 'fr_MA',
       title: exp.metaTitle,
       description: exp.metaDescription,
       images: [{ url: exp.heroImage, width: 1200, height: 630, alt: exp.title }],

@@ -8,7 +8,7 @@ import { EXPERIENCES } from '@/lib/content';
 import { getSiteImages } from '@/lib/admin/store';
 import { resolveImg } from '@/lib/siteImages';
 
-export const dynamic = 'force-dynamic';
+export const revalidate = 300;
 
 export const metadata: Metadata = {
   title: 'Séjours et événements à la ferme près de Rabat',
@@ -50,7 +50,7 @@ export default async function ExperiencesPage() {
           </FadeIn>
           <FadeIn delay={0.14}>
             <p className="text-[#231C14]/60 text-lg leading-relaxed max-w-xl mt-6">
-              La ferme se privatise entièrement pour vous. Choisissez l&apos;occasion qui vous ressemble et découvrez la page dédiée.
+              La ferme se privatise entièrement pour vous, près de Rabat. Choisissez l&apos;occasion qui vous ressemble et découvrez la page dédiée.
             </p>
           </FadeIn>
         </div>
