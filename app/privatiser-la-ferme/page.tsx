@@ -14,11 +14,11 @@ export const dynamic = 'force-dynamic';
 export const metadata: Metadata = {
   title: 'Privatiser une ferme avec piscine près de Rabat',
   description:
-    'Découvrez comment privatiser une ferme avec piscine près de Rabat : tout le domaine pour votre seul groupe, sans aucun autre client. Réservation par WhatsApp.',
+    'Privatiser une ferme avec piscine près de Rabat : louez tout le domaine pour votre seul groupe, sans aucun autre client. Lieu idéal pour vos événements.',
   alternates: { canonical: '/privatiser-la-ferme' },
   openGraph: {
-    title: 'Privatiser une ferme avec piscine près de Rabat',
-    description: 'Toute la propriété rien que pour votre groupe, à 45 minutes de Rabat. Villa, piscine et jardin privatisés.',
+    title: 'Farm Eden - Privatiser une ferme avec piscine près de Rabat',
+    description: 'Privatiser une ferme avec piscine près de Rabat : louez tout le domaine pour votre seul groupe, sans aucun autre client. Lieu idéal pour vos événements.',
     images: [{ url: '/images/og-default.jpg', width: 1200, height: 630, alt: 'Ferme privatisée avec piscine près de Rabat' }],
   },
 };

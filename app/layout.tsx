@@ -28,11 +28,11 @@ const classico = localFont({
 export const metadata: Metadata = {
   metadataBase: new URL('https://farmeden.ma'),
   title: {
-    default: 'Farm Eden, ferme avec piscine privée à 45 min de Rabat',
-    template: '%s · Farm Eden',
+    default: 'Farm Eden - Ferme avec piscine privée près de Rabat',
+    template: 'Farm Eden - %s',
   },
   description:
-    "Ferme avec piscine privée à louer près de Rabat. Villa entière privatisée, 4 chambres, 12 personnes. Séjours, séminaires et événements à 45 min de Rabat.",
+    "Louer une ferme avec piscine privée près de Rabat, à la campagne. Villa entière privatisée pour vos séjours, événements et séminaires, à 45 minutes de Rabat.",
   openGraph: {
     siteName: 'Farm Eden',
     locale: 'fr_MA',
@@ -51,7 +51,7 @@ const jsonLd = {
       '@id': 'https://farmeden.ma/#lodging',
       name: 'Farm Eden',
       description:
-        "Ferme avec piscine privée à louer près de Rabat. Villa entière privatisée, 4 chambres, 12 personnes. Séjours famille, séminaires, anniversaires.",
+        "Ferme avec piscine privée à louer près de Rabat. Villa entière privatisée pour vos séjours, séminaires, anniversaires et événements à la campagne.",
       url: 'https://farmeden.ma',
       address: {
         '@type': 'PostalAddress',

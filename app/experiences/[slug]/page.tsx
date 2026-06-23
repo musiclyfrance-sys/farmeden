@@ -22,7 +22,7 @@ export async function generateMetadata({ params }: { params: Promise<{ slug: str
   const exp = getExperience(slug);
   if (!exp) return {};
   return {
-    title: { absolute: exp.metaTitle },
+    title: exp.metaTitle,
     description: exp.metaDescription,
     alternates: { canonical: `/experiences/${exp.slug}` },
     openGraph: {

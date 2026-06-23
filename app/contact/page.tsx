@@ -4,9 +4,9 @@ import { FadeIn } from '@/components/ui/FadeIn';
 import { SITE, WA_MESSAGES, whatsappUrl } from '@/lib/content';
 
 export const metadata: Metadata = {
-  title: 'Contact et réservation, ferme près de Rabat',
+  title: 'Réserver une ferme avec piscine près de Rabat',
   description:
-    'Contactez Farm Eden par WhatsApp pour réserver ou poser toutes vos questions. Ferme avec piscine privée à Ain Johra, près de Tiflet, à 45 minutes de Rabat.',
+    'Réservez une ferme avec piscine privée près de Rabat par WhatsApp. Posez vos questions et vérifiez les disponibilités à Ain Johra, à 45 minutes de Rabat.',
   alternates: { canonical: '/contact' },
 };
 

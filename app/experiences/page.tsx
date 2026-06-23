@@ -11,9 +11,9 @@ import { resolveImg } from '@/lib/siteImages';
 export const dynamic = 'force-dynamic';
 
 export const metadata: Metadata = {
-  title: 'Expériences et séjours à la ferme près de Rabat',
+  title: 'Séjours et événements à la ferme près de Rabat',
   description:
-    'Séjour en famille, entre amis ou en couple, séminaire, anniversaire, EVJF, retraite ou brunch. Farm Eden se privatise pour chaque occasion, à 45 min de Rabat.',
+    'Que faire autour de Rabat ? Privatisez une ferme avec piscine pour un séjour en famille, un séminaire, un anniversaire, un EVJF ou un brunch près de Rabat.',
   alternates: { canonical: '/experiences' },
 };
 
