@@ -79,7 +79,7 @@ export function HomeClient({ hero, heroAccent, featured, marquee }: { hero: Img;
       </section>
 
       {/* ═══ PHOTO VILLA (bloc largeur page) ═══ */}
-      <section className="bg-[#F5EFE0] pb-14 md:py-20">
+      <section className="bg-[#F5EFE0] pb-14 md:pt-0 md:pb-20">
         <div className="mx-auto max-w-6xl px-5 md:px-8">
           <FadeIn blur={false}>
             <div className="relative w-full aspect-[4/3] md:aspect-[12/5] rounded-[1.75rem] md:rounded-[2rem] overflow-hidden shadow-xl shadow-[#231C14]/15">
