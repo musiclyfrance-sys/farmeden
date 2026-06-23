@@ -78,17 +78,21 @@ export function HomeClient({ hero, heroAccent, featured, marquee }: { hero: Img;
         </div>
       </section>
 
-      {/* ═══ PHOTO PLEINE LARGEUR ═══ */}
-      <section className="w-full bg-[#F5EFE0]">
-        <div className="relative w-full aspect-[3/2] sm:aspect-[2/1] md:aspect-[12/5]">
-          <Image
-            src="/images/home/villa-large.jpg"
-            alt="La villa de Farm Eden, ferme avec piscine privée à louer près de Rabat"
-            fill
-            sizes="100vw"
-            className="object-cover object-center"
-            quality={85}
-          />
+      {/* ═══ PHOTO VILLA (bloc largeur page) ═══ */}
+      <section className="bg-[#F5EFE0] pb-14 md:py-20">
+        <div className="mx-auto max-w-6xl px-5 md:px-8">
+          <FadeIn blur={false}>
+            <div className="relative w-full aspect-[4/3] md:aspect-[12/5] rounded-[1.75rem] md:rounded-[2rem] overflow-hidden shadow-xl shadow-[#231C14]/15">
+              <Image
+                src="/images/home/villa-large.jpg"
+                alt="La villa de Farm Eden, ferme avec piscine privée à louer près de Rabat"
+                fill
+                sizes="(max-width: 1152px) 100vw, 1152px"
+                className="object-cover object-center"
+                quality={90}
+              />
+            </div>
+          </FadeIn>
         </div>
       </section>
 
