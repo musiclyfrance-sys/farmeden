@@ -53,6 +53,11 @@ export function Footer() {
               </Link>
             </li>
             <li>
+              <Link href="/tarifs" className="text-[#F5EFE0]/60 hover:text-[#F5EFE0] text-sm transition-colors">
+                Tarifs
+              </Link>
+            </li>
+            <li>
               <Link href="/faq" className="text-[#F5EFE0]/60 hover:text-[#F5EFE0] text-sm transition-colors">
                 Questions fréquentes
               </Link>
