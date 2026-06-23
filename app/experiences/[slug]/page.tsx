@@ -30,7 +30,7 @@ export async function generateMetadata({ params }: { params: Promise<{ slug: str
       locale: 'fr_MA',
       title: exp.metaTitle,
       description: exp.metaDescription,
-      images: [{ url: exp.heroImage, width: 1200, height: 630, alt: exp.title }],
+      images: [{ url: '/images/og-default.jpg', width: 1200, height: 630, alt: 'Farm Eden, ferme avec piscine privée près de Rabat' }],
     },
   };
 }
