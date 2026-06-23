@@ -7,7 +7,7 @@
 export const SITE = {
   name: 'Farm Eden',
   tagline: 'Un séjour à la ferme dont tout le monde se souvient.',
-  whatsapp: '33612220024',
+  whatsapp: '212661981890',
   email: 'contact@farmeden.ma',
   address: 'Ain Johra, Tiflet, à 45 minutes de Rabat',
   addressLine: 'Farm Eden - Ferme Rabat, XJ6V+44H, Tiflet, Maroc',
