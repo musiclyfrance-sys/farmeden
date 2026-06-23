@@ -52,6 +52,11 @@ export function Footer() {
                 Privatiser la ferme
               </Link>
             </li>
+            <li>
+              <Link href="/faq" className="text-[#F5EFE0]/60 hover:text-[#F5EFE0] text-sm transition-colors">
+                Questions fréquentes
+              </Link>
+            </li>
           </ul>
         </nav>
 
