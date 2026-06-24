@@ -36,7 +36,7 @@ const POUR_QUI = [
 
 const FAQ = [
   { q: 'Qu\'est-ce que privatiser la ferme ?', a: 'Vous réservez la propriété entière pour votre seul groupe : la villa, la piscine, le jardin et tous les espaces. Il n\'y a aucun autre client pendant votre venue.' },
-  { q: 'Combien de personnes peut-on être ?', a: 'La ferme privatisée accueille confortablement jusqu\'à 12 personnes, entre les quatre chambres et les espaces supplémentaires.' },
+  { q: 'Combien de personnes peut-on être ?', a: 'La ferme privatisée accueille confortablement jusqu\'à 16 personnes, entre les quatre chambres et les espaces supplémentaires.' },
   { q: 'Peut-on privatiser pour un événement ?', a: 'Oui. Séminaire, anniversaire, EVJF, brunch ou retraite : la ferme se privatise pour chaque occasion, avec cuisine marocaine et intendance sur place.' },
   { q: 'Comment réserver une ferme privatisée près de Rabat ?', a: 'Tout se fait sur WhatsApp. Envoyez vos dates et votre nombre de personnes, et nous revenons vers vous rapidement avec les disponibilités et le tarif.' },
 ];

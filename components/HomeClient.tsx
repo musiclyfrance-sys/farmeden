@@ -41,7 +41,7 @@ export function HomeClient({ hero, heroAccent, featured, marquee }: { hero: Img;
             </motion.h1>
 
             <motion.p className="text-[#231C14]/65 text-lg leading-relaxed mb-9 max-w-md" initial={{ opacity: 0, y: 18 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: 0.2, duration: 0.6 }}>
-              Une piscine privée, une villa entière pour douze personnes et la cuisine marocaine. La ferme est entièrement à vous, à 45 minutes de Rabat.
+              Une piscine privée, une villa entière pour seize personnes et la cuisine marocaine. La ferme est entièrement à vous, à 45 minutes de Rabat.
             </motion.p>
 
             <motion.div className="flex flex-wrap gap-3" initial={{ opacity: 0, y: 14 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: 0.3, duration: 0.5 }}>
@@ -105,7 +105,7 @@ export function HomeClient({ hero, heroAccent, featured, marquee }: { hero: Img;
               <FadeIn delay={0.08}><h2 className="font-display font-normal text-[#F5EFE0] leading-[1.1] mb-6" style={{ fontSize: 'clamp(2rem, 4vw, 3.4rem)' }}>Une ferme avec <em className="italic">piscine privée à louer</em> près de Rabat</h2></FadeIn>
               <FadeIn delay={0.14}>
                 <p className="text-[#F5EFE0]/75 text-lg leading-relaxed mb-4">Farm Eden est une ferme avec piscine privée à louer à Ain Johra, près de Tiflet, dans la région Rabat-Salé-Kénitra. Vous réservez la <Link href="/la-ferme" className="text-[#D4B78A] hover:text-[#e6d3b0] transition-colors">villa entière et son grand jardin</Link>, rien que pour votre groupe.</p>
-                <p className="text-[#F5EFE0]/75 text-lg leading-relaxed mb-10">La villa, la piscine et tous les espaces sont <Link href="/privatiser-la-ferme" className="text-[#D4B78A] hover:text-[#e6d3b0] transition-colors">réservés à vous et à vos invités</Link>. C&apos;est le cadre idéal pour un <Link href="/experiences" className="text-[#D4B78A] hover:text-[#e6d3b0] transition-colors">séjour en famille, un brunch ou un séminaire d&apos;entreprise</Link>. Vous arrivez, vous profitez et vous repartez avec de beaux souvenirs.</p>
+                <p className="text-[#F5EFE0]/75 text-lg leading-relaxed mb-10">L&apos;endroit idéal pour vous retrouver en famille et entre amis et partager de beaux moments, à 45 minutes de Rabat. La villa, la piscine et tous les espaces sont <Link href="/privatiser-la-ferme" className="text-[#D4B78A] hover:text-[#e6d3b0] transition-colors">réservés à vous et à vos invités</Link>, pour un <Link href="/experiences" className="text-[#D4B78A] hover:text-[#e6d3b0] transition-colors">séjour en famille, un brunch ou un séminaire d&apos;entreprise</Link>.</p>
               </FadeIn>
               <FadeIn delay={0.2}><WhatsAppBtn message={WA_MESSAGES.reservation} label="Demander les disponibilités" variant="cream" size="lg" icon="calendar" /></FadeIn>
             </div>

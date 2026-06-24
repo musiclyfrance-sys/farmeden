@@ -23,7 +23,7 @@ const INCLUS = [
 
 const FACTEURS = [
   { t: 'La période', d: 'Le tarif varie selon la période de votre venue.' },
-  { t: 'Le nombre de personnes', d: 'De quelques invités jusqu\'à douze personnes.' },
+  { t: 'Le nombre de personnes', d: 'De quelques invités jusqu\'à seize personnes.' },
   { t: 'Les repas et services', d: 'Cuisine marocaine, petit-déjeuner et intendance selon vos envies.' },
   { t: 'Le type d\'occasion', d: 'Séjour, séminaire, anniversaire, EVJF, retraite ou brunch.' },
 ];

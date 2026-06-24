@@ -21,7 +21,7 @@ const FAQ_PAGE = [
   },
   {
     q: "Combien de personnes peut accueillir la ferme ?",
-    a: "La ferme accueille confortablement jusqu'à 12 personnes, entre les quatre chambres et les espaces supplémentaires.",
+    a: "La ferme accueille confortablement jusqu'à 16 personnes, entre les quatre chambres et les espaces supplémentaires.",
   },
   {
     q: "Comment connaître le tarif et réserver ?",

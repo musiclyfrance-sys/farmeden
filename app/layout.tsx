@@ -74,7 +74,7 @@ const jsonLd = {
         { '@type': 'LocationFeatureSpecification', name: 'Terrain de 1,5 hectare', value: true },
       ],
       numberOfRooms: 4,
-      occupancy: { '@type': 'QuantitativeValue', maxValue: 12 },
+      occupancy: { '@type': 'QuantitativeValue', maxValue: 16 },
       checkinTime: '14:00',
       checkoutTime: '12:00',
       priceRange: '$$',

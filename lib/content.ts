@@ -40,8 +40,8 @@ export const WA_MESSAGES = {
 export const KEY_FIGURES = [
   { value: '1,5 ha', label: 'de terrain verdoyant' },
   { value: '4',      label: 'chambres et suites' },
-  { value: '12',     label: 'personnes au calme' },
-  { value: '45 min', label: 'de route depuis Rabat' },
+  { value: '16',     label: 'personnes ou plus' },
+  { value: '45 min', label: 'depuis Rabat' },
 ];
 
 /* ─── Points forts ───────────────────────────────────────── */
@@ -59,9 +59,9 @@ export const FEATURES = [
     icon: 'villa',
   },
   {
-    title: 'Cuisine marocaine',
+    title: 'Cuisine et ménage sur demande',
     description:
-      'Notre équipe prépare le tagine, le couscous et le méchoui sur place. Vous choisissez vos plats à l\'avance.',
+      'Nous mettons en place une équipe sur place pour vous préparer des plats marocains beldi, ainsi que le ménage.',
     icon: 'cuisine',
   },
   {
@@ -73,7 +73,7 @@ export const FEATURES = [
   {
     title: 'Animaux de la ferme',
     description:
-      'Des moutons, des chèvres, des lapins et des paons vivent en liberté. C\'est une vraie ferme, vivante et paisible.',
+      'Des moutons, des chèvres, des lapins, des poules, des oies, des paons et d’autres oiseaux sont à découvrir sur place. Une vraie ferme, vivante et paisible.',
     icon: 'nature',
   },
   {
@@ -673,7 +673,7 @@ export const FAQ = [
   },
   {
     q: 'Combien de personnes peut-on être ?',
-    a: 'La ferme accueille confortablement jusqu\'à 12 personnes, entre les chambres et les espaces supplémentaires.',
+    a: 'La ferme accueille confortablement jusqu\'à 16 personnes, entre les chambres et les espaces supplémentaires.',
   },
   {
     q: 'Est-ce qu\'on peut manger sur place ?',

@@ -106,7 +106,7 @@ export default async function LaFermePage() {
                     Quand vous réservez, vous <Link href="/privatiser-la-ferme" className="text-[#52632E] hover:text-[#3f4d23] transition-colors">privatisez toute la propriété</Link>. Il n&apos;y a aucun autre client. La piscine, la villa et le jardin sont entièrement pour vous.
                   </p>
                   <p>
-                    La ferme accueille jusqu&apos;à <strong className="text-[#231C14]">12 personnes</strong> confortablement. C&apos;est l&apos;endroit idéal pour une réunion de famille, un groupe d&apos;amis ou une équipe en séminaire.
+                    La ferme accueille jusqu&apos;à <strong className="text-[#231C14]">16 personnes</strong> confortablement. C&apos;est l&apos;endroit idéal pour une réunion de famille, un groupe d&apos;amis ou une équipe en séminaire.
                   </p>
                 </div>
               </FadeIn>
