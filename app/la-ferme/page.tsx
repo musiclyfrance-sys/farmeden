@@ -42,7 +42,7 @@ const DETAILS = [
     items: [
       'Un terrain verdoyant de 1,5 hectare',
       'Palmeraie et arbres fruitiers',
-      'Espace animaux en liberté',
+      'Espace animaux à découvrir',
       'Aire de jeux et activités sportives',
       'Parking privé pour plusieurs voitures',
     ],
