@@ -79,7 +79,8 @@ const jsonLd = {
       checkoutTime: '12:00',
       priceRange: '$$',
       image: 'https://farmeden.ma/images/og-default.jpg',
-      sameAs: [SITE.google, SITE.airbnb, SITE.instagram].filter(Boolean),
+      hasMap: SITE.mapsUrl,
+      sameAs: [SITE.mapsUrl, SITE.google, SITE.airbnb, SITE.instagram].filter(Boolean),
     },
     {
       '@type': 'FAQPage',
