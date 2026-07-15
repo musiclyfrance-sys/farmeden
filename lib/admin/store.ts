@@ -61,15 +61,23 @@ const readSiteImages = unstable_cache(
 );
 
 /* ── Galerie ── */
+// Ordre d'affichage voulu des rubriques (indépendant de l'ordre de stockage).
+const RUBRIC_ORDER = ['piscine', 'villa', 'activites', 'animaux', 'jardin'];
+function orderRubrics(list: GalleryRubric[]): GalleryRubric[] {
+  const rank = (id: string) => {
+    const i = RUBRIC_ORDER.indexOf(id);
+    return i === -1 ? 999 : i;
+  };
+  return [...list].sort((a, b) => rank(a.id) - rank(b.id));
+}
 export async function getGallery(): Promise<GalleryRubric[]> {
   const saved = await readGallery();
-  if (!Array.isArray(saved) || !saved.length) return DEFAULT_GALLERY;
-  // Fusion : on garde l'ordre et les rubriques par défaut, en utilisant la version
-  // enregistrée quand elle existe.
+  if (!Array.isArray(saved) || !saved.length) return orderRubrics(DEFAULT_GALLERY);
+  // Fusion : version enregistrée quand elle existe, puis tri par ordre d'affichage.
   const savedById = Object.fromEntries(saved.map((r) => [r.id, r]));
   const merged = DEFAULT_GALLERY.map((d) => savedById[d.id] ?? d);
   for (const s of saved) if (!DEFAULT_GALLERY.some((d) => d.id === s.id)) merged.push(s);
-  return merged;
+  return orderRubrics(merged);
 }
 export async function saveGallery(data: GalleryRubric[]): Promise<void> {
   await writeJson(GALLERY_PATH, data);
