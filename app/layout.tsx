@@ -54,7 +54,7 @@ const jsonLd = {
       description:
         "Ferme avec piscine privée à louer près de Rabat. Villa entière privatisée pour vos séjours, séminaires, anniversaires et événements à la campagne.",
       url: 'https://farmeden.ma',
-      telephone: '+212661981890',
+      telephone: '+212661436067',
       address: {
         '@type': 'PostalAddress',
         addressLocality: 'Ain Johra, Tiflet',
