@@ -5,8 +5,12 @@ import { ArrowRight } from 'lucide-react';
 import { FadeIn } from '@/components/ui/FadeIn';
 import { CTASection } from '@/components/CTASection';
 import { getPosts } from '@/lib/admin/store';
+import type { Post } from '@/lib/content';
 
 export const revalidate = 300;
+
+// Titres et résumés des articles en arabe : lecture de droite à gauche
+const rtl = (p: Post) => (p.lang === 'ar' ? ({ lang: 'ar', dir: 'rtl' } as const) : {});
 
 export const metadata: Metadata = {
   title: 'Idées d’escapade et de sortie près de Rabat',
@@ -52,8 +56,8 @@ export default async function JournalPage() {
                   <span className="font-semibold tracking-wide uppercase bg-[#EBF0E2] text-[#52632E] px-3 py-1.5 rounded-full">{lead.tag}</span>
                   <span className="text-[#231C14]/40">{lead.dateLabel}</span>
                 </div>
-                <h2 className="font-display font-normal text-[#231C14] leading-[1.15] mb-4" style={{ fontSize: 'clamp(1.7rem, 3vw, 2.4rem)' }}>{lead.title}</h2>
-                <p className="text-[#231C14]/60 text-base leading-relaxed mb-5">{lead.excerpt}</p>
+                <h2 className="font-display font-normal text-[#231C14] leading-[1.15] mb-4" style={{ fontSize: 'clamp(1.7rem, 3vw, 2.4rem)' }} {...rtl(lead)}>{lead.title}</h2>
+                <p className="text-[#231C14]/60 text-base leading-relaxed mb-5" {...rtl(lead)}>{lead.excerpt}</p>
                 <span className="inline-flex items-center gap-2 text-[#52632E] font-medium text-sm group-hover:gap-3 transition-all">
                   Lire l&apos;article<ArrowRight className="w-4 h-4" aria-hidden="true" />
                 </span>
@@ -78,8 +82,8 @@ export default async function JournalPage() {
                     <span className="font-semibold tracking-wide uppercase bg-[#EBF0E2] text-[#52632E] px-3 py-1.5 rounded-full">{post.tag}</span>
                     <span className="text-[#231C14]/40">{post.readingTime}</span>
                   </div>
-                  <h2 className="font-display font-normal text-[#231C14] text-xl leading-snug">{post.title}</h2>
-                  <p className="text-[#231C14]/60 text-sm leading-relaxed">{post.excerpt}</p>
+                  <h2 className="font-display font-normal text-[#231C14] text-xl leading-snug" {...rtl(post)}>{post.title}</h2>
+                  <p className="text-[#231C14]/60 text-sm leading-relaxed" {...rtl(post)}>{post.excerpt}</p>
                 </div>
               </Link>
             </FadeIn>

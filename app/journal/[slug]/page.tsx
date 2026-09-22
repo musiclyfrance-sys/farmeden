@@ -24,6 +24,7 @@ export async function generateMetadata({ params }: { params: Promise<{ slug: str
     alternates: { canonical: `/journal/${post.slug}` },
     openGraph: {
       type: 'article',
+      ...(post.lang === 'ar' ? { locale: 'ar_MA' } : {}),
       title: post.metaTitle,
       description: post.metaDescription,
       publishedTime: post.date,
@@ -37,7 +38,14 @@ export default async function PostPage({ params }: { params: Promise<{ slug: str
   const post = await getPostBySlug(slug);
   if (!post || post.published === false) notFound();
 
-  const others = (await getPosts()).filter((p) => p.slug !== post.slug && p.published !== false).slice(0, 2);
+  // Articles en arabe : lecture de droite à gauche et police adaptée
+  const isAr = post.lang === 'ar';
+  const rtl = isAr ? ({ lang: 'ar', dir: 'rtl' } as const) : {};
+
+  // « À lire aussi » ne propose que des articles de la même langue
+  const others = (await getPosts())
+    .filter((p) => p.slug !== post.slug && p.published !== false && (p.lang ?? 'fr') === (post.lang ?? 'fr'))
+    .slice(0, 2);
 
   const jsonLd = {
     '@context': 'https://schema.org',
@@ -47,6 +55,7 @@ export default async function PostPage({ params }: { params: Promise<{ slug: str
     image: `https://farmeden.ma${post.cover}`,
     datePublished: post.date,
     dateModified: post.date,
+    inLanguage: isAr ? 'ar-MA' : 'fr-MA',
     author: { '@type': 'Organization', name: 'Farm Eden' },
     publisher: { '@type': 'Organization', name: 'Farm Eden', logo: { '@type': 'ImageObject', url: 'https://farmeden.ma/images/logo-noir.svg' } },
     mainEntityOfPage: { '@type': 'WebPage', '@id': `https://farmeden.ma/journal/${post.slug}` },
@@ -76,7 +85,7 @@ export default async function PostPage({ params }: { params: Promise<{ slug: str
             </Link>
           </FadeIn>
           <FadeIn delay={0.06}>
-            <div className="flex items-center justify-center gap-3 mb-5 text-xs">
+            <div className="flex items-center justify-center gap-3 mb-5 text-xs" {...rtl}>
               <span className="font-semibold tracking-wide uppercase bg-[#EBF0E2] text-[#52632E] px-3 py-1.5 rounded-full">{post.tag}</span>
               <span className="text-[#231C14]/40">{post.dateLabel}</span>
               <span className="text-[#231C14]/40">·</span>
@@ -84,7 +93,7 @@ export default async function PostPage({ params }: { params: Promise<{ slug: str
             </div>
           </FadeIn>
           <FadeIn delay={0.12}>
-            <h1 className="font-display font-normal text-[#231C14] leading-[1.1]" style={{ fontSize: 'clamp(2.1rem, 4.5vw, 3.4rem)' }}>{post.title}</h1>
+            <h1 className="font-display font-normal text-[#231C14] leading-[1.1]" style={{ fontSize: 'clamp(2.1rem, 4.5vw, 3.4rem)' }} {...rtl}>{post.title}</h1>
           </FadeIn>
         </header>
 
@@ -100,7 +109,7 @@ export default async function PostPage({ params }: { params: Promise<{ slug: str
         <div className="mx-auto max-w-2xl px-5 md:px-8 py-16 md:py-20">
           {post.bodyHtml ? (
             <FadeIn>
-              <div className="article-body" dangerouslySetInnerHTML={{ __html: post.bodyHtml }} />
+              <div className="article-body" {...rtl} dangerouslySetInnerHTML={{ __html: post.bodyHtml }} />
             </FadeIn>
           ) : (
             <div className="flex flex-col gap-10">
@@ -123,12 +132,24 @@ export default async function PostPage({ params }: { params: Promise<{ slug: str
         </div>
       </article>
 
-      <CTASection
-        title="Vivez l'expérience à votre tour"
-        text="La ferme entière se réserve pour vous. Écrivez-nous vos dates et nous nous occupons du reste."
-        label="Réserver sur WhatsApp"
-        wa="reservation"
-      />
+      {isAr ? (
+        <div lang="ar" dir="rtl">
+          <CTASection
+            eyebrow="الحجز"
+            title="عيشوا التجربة بأنفسكم"
+            text="الفيرمة كاملة تُحجز لكم وحدكم. راسلونا بالتاريخ الذي يناسبكم وعدد الأشخاص، ونتكفل نحن بالباقي."
+            label="احجزوا عبر واتساب"
+            wa="reservation_ar"
+          />
+        </div>
+      ) : (
+        <CTASection
+          title="Vivez l'expérience à votre tour"
+          text="La ferme entière se réserve pour vous. Écrivez-nous vos dates et nous nous occupons du reste."
+          label="Réserver sur WhatsApp"
+          wa="reservation"
+        />
+      )}
 
       {/* Articles liés */}
       {others.length > 0 && (

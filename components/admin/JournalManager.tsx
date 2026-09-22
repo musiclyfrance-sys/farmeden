@@ -11,9 +11,17 @@ interface Editor {
   title: string; slug: string; keyword: string; tag: string;
   excerpt: string; metaDescription: string; cover: string; coverAlt: string;
   bodyHtml: string; published: boolean;
+  lang: 'fr' | 'ar';
 }
 
 const MONTHS = ['janvier', 'février', 'mars', 'avril', 'mai', 'juin', 'juillet', 'août', 'septembre', 'octobre', 'novembre', 'décembre'];
+const MONTHS_AR = ['يناير', 'فبراير', 'مارس', 'أبريل', 'ماي', 'يونيو', 'يوليوز', 'غشت', 'شتنبر', 'أكتوبر', 'نونبر', 'دجنبر'];
+
+function readingTimeAr(m: number): string {
+  if (m === 1) return 'دقيقة واحدة للقراءة';
+  if (m === 2) return 'دقيقتان للقراءة';
+  return `${m} ${m <= 10 ? 'دقائق' : 'دقيقة'} للقراءة`;
+}
 
 function postToEditor(p: Post, index: number): Editor {
   return {
@@ -21,10 +29,11 @@ function postToEditor(p: Post, index: number): Editor {
     excerpt: p.excerpt, metaDescription: p.metaDescription, cover: p.cover, coverAlt: p.coverAlt ?? '',
     bodyHtml: p.bodyHtml || sectionsToHtml(p.sections || []),
     published: p.published !== false,
+    lang: p.lang === 'ar' ? 'ar' : 'fr',
   };
 }
 function emptyEditor(): Editor {
-  return { index: null, title: '', slug: '', keyword: '', tag: 'Guide', excerpt: '', metaDescription: '', cover: '', coverAlt: '', bodyHtml: '', published: true };
+  return { index: null, title: '', slug: '', keyword: '', tag: 'Guide', excerpt: '', metaDescription: '', cover: '', coverAlt: '', bodyHtml: '', published: true, lang: 'fr' };
 }
 function editorToDraft(e: Editor): ArticleDraft {
   return { title: e.title, slug: e.slug, keyword: e.keyword, excerpt: e.excerpt, metaDescription: e.metaDescription, tag: e.tag, coverUrl: e.cover, coverAlt: e.coverAlt, bodyHtml: e.bodyHtml };
@@ -32,13 +41,16 @@ function editorToDraft(e: Editor): ArticleDraft {
 function editorToPost(e: Editor): Post {
   const words = (e.bodyHtml.replace(/<[^>]+>/g, ' ').match(/\S+/g) || []).length;
   const now = new Date();
+  const ar = e.lang === 'ar';
+  const mins = Math.max(1, Math.round(words / 200));
   return {
     slug: e.slug || slugify(e.title), title: e.title, excerpt: e.excerpt,
     date: now.toISOString().slice(0, 10),
-    dateLabel: `${now.getDate()} ${MONTHS[now.getMonth()]} ${now.getFullYear()}`,
-    readingTime: `${Math.max(1, Math.round(words / 200))} min de lecture`,
+    dateLabel: `${now.getDate()} ${(ar ? MONTHS_AR : MONTHS)[now.getMonth()]} ${now.getFullYear()}`,
+    readingTime: ar ? readingTimeAr(mins) : `${mins} min de lecture`,
     cover: e.cover, coverAlt: e.coverAlt, keyword: e.keyword, tag: e.tag,
     metaTitle: e.title, metaDescription: e.metaDescription, sections: [], bodyHtml: e.bodyHtml, published: e.published,
+    ...(ar ? { lang: 'ar' as const } : {}),
   };
 }
 
@@ -61,6 +73,8 @@ export function JournalManager({ initial }: { initial: Post[] }) {
   async function saveEditor(publish?: boolean) {
     if (!ed) return;
     const e = { ...ed, published: publish ?? ed.published, slug: ed.slug || slugify(ed.title) };
+    // Un titre en arabe ne donne pas de slug automatique : il faut le saisir en caractères latins.
+    if (!e.slug) { setMsg('Indiquez un slug (URL) en caractères latins.'); return; }
     const post = editorToPost(e);
     const next = e.index === null ? [post, ...posts] : posts.map((p, i) => (i === e.index ? post : p));
     if (await persist(next)) setEd(null);
@@ -90,7 +104,7 @@ export function JournalManager({ initial }: { initial: Post[] }) {
               {p.cover && <img src={p.cover} alt="" className="w-full h-full object-cover" />}
             </div>
             <div className="flex-1 min-w-0">
-              <p className="font-medium text-sm truncate">{p.title || 'Sans titre'}</p>
+              <p className="font-medium text-sm truncate" dir="auto">{p.title || 'Sans titre'}</p>
               <p className="text-xs text-neutral-400 truncate">/{p.slug}</p>
             </div>
             <span className={`text-xs px-2.5 py-1 rounded-full ${p.published !== false ? 'bg-green-100 text-green-700' : 'bg-neutral-100 text-neutral-500'}`}>{p.published !== false ? 'Publié' : 'Brouillon'}</span>
@@ -119,28 +133,36 @@ function ArticleEditor({ ed, setEd, onSave, onCancel, saving, msg }: {
         <div className="flex flex-col gap-5">
           <div className="bg-white rounded-2xl border border-neutral-200 p-5 flex flex-col gap-4">
             <Field label="Titre de l'article">
-              <input value={ed.title} onChange={(e) => set({ title: e.target.value, slug: ed.index === null && (ed.slug === '' || ed.slug === slugify(ed.title)) ? slugify(e.target.value) : ed.slug })} className="inp" placeholder="Titre accrocheur avec le mot-clé" />
+              <input dir="auto" value={ed.title} onChange={(e) => set({ title: e.target.value, slug: ed.index === null && (ed.slug === '' || ed.slug === slugify(ed.title)) ? slugify(e.target.value) : ed.slug })} className="inp" placeholder="Titre accrocheur avec le mot-clé" />
             </Field>
-            <div className="grid grid-cols-2 gap-4">
-              <Field label="Mot-clé principal"><input value={ed.keyword} onChange={(e) => set({ keyword: e.target.value })} className="inp" placeholder="ferme piscine rabat" /></Field>
-              <Field label="Tag"><input value={ed.tag} onChange={(e) => set({ tag: e.target.value })} className="inp" /></Field>
+            <div className="grid grid-cols-2 md:grid-cols-3 gap-4">
+              <Field label="Mot-clé principal"><input dir="auto" value={ed.keyword} onChange={(e) => set({ keyword: e.target.value })} className="inp" placeholder="ferme piscine rabat" /></Field>
+              <Field label="Tag"><input dir="auto" value={ed.tag} onChange={(e) => set({ tag: e.target.value })} className="inp" /></Field>
+              <Field label="Langue">
+                <select value={ed.lang} onChange={(e) => set({ lang: e.target.value === 'ar' ? 'ar' : 'fr' })} className="inp">
+                  <option value="fr">Français</option>
+                  <option value="ar">العربية (droite à gauche)</option>
+                </select>
+              </Field>
             </div>
             <Field label="Slug (URL)"><input value={ed.slug} onChange={(e) => set({ slug: slugify(e.target.value) })} className="inp font-mono text-xs" /></Field>
-            <Field label="Résumé (extrait)"><textarea value={ed.excerpt} onChange={(e) => set({ excerpt: e.target.value })} rows={2} className="inp" /></Field>
-            <Field label={`Meta description (${ed.metaDescription.length}/160)`}><textarea value={ed.metaDescription} onChange={(e) => set({ metaDescription: e.target.value })} rows={2} className="inp" /></Field>
+            <Field label="Résumé (extrait)"><textarea dir="auto" value={ed.excerpt} onChange={(e) => set({ excerpt: e.target.value })} rows={2} className="inp" /></Field>
+            <Field label={`Meta description (${ed.metaDescription.length}/160)`}><textarea dir="auto" value={ed.metaDescription} onChange={(e) => set({ metaDescription: e.target.value })} rows={2} className="inp" /></Field>
           </div>
 
           <div className="bg-white rounded-2xl border border-neutral-200 p-5">
             <p className="text-sm font-medium mb-3">Image de couverture (16:9)</p>
             <div className="max-w-md">
               <ImagePicker value={ed.cover} aspect={16 / 9} label={ed.coverAlt} onChange={(url) => set({ cover: url, coverAlt: ed.coverAlt || ed.title })} />
-              <input value={ed.coverAlt} onChange={(e) => set({ coverAlt: e.target.value })} placeholder="Texte alternatif de la couverture" className="inp mt-2 text-xs" />
+              <input dir="auto" value={ed.coverAlt} onChange={(e) => set({ coverAlt: e.target.value })} placeholder="Texte alternatif de la couverture" className="inp mt-2 text-xs" />
             </div>
           </div>
 
           <div>
             <p className="text-sm font-medium mb-2">Contenu</p>
-            <RichEditor value={ed.bodyHtml} onChange={(html) => set({ bodyHtml: html })} />
+            <div dir={ed.lang === 'ar' ? 'rtl' : undefined}>
+              <RichEditor value={ed.bodyHtml} onChange={(html) => set({ bodyHtml: html })} />
+            </div>
           </div>
         </div>
 

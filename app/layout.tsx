@@ -1,5 +1,5 @@
 import type { Metadata } from 'next';
-import { Inter } from 'next/font/google';
+import { Inter, Noto_Naskh_Arabic } from 'next/font/google';
 import localFont from 'next/font/local';
 import './globals.css';
 import { Navbar } from '@/components/Navbar';
@@ -23,6 +23,15 @@ const classico = localFont({
   ],
   variable: '--font-classico',
   display: 'swap',
+});
+
+// Police des articles en arabe. Pas de préchargement : elle n'est
+// téléchargée que sur les pages qui affichent du texte arabe.
+const arabic = Noto_Naskh_Arabic({
+  subsets: ['arabic'],
+  variable: '--font-arabic',
+  display: 'swap',
+  preload: false,
 });
 
 export const metadata: Metadata = {
@@ -97,7 +106,7 @@ const jsonLd = {
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
-    <html lang="fr" className={`${inter.variable} ${classico.variable}`}>
+    <html lang="fr" className={`${inter.variable} ${classico.variable} ${arabic.variable}`}>
       <head>
         <script
           type="application/ld+json"

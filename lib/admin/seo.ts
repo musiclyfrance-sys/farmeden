@@ -23,6 +23,8 @@ export interface SeoCheck {
 const ACTION_VERBS = [
   'decouvrez', 'apprenez', 'organisez', 'reservez', 'profitez', 'explorez', 'planifiez',
   'trouvez', 'choisissez', 'imaginez', 'offrez', 'vivez', 'preparez', 'composez',
+  // Articles en arabe (impératif pluriel de politesse)
+  'اكتشفوا', 'احجزوا', 'استمتعوا', 'نظموا', 'خططوا', 'اختاروا', 'عيشوا', 'جربوا', 'تعرفوا', 'ابحثوا',
 ];
 
 function norm(s: string): string {
@@ -75,13 +77,14 @@ export function scoreArticle(a: ArticleDraft): { score: number; checks: SeoCheck
     { id: 'meta-len', label: 'Meta description 150-160 caractères', ok: meta.length >= 140 && meta.length <= 165, detail: `${meta.length} car.` },
     { id: 'meta-verb', label: "Meta commence par un verbe d'action", ok: ACTION_VERBS.includes(firstMetaWord), detail: ACTION_VERBS.includes(firstMetaWord) ? 'Bon' : 'À revoir' },
     { id: 'h2-count', label: 'Au moins 2 sous-titres', ok: hs.length >= 2, detail: `${hs.length} titres` },
-    { id: 'h2-question', label: 'Un sous-titre sous forme de question', ok: hs.some((h) => h.includes('?')), detail: hs.some((h) => h.includes('?')) ? 'Présent' : 'Aucun' },
+    { id: 'h2-question', label: 'Un sous-titre sous forme de question', ok: hs.some((h) => /[?؟]/.test(h)), detail: hs.some((h) => /[?؟]/.test(h)) ? 'Présent' : 'Aucun' },
     { id: 'length', label: 'Longueur suffisante (500+ mots)', ok: words >= 500, detail: `${words} mots` },
     { id: 'links', label: 'Au moins un lien', ok: links >= 1, detail: `${links} lien(s)` },
     { id: 'img-alt', label: 'Toutes les images ont un alt', ok: imgs.length === 0 || imgs.length === imgsWithAlt.length, detail: imgs.length ? `${imgsWithAlt.length}/${imgs.length}` : 'Aucune image' },
     { id: 'excerpt', label: 'Résumé renseigné', ok: a.excerpt.trim().length >= 60, detail: `${a.excerpt.trim().length} car.` },
     { id: 'cover-alt', label: 'Image de couverture avec alt', ok: !!a.coverUrl && a.coverAlt.trim().length >= 8, detail: a.coverAlt ? 'Alt présent' : 'Alt manquant' },
-    { id: 'slug', label: 'Slug court avec mot-clé', ok: a.slug.length > 0 && a.slug.length <= 60 && (!kw || a.slug.split('-').some((p) => kw.includes(p) || p.includes(kw.split(' ')[0]))), detail: a.slug || 'À définir' },
+    // Mot-clé en arabe : un slug latin ne peut pas le contenir, seule la longueur compte.
+    { id: 'slug', label: 'Slug court avec mot-clé', ok: a.slug.length > 0 && a.slug.length <= 60 && (!kw || !/[a-z]/.test(kw) || a.slug.split('-').some((p) => kw.includes(p) || p.includes(kw.split(' ')[0]))), detail: a.slug || 'À définir' },
   ];
 
   const okCount = c.filter((x) => x.ok).length;

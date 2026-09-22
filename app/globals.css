@@ -155,6 +155,14 @@ body {
 .article-body blockquote { border-left: 3px solid var(--olive); padding-left: 1.2rem; font-style: italic; color: rgba(35,28,20,.6); margin: 1.4rem 0; }
 .article-body img { max-width: 100%; height: auto; margin: 1.6rem 0; }
 
+/* ─── Articles en arabe (lang="ar", dir="rtl") ─────────────── */
+html [lang="ar"], html [lang="ar"] * { font-family: var(--font-arabic), 'Noto Naskh Arabic', Tahoma, sans-serif; letter-spacing: normal; }
+h1[lang="ar"] { line-height: 1.45; }
+.article-body[dir="rtl"] { line-height: 1.95; }
+.article-body[dir="rtl"] h2, .article-body[dir="rtl"] h3 { font-weight: 600; line-height: 1.5; }
+.article-body[dir="rtl"] ul, .article-body[dir="rtl"] ol { padding-left: 0; padding-right: 1.5rem; }
+.article-body[dir="rtl"] blockquote { border-left: 0; border-right: 3px solid var(--olive); padding-left: 0; padding-right: 1.2rem; }
+
 /* ─── Réduction des animations ─────────────────────────────── */
 @media (prefers-reduced-motion: reduce) {
   .animate-marquee,

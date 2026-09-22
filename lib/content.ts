@@ -34,6 +34,7 @@ export const WA_MESSAGES = {
   brunch:      'Bonjour, j\'ai vu votre site web et je suis intéressé(e) par un brunch à Farm Eden. Quelles sont les prochaines dates ?',
   mariage:     'Bonjour, j\'ai vu votre site web et nous aimerions organiser notre mariage à Farm Eden. Pouvez-vous nous contacter ?',
   evjf:        'Bonjour, j\'ai vu votre site web et je voudrais organiser un EVJF ou un EVG à Farm Eden. Pouvez-vous me renseigner ?',
+  reservation_ar: 'السلام عليكم، شاهدت موقعكم وأود حجز Farm Eden. هل يمكنكم إخباري بالمواعيد المتاحة والثمن؟',
 };
 
 /* ─── Chiffres clés ──────────────────────────────────────── */
@@ -528,6 +529,7 @@ export interface Post {
   sections: { heading?: string; paragraphs: string[] }[];
   bodyHtml?: string; // contenu riche (éditeur) ; prioritaire sur sections au rendu
   published?: boolean; // undefined = publié
+  lang?: 'fr' | 'ar'; // langue de l'article (undefined = français)
 }
 
 export const POSTS: Post[] = [
